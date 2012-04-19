@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://ghosertBlog.github.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: 张佳伟的博客
+subtitle: 小丸子偶尔崩溃也笑嘻嘻
+author: 张佳伟
 simple_search: http://google.com/search
 description:
 
@@ -89,7 +89,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: ghosert
 disqus_show_comment_count: false
 
 # Google Analytics

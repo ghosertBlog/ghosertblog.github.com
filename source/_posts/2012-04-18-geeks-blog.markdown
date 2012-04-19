@@ -12,6 +12,7 @@ categories: [Octopress, Geek]
 
 几乎每一个使用 **[Octopress]** 写博客的极客，第一篇博客必然是讨论 Octopress 本身, 我也不应该例外。
 
+<!--more-->
 
 关于极客和我
 --------------------------

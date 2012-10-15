@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-10-15T00:22:30+08:00</updated>
+  <updated>2012-10-15T23:19:40+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Ubuntu桌面生存指南 (1)]]></title>
+    <title type="html"><![CDATA[Ubuntu桌面生存指南 (1) --- Ubuntu桌面体验简介]]></title>
     <link href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/"/>
     <updated>2012-10-14T22:49:00+08:00</updated>
     <id>http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook</id>
-    <content type="html"><![CDATA[<h2>Ubuntu桌面体验简介</h2>
+    <content type="html"><![CDATA[<h2>缘起</h2>
 
 <p>我大概是从2010年4月份开始把自己的桌面开发环境从 Windows XP 迁移到 Ubuntu 10.04 的，说起来也已经有两年半的 Ubuntu 使用经验。从最初</p>
 

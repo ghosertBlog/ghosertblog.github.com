@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ubuntu | 张佳伟的博客]]></title>
+  <link href="http://ghosertBlog.github.com/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="http://ghosertBlog.github.com/"/>
+  <updated>2012-10-16T20:26:18+08:00</updated>
+  <id>http://ghosertBlog.github.com/</id>
+  <author>
+    <name><![CDATA[张佳伟]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu桌面生存指南 (1) --- Ubuntu桌面体验简介]]></title>
+    <link href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/"/>
+    <updated>2012-10-14T22:49:00+08:00</updated>
+    <id>http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook</id>
+    <content type="html"><![CDATA[<h2>缘起</h2>
+
+<p>我大概是从2010年4月份开始把自己的桌面开发环境从 Windows XP 迁移到 Ubuntu 10.04 的，说起来也已经有两年半的 Ubuntu 使用经验。那次迁移的原因大致是因为某个阶段特别迷恋如何高效的操作电脑，当时把 Windows 整的很伏贴，但是说到高效的使用电脑，不可能对 Linux 系统视而不见。其次就是瞥到一个同事在捣鼓 Ubuntu， 加上毕竟 Windows 环境生存了十几年时间，再多的新鲜感也用尽了，当时很想试试在 Linux 下是不是可以完成在 Windows 下等价的工作。当然，两年半以后，我可以很负责任的说 Linux 可以做到，而且做得更好。所以《Ubuntu桌面生存指南》是我在两年半时间里，对 Ubuntu 这个发行版的使用心得，我会涉及必要的基础知识，帮助诸位理解，但是也同样不会做到教科书式的面面俱到，或者涉猎太过艰深又不实用的技巧，行文的唯一目的正如题目所示，是尽可能帮助那些对 Ubuntu/Linux 感兴趣的人首先生存在这个平台，不至于因为这样那样的不方便错过或者误解这么优秀的发行版。</p>
+
+<h2>渐进史</h2>
+
+<p>最初是在公司的 Windows 下安装虚拟机，很快就转换到 Wubi 的安装方式，稳定使用了一年半以后正式把 Wubi 移植到独立分区，在物理分区的角度告别了使用将近十几年的 Windows 平台，转而，在 Ubuntu 的 host 里虚拟了 Windows 的 guest。至此，总共是两年半。</p>
+
+<h2>Linux, Mac, Windows</h2>
+
+<p>Linux Mac, Windows 每个操作系统都有自己的用户，促成他们选择使用某一个系统的因素有很多，最大的原因是拒绝改变，这也成就了 Windows 平台的繁荣，但是这里不含贬义，拒绝改变的背后是因为普罗大众的生活重心并不全是计算机，他们更愿意把时间花在自己关心的领域，计算机只要够用，适用就可以接受。这一条不仅在非 IT 领域成立，即便在 IT 领域，如果你不是一线的开发人员，同样成立。撇开拒绝改变以外，每个能够存活到今天的系统本身都已经没有优劣的区分，剩下的就是理念，哲学，用途的区别，Windows, Mac, Linux 都有各自旗帜鲜明的个性，在那些不同的旗帜背后，都有坚定的拥护者，他们在自己的立场都做出的正确的选择。因此，公平的说，我没有权利评价太多人，但是如果你是一个开发者，程序员，我认为你应该没有借口的选择 Ubuntu/Linux。</p>
+
+<h2>概要体会</h2>
+
+<p>在我的体会来说， Ubuntu/Linux 是作为一线程序员的</p>
+
+<p>未完待续......</p>
+
+<!--more-->
+
+
+<p><img src="/images/ubuntu_living_handbook/ubuntu12.04_install.jpg" alt="Ubuntu12.04_Install" /></p>
+]]></content>
+  </entry>
+  
+</feed>

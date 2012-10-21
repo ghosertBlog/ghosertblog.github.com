@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu， Linux， Tools | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/ubuntu-linux-tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-10-21T22:37:09+08:00</updated>
+  <updated>2012-10-21T22:40:38+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Ubuntu桌面生存指南 (1) --- Ubuntu桌面体验简介]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/10/21/ubuntu-living-handbook/"/>
-    <updated>2012-10-21T22:49:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/10/21/ubuntu-living-handbook</id>
+    <title type="html"><![CDATA[Ubuntu桌面生存指南 (1) --- 选择 Linux]]></title>
+    <link href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/"/>
+    <updated>2012-10-14T22:49:00+08:00</updated>
+    <id>http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook</id>
     <content type="html"><![CDATA[<h2>缘起</h2>
 
 <p>我大概是从2010年4月份开始把自己的桌面开发环境从 Windows XP 迁移到 Ubuntu 10.04 的，说起来也已经有两年半的 Ubuntu 使用经验。那次迁移的原因大致是因为某个阶段特别迷恋如何高效的操作电脑，当时把 Windows 整的很伏贴，但是说到高效的使用电脑，不可能对 Linux 系统视而不见。其次就是瞥到一个同事在捣鼓 Ubuntu， 加上毕竟 Windows 环境生存了十几年时间，再多的新鲜感也用尽了，当时很想试试在 Linux 下是不是可以完成在 Windows 下等价的工作。当然，两年半以后，很多结论都是不言自明的。所以《Ubuntu桌面生存指南》是我在两年半时间里，对 Ubuntu 这个发行版的使用心得，我会涉及必要的基础知识，帮助诸位理解，但是不会做到教科书式的面面俱到，或者涉猎太过艰深又不实用的技巧，行文的唯一目的正如题目所示，是尽可能帮助那些对 Ubuntu/Linux 感兴趣的人首先生存在这个平台，不至于因为这样那样的不方便错过或者误解一个优秀的发行版。</p>

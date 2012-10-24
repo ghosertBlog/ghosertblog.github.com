@@ -132,12 +132,13 @@ sudo apt-get install gnome-system-tools
 高质量的生存
 --------------------------
 
-写到这里，我们已经具备了基本的生存条件，千万不要太高兴，失去前进的动力，因为我们至多还是“使用 Linux 的 Windows 用户”，我们仍然基于鼠标，图形化界面和导航这些低效的外设，理念来使用高效的开发者系统。这一小节我们提纲挈领的分享一下如何高质量生存在开发者系统。在今后的博文系列中则着重具体的软件分享更多的高效使用开发者系统的经验。
+写到这里，我们已经具备了基本的生存条件，千万不要高兴太早，失去前进的动力，因为我们至多还是“使用 Linux 的 Windows 用户”，我们仍然基于鼠标，图形化界面和导航这些低效的外设，理念来使用高效的开发者系统。这一小节笔者提纲挈领的分享一下如何高质量地生存在开发者系统。在今后的博文系列中则会结合具体的软件分享更多的高效使用开发者系统的经验。
 
+**1. 没有图标的桌面**
 
+从这篇博客切换到你当前的桌面，数一数桌面上有多少个可以点击的图标。十个？二十个？或者更多？我们往往把常见的事情认为理所当然，没有人去质疑这个事情，甚至我自己在几年前也把铺满图标的桌面作为一种充实的象征，普罗大众系统也很鼓励创建桌面图标，几乎每次安装软件都会有新图标在桌面上，除此以外，我们也常常按直觉把重要的东西放在桌面上。从短视的角度来看，确实很方便，但是日积月累之后，谁都会感觉在一堆红红绿绿的图标里找到自己想要的东西有多困难。
 
-12.04 改进和 Unity 的争议
---------------------------
+![desktop_noicon]
 
 
 
@@ -157,4 +158,5 @@ sudo apt-get install gnome-system-tools
 [totem_movie_player]: /images/ubuntu_living_handbook/totem_movie_player.png
 [software_center]: /images/ubuntu_living_handbook/software_center.png
 [virtualbox]: /images/ubuntu_living_handbook/virtualbox.png
+[desktop_noicon]: /images/ubuntu_living_handbook/desktop_noicon.png
 

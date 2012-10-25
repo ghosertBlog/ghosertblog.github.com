@@ -4,7 +4,7 @@
   <title><![CDATA[张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-10-22T11:02:24+08:00</updated>
+  <updated>2012-10-25T22:28:50+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -12,6 +12,178 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu桌面生存指南 (2) --- Ubuntu桌面体验简介]]></title>
+    <link href="http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/"/>
+    <updated>2012-10-22T09:06:00+08:00</updated>
+    <id>http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience</id>
+    <content type="html"><![CDATA[<h2>选择 Ubuntu</h2>
+
+<p>对于准备迁徙到 Linux 的用户来说，另一个头疼的问题就是选择发行版。所谓发行版是指在同一个 Linux Kernal 上由不同厂商，社区定制包装了不同桌面管理系统和附带了常用软件的 Linux 发行版本，通俗来说就是可以交付给用户安装的 Linux 系统。常见的发行版有 Ubuntu, Mint，RedHat， Fedora 等等，总数不下几百种。面对数量庞大的发行版，新人总是很难做出选择。好在每个发行版本都比较有针对性，有些是针对桌面应用，有些是针对服务器系统，还有一些比较适合初级用户，或者资深极客，大致了解各自的特性以及用户自己的需求也不难做出选择，另外实际上每种发行版之间的区别幷没有大到完全对立的地步，即便随便选择一种用起来上手，大多数的知识还是可以延续和继承在另一种发行版上的。只要不是三天两头换装各种发行版，也不算浪费时间和精力。</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
+
+<!--more-->
+
+
+<p>选择 Ubuntu 的理由：</p>
+
+<p><strong>1. 简单，易用，美观，默认软件齐全，适合入门</strong></p>
+
+<p>Ubuntu 在发行之初就以打造一个适合上手，容易入门的 Linux 系统而著称，吸引了大量来自 Windows 的用户。它的发行方式众多，包括 CD / DVD / U盘 等传播方式，用户可以自行下载 ISO 文件刻盘或者制作启动U盘，甚至可以免费向 Ubuntu 的母公司 Canonical 免费索取邮寄光盘。它的体验安装方式也很丰富，包括:</p>
+
+<p><strong>a) 试用体验</strong>：无论用户的电脑是什么系统，都可以在启动的时候选择从光盘或者U盘启动 Ubuntu 进行试用，不破坏原有数据。再次从硬盘启动后仍旧进入用户的原有系统，很方便那些想尝鲜的用户。很多时候，在原有系统无法启动的情况下，甚至可以利用 Ubuntu 的这个特性来进行硬盘修复，挽救数据的工作。</p>
+
+<p><strong>b) Wubi安装</strong>： 直接将 Ubuntu 作为 Windows 系统的一个应用程序安装，再次启动后出现双启动菜单，避免了破坏原有 Windows 分区的风险，如果对 Ubuntu 不满意，可以直接在 Windows 中像删除任意一个应用软件那样删除 Ubuntu，完全没有损害系统和数据的担心。如果使用一段时间以后决定将 Wubi 系统转移到物理分区也相当简单，虽然没有官方的方法，网络上有现成的脚本可以在几分钟内完成这个工作。</p>
+
+<p><strong>c) 虚拟机安装</strong>：这种方式则允许你在启动 Windows 的同时，试用虚拟机里的 Ubuntu 系统。暂时无法离开 Windows 环境生存的用户可以通过这种方式进行过度。</p>
+
+<p><strong>d) 硬盘安装</strong>：得益于良好的硬件兼容性测试和完备的驱动兼容，安装 Ubuntu 系统甚至比安装 Windows 的过程更流畅和简单，几次点击和设置以后就可以顺利的完成。天然先进的 Linux 内核架构也使得启动过程异常的迅速，几秒之内完成开机。硬盘安装使得操作系统在本机可以获得最高的运行效率，充分发挥硬件机能，也迫使用户在心理和生理上彻底隔绝对原有系统的依赖，更有利于提高自己在 Ubuntu 系统上的生存能力。在物理分区上安装 Ubuntu 是普罗大众彻底告别专利世界，走向自由世界，完成自我救赎的重要一步，笔者在这里呼吁更多的读者选择这种安装方式，开启心智，提升生产力。</p>
+
+<p>综上所述，Ubuntu 在降低 Linux 的学习曲线上做了大量的工作，也因此一度成为最流行的 Linux 发行版。</p>
+
+<p><strong>2. 先进方便的软件包管理 apt-get</strong></p>
+
+<p>在 Linux 下安装软件有两种方式：1. 从源代码开始编译安装 2. 选择发行版自带的软件包管理系统。前者需要一定的开发知识，了解一些编译器，makefile的基本工作原理，如果安装过程中出现问题，要有一定解决问题的能力，能够根据错误信息做相应的调整，对于新手来说有不小的难度。后者则是由厂商直接提供经过测试的，和当前系统匹配的二进制软件。官方和第三方厂商都会提供相应的软件源，只要连接互联网，你就可以通过命令的方式下载需要的软件，例如在终端运行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install firefox</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get purge firefox</span></code></pre></td></tr></table></div></figure>
+
+
+<p>经过一段时间以后，系统还会定期提示哪些软件有新版本，你同样只需要运行一个命令完成所有软件的升级：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get upgrade</span></code></pre></td></tr></table></div></figure>
+
+
+<p>回想 Windows 系统，你需要在互联网上满世界找下载链接，还可能携带病毒，相当不方便，反倒是360软件管家提供了类似的功能。</p>
+
+<p>大多数的发行版都有自己的软件包管理器，例如 redhat 系列的 rpm， Debian/Ubuntu 系列的 deb，哪个管理器可以更方便的使用，更少存在安装卸载问题，更好的理清楚软件之间的依赖关系都是我们选择发行版的重要依据， Ubuntu在这方面天然强大。</p>
+
+<p><strong>3. 强大的文档，社区支持</strong></p>
+
+<p>使用开源软件的另一个问题在于虽然用户有免费使用系统，修改系统，甚至再发行的权利，但是毕竟没有为系统支付过任何费用，因此除非你主动付费否则无法在出现状况的时候要求厂商提供技术支持。对于学习型人才不算什么太大的问题，对于迁徙到这个系统的新人就又束手无策了。正版的 Windows 用户应该是享有这样的权利，Mac 电脑同样可以通过苹果店一对一的专家技术服务解决问题或者购买相关技术支持服务。如果这个时候没有一个强大而且团结的社区组织，一群热心解决问题的技术专家，新人仍然无法生存在这个系统中。好在作为最流行的 Linux 发行版，Ubuntu 在这方面依然很强大。大多数的问题可以通过 <strong><a href="http://www.ubuntu.com.cn/">Ubuntu官方</a></strong> 和 <strong><a href="http://forum.ubuntu.org.cn/">Ubuntu中文社区</a></strong> 解决。</p>
+
+<h2>生存下来</h2>
+
+<p>从一个世界进入到另一个世界后的第一要务就是生存下去，许多人因为无法适应和理解新世界的生存法则，选择了退回到旧世界。但是在此之前，我们鼓励进入新世界的用户扔掉旧有的世界观，用开放包容和探索的态度去适应新世界，用尽可能短的时间生存下来，适应这个世界，改造这个世界。</p>
+
+<p><strong> 首先看看新世界为我们提供了什么？</strong></p>
+
+<p><strong>1. gnome-terminal</strong></p>
+
+<p>我们在前面说过 Linux 哲学中最重要的一条就是：<strong>命令优于导航</strong>，因此一个好用的终端系统尤为重要，终端系统是用户输入命令行，查看输出结果的媒介，一个合格的 Linux 使用者会花费至少 20% 的时间在终端中，如果你是一个开发者，这个比例会更高。</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
+
+<p><strong>2. 火狐浏览器</strong></p>
+
+<p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
+
+<p><strong>3. LibreOffice</strong></p>
+
+<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
+
+<p><strong>4. iBus 输入法架构</strong></p>
+
+<p>和 Ubuntu 本尊最匹配，最兼容的输入法架构，可以无限扩展各类输入法。笔者目前使用的是系统自带的 iBus-Pinyin，并对词库做了扩展，今后做具体介绍。其它的输入法例如 fcitx 或多或少有一些兼容问题。</p>
+
+<p><strong>5. Rhythmbox 音乐播放器</strong></p>
+
+<p>作为音乐播放器没有皮肤，没有华丽丽的桌面歌词功能，提供本地音乐，网络电台，在线播客等功能，中规中矩，简单实用。</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
+
+<p><strong>6. Totem Movie Player</strong></p>
+
+<p>系统自带的视频播放软件，由于许多视频解压缩算法首先是在 Linux 平台发明的，所以在视频格式的兼容性问题上，Linux 平台反而很少出现没有办法播放视频的状况，除非是微软的私有格式。</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
+
+<p><strong>7. Ubuntu 软件中心</strong></p>
+
+<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
+
+<p>至此，系统默认自带的软件已经为我们提供了终端，浏览器，办公套件，输入法，音乐，视频播放和统一的软件中心，其它的必备软件不再一一列举，基本上用户总是可以找到和 Windows 相对应的软件。从普罗大众的角度来说，即使把这个状态的 Ubuntu 当作 Windows 来使用，一样可以胜任等价的工作，并且没有花费一分钱的专利费用。更由于对病毒木马的天然免疫，无需安装价格不菲的杀毒软件和声誉不佳的360系列软件。</p>
+
+<p><strong>Ubuntu桌面的悬案：迅雷，网银，IMs，游戏，行业软件</strong></p>
+
+<p>自由新世界并不是完美世界。普罗大众在迁徙过程中集中抱怨的稀缺软件有：迅雷，网银，国内流行的 IMs（MSN，QQ），游戏，行业领域的特殊商业软件。道理上讲，这个算不上 Ubuntu 的问题，商业公司在利益驱动下，对于非主流的操作系统总是采取选择性忽略，疏于开发 Linux 平台的兼容版本。一些 Linux 极端主义者对此表示：不提供 Linux 版本的软件都是没有用的软件。笔者什么都不表示，默默的装上这个软件:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install virtualbox
+</span><span class='line'>sudo apt-get install virtualbox-guest-additions
+</span><span class='line'>sudo apt-get install virtualbox-guest-additions-iso</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
+
+<p>也有同学喜欢用 Wine 的方式来运行 Windows 下的软件，我的意见是：对于大多数软件运行在虚拟机里是最省力的做法，Wine 实在是考验人品的利器，除非万不得已，不要轻易使用，笔者只有一个 PDF 软件使用了 Wine 这种方式，以后再做具体介绍。其它譬如：迅雷，MSN，QQ，行业软件，部分游戏都可以在虚拟机里运行。关于网银，支付宝有直接支持火狐浏览器，大多数带有U盘做电子证书的网上银行譬如招行也都可以毫无压力的运行在虚拟机里。但是需要为了使 Virtualbox 辨认出物理 USB 外设做如下设置：</p>
+
+<p>对于 Ubuntu 12.04 系统安装（10.04系统可以省略）：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install gnome-system-tools</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在 Ubuntu 已安装的应用程序中找到：Users And Groups，点击 Manage Groups，双击“vboxusers”后选择当前用户名，点击确认。重启计算机后运行 Virtualbox 启动 Windows，在底部隐藏菜单内选择“Devices->USB Devices->对应的 USB 外设” 即可。</p>
+
+<h2>高质量的生存，从桌面图标说起</h2>
+
+<p>写到这里，我们已经具备了基本的生存条件，千万不要高兴太早，失去前进的动力，因为我们至多还是“使用 Linux 的 Windows 用户”，我们仍然基于鼠标，图形化界面和导航这些低效的外设，理念来使用高效的开发者系统。这一小节笔者提纲挈领的分享一下如何高质量地生存在开发者系统。在今后的博文系列中则会结合具体的软件分享更多的高效使用开发者系统的经验。</p>
+
+<p><strong>没有图标的桌面 &#8212; 做正确的事情，幷把它做到极致</strong></p>
+
+<p>从这篇博客切换到你当前的桌面，数一数桌面上有多少个可以点击的图标。十个？二十个？或者更多？我们往往把常见的事情认为理所当然，没有人去质疑这个事情，甚至我自己在几年前也把铺满图标的桌面作为一种充实的象征，普罗大众系统也很鼓励创建桌面图标，几乎每次安装软件都会有新图标在桌面上（Ubuntu系统不会），除此以外，我们也常常按直觉把重要的东西放在桌面上。从短视的角度来看，确实很方便，但是日积月累之后，谁都会感觉在一堆红红绿绿的图标里找到自己想要的东西有多困难。造成这类<strong>视觉迷失</strong>痛苦体验的根源仍然是贪图方便，依赖视觉导航，没有花费脑力。</p>
+
+<p>一来我们是被普罗大众系统的设计误导了，二来我们缺少真正的思考去理解如何处理人和计算机的关系，从而达成高效的目标。</p>
+
+<p>运用心智并且乐于花费脑力的人会怎么解决这个问题？ 参考我们之前的理念：<strong>“命令优于导航”</strong>，与其在一堆桌面图标里找自己需要的东西，为什么不直接告诉计算机自己要什么呢？在 Ubuntu 里通过快捷键：ctrl+alt+T开启终端，然后输入自己想要打开的软件比如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ firefox</span></code></pre></td></tr></table></div></figure>
+
+
+<p>键入firefox，然后浏览器就打开了。我们付出了一些记忆软件名称和敲击键盘的成本，却避免了视觉搜索和导航操作的低效率。这是一笔合算的买卖。不止于此，为了最小化这个成本，可以尝试只键入软件名的前几个字母，然后按Tab键，比如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ fire[TAB]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>终端系统会自动补全 firefox，所以理论上我们只需要零碎的记忆住常用软件的前几个字母，无需任何图标，只需要一个终端，你就可以启动任何程序。有人会抱怨自己的记忆力不佳，没办法记住系统里这么多软件名，但实际上开发者系统比你自己更了解这样一个事实：大脑是一个用进废退的器官，你越多敲击常用的软件名，你就越没有可能忘记它们，至于不常用的软件，用的时候再找也好过每次要在一堆图标里找，还有一些软件，这辈子你也不会再用，更没必要去记住它们。</p>
+
+<p>重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~/Dropbox/backup/tools/YaHei$ cd ~</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就可以返回 home 目录，一般来说，和你个人账户相关的所有重要软件，文档，配置都会寄存在这里，它太重要了，以至于你还应该把它挂载在单独的分区中，我们下节再做更详细的讨论。</p>
+
+<p>现在，你可以从终端中启动任何程序，访问任何重要的文档，桌面上的图标已经没有任何意义，不妨把他们全部删除。如果参照本文最开始的截图，你还可以看到 Ubuntu Unity 风格的桌面，即在桌面左侧自上而下有一个工具条，上面罗列着常用的应用程序，它们的存在和桌面图标一样没有必要，况且还占用了宝贵的屏幕空间，可以在 System Settings -> Appearance -> Behavior 中设置为自动隐藏。</p>
+
+<p>最后，我们得到了这样一个干净，整洁，终端常驻的桌面，它极致简约而又极致强大，在那个黝黑背景的终端上，闪烁着浅灰色的光标，安静而神秘，我们的先辈就是从这里开始创造了无数的奇迹，而如今这里又是充满了无限可能的地方，等待我们去发现。</p>
+
+<p>未完待续&#8230;</p>
+
+<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu桌面生存指南 (1) --- 选择 Linux]]></title>
@@ -109,6 +281,13 @@
 
 
 <p>开发基于导航的 GUI 成本巨大而且容易出错，命令行则相反。这就让开发者在最初可以只集中精力处理命令本身需要完成的核心功能，而不是花费大量的时间在 GUI 的外壳上。通过几个小程序组合出更强悍的功能，通过调整不同的参数或者使用文本配置文件的方式进行随意的软件定制，甚至批处理一堆需要重复运行的计算机操作，这在命令行都是很自然的事情，GUI 想达成同样的目标就相当费力了。</p>
+
+<ul>
+<li><strong>便于远程管理计算机</strong></li>
+</ul>
+
+
+<p>在桌面上强调使用命令，使得我们顺便捡到了一份红利，因为我们惯用命令，可以摆脱 GUI 的依赖，我们就能更好的登录到远程的机器上进行各种操作，因为使用命令的传输代价远远小于图形界面的远程传输，时至今日，ssh 远程登入仍然是 Linux 系统管理员远程管理电脑的标准方式。所有你在本地桌面上操练掌握的命令，都可以在远程服务器上别无二致的使用，不至于在只配备终端没有GUI的服务器上会感觉手足无措。</p>
 
 <p>通过<strong>命令优于导航</strong>这一条公理，我们演化出了以下理念，请在使用开发者系统的时候时刻牢记：</p>
 

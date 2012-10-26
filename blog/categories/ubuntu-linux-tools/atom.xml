@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu， Linux， Tools | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/ubuntu-linux-tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-10-26T13:05:57+08:00</updated>
+  <updated>2012-10-26T13:26:00+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -79,7 +79,7 @@ sudo apt-get upgrade
 
 <p><strong>2. 火狐浏览器</strong></p>
 
-<p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
+<p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷不觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
 
 <p><img src="/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[张佳伟的博客]]></title>
-  <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Ubuntu， Linux， Tools | 张佳伟的博客]]></title>
+  <link href="http://ghosertBlog.github.com/blog/categories/ubuntu-linux-tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
   <updated>2012-10-26T13:05:57+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
@@ -22,7 +22,7 @@
 
 <p>对于准备迁徙到 Linux 的用户来说，另一个头疼的问题就是选择发行版。所谓发行版是指在同一个 Linux Kernal 上由不同厂商，社区定制包装了不同桌面管理系统和附带了常用软件的 Linux 发行版本，通俗来说就是可以交付给用户安装的 Linux 系统。常见的发行版有 Ubuntu, Mint，RedHat， Fedora 等等，总数不下几百种。面对数量庞大的发行版，新人总是很难做出选择。好在每个发行版本都比较有针对性，有些是针对桌面应用，有些是针对服务器系统，还有一些比较适合初级用户，或者资深极客，大致了解各自的特性以及用户自己的需求也不难做出选择，另外实际上每种发行版之间的区别幷没有大到完全对立的地步，即便随便选择一种用起来上手，大多数的知识还是可以延续和继承在另一种发行版上的。只要不是三天两头换装各种发行版，也不算浪费时间和精力。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
+<p><img src="/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
 
 <!--more-->
 
@@ -45,25 +45,19 @@
 
 <p><strong>2. 先进方便的软件包管理 apt-get</strong></p>
 
-<p>在 Linux 下安装软件有两种方式：1. 从源代码开始编译安装 2. 选择发行版自带的软件包管理系统。前者需要一定的开发知识，了解一些编译器，makefile的基本工作原理，如果安装过程中出现问题，要有一定解决问题的能力，能够根据错误信息做相应的调整，对于新手来说有不小的难度。后者则是由厂商直接提供经过测试的，和当前系统匹配的二进制软件。官方和第三方厂商都会提供相应的软件源，只要连接互联网，你就可以通过命令的方式下载需要的软件，例如在终端运行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install firefox</span></code></pre></td></tr></table></div></figure>
-
-
-<p>就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get purge firefox</span></code></pre></td></tr></table></div></figure>
-
-
-<p>经过一段时间以后，系统还会定期提示哪些软件有新版本，你同样只需要运行一个命令完成所有软件的升级：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get upgrade</span></code></pre></td></tr></table></div></figure>
-
-
-<p>回想 Windows 系统，你需要在互联网上满世界找下载链接，还可能携带病毒，相当不方便，反倒是360软件管家提供了类似的功能。</p>
+<p>在 Linux 下安装软件有两种方式：1. 从源代码开始编译安装 2. 选择发行版自带的软件包管理系统。前者需要一定的开发知识，了解一些编译器，makefile的基本工作原理，如果安装过程中出现问题，要有一定解决问题的能力，能够根据错误信息做相应的调整，对于新手来说有不小的难度。后者则是由厂商直接提供经过测试的，和当前系统匹配的二进制软件。官方和第三方厂商都会提供相应的软件源，只要连接互联网，你就可以通过命令的方式下载需要的软件，例如在终端运行：
+<code>
+sudo apt-get install firefox
+</code>
+就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：
+<code>
+sudo apt-get purge firefox
+</code>
+经过一段时间以后，系统还会定期提示哪些软件有新版本，你同样只需要运行一个命令完成所有软件的升级：
+<code>
+sudo apt-get upgrade
+</code>
+回想 Windows 系统，你需要在互联网上满世界找下载链接，还可能携带病毒，相当不方便，反倒是360软件管家提供了类似的功能。</p>
 
 <p>大多数的发行版都有自己的软件包管理器，例如 redhat 系列的 rpm， Debian/Ubuntu 系列的 deb，哪个管理器可以更方便的使用，更少存在安装卸载问题，更好的理清楚软件之间的依赖关系都是我们选择发行版的重要依据， Ubuntu在这方面天然强大。</p>
 
@@ -81,19 +75,19 @@
 
 <p>我们在前面说过 Linux 哲学中最重要的一条就是：<strong>命令优于导航</strong>，因此一个好用的终端系统尤为重要，终端系统是用户输入命令行，查看输出结果的媒介，一个合格的 Linux 使用者会花费至少 20% 的时间在终端中，如果你是一个开发者，这个比例会更高。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
+<p><img src="/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
 
 <p><strong>2. 火狐浏览器</strong></p>
 
 <p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
+<p><img src="/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
 
 <p><strong>3. LibreOffice</strong></p>
 
-<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
+<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
+<p><img src="/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
 
 <p><strong>4. iBus 输入法架构</strong></p>
 
@@ -103,19 +97,19 @@
 
 <p>作为音乐播放器没有皮肤，没有华丽丽的桌面歌词功能，提供本地音乐，网络电台，在线播客等功能，中规中矩，简单实用。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
+<p><img src="/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
 
 <p><strong>6. Totem Movie Player</strong></p>
 
 <p>系统自带的视频播放软件，由于许多视频解压缩算法首先是在 Linux 平台发明的，所以在视频格式的兼容性问题上，Linux 平台反而很少出现没有办法播放视频的状况，除非是微软的私有格式。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
+<p><img src="/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
 
 <p><strong>7. Ubuntu 软件中心</strong></p>
 
-<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
+<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
+<p><img src="/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
 
 <p>至此，系统默认自带的软件已经为我们提供了终端，浏览器，办公套件，输入法，音乐，视频播放和统一的软件中心，其它的必备软件不再一一列举，基本上用户总是可以找到和 Windows 相对应的软件。从普罗大众的角度来说，即使把这个状态的 Ubuntu 当作 Windows 来使用，一样可以胜任等价的工作，并且没有花费一分钱的专利费用。更由于对病毒木马的天然免疫，无需安装价格不菲的杀毒软件和声誉不佳的360系列软件。</p>
 
@@ -123,65 +117,55 @@
 
 <p>自由新世界并不是完美世界。普罗大众在迁徙过程中集中抱怨的稀缺软件有：迅雷，网银，国内流行的 IMs（MSN，QQ），游戏，行业领域的特殊商业软件。道理上讲，这个算不上 Ubuntu 的问题，商业公司在利益驱动下，对于非主流的操作系统总是采取选择性忽略，疏于开发 Linux 平台的兼容版本。一些 Linux 极端主义者对此表示：不提供 Linux 版本的软件都是没有用的软件。笔者什么都不表示，默默的装上这个软件:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install virtualbox
-</span><span class='line'>sudo apt-get install virtualbox-guest-additions
-</span><span class='line'>sudo apt-get install virtualbox-guest-additions-iso</span></code></pre></td></tr></table></div></figure>
+<p><code>
+sudo apt-get install virtualbox
+sudo apt-get install virtualbox-guest-additions
+sudo apt-get install virtualbox-guest-additions-iso
+</code></p>
 
-
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
+<p><img src="/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
 
 <p>也有同学喜欢用 Wine 的方式来运行 Windows 下的软件，我的意见是：对于大多数软件运行在虚拟机里是最省力的做法，Wine 实在是考验人品的利器，除非万不得已，不要轻易使用，笔者只有一个 PDF 软件使用了 Wine 这种方式，以后再做具体介绍。其它譬如：迅雷，MSN，QQ，行业软件，部分游戏都可以在虚拟机里运行。关于网银，支付宝有直接支持火狐浏览器，大多数带有U盘做电子证书的网上银行譬如招行也都可以毫无压力的运行在虚拟机里。但是需要为了使 Virtualbox 辨认出物理 USB 外设做如下设置：</p>
 
-<p>对于 Ubuntu 12.04 系统安装（10.04系统可以省略）：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install gnome-system-tools</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在 Ubuntu 已安装的应用程序中找到：Users And Groups，点击 Manage Groups，双击“vboxusers”后选择当前用户名，点击确认。重启计算机后运行 Virtualbox 启动 Windows，在底部隐藏菜单内选择“Devices->USB Devices->对应的 USB 外设” 即可。</p>
+<p>对于 Ubuntu 12.04 系统安装（10.04系统可以省略）：
+<code>
+sudo apt-get install gnome-system-tools
+</code>
+在 Ubuntu 已安装的应用程序中找到：Users And Groups，点击 Manage Groups，双击“vboxusers”后选择当前用户名，点击确认。重启计算机后运行 Virtualbox 启动 Windows，在底部隐藏菜单内选择“Devices->USB Devices->对应的 USB 外设” 即可。</p>
 
 <h2>高质量的生存，从桌面图标说起</h2>
 
 <p>写到这里，我们已经具备了基本的生存条件，千万不要高兴太早，失去前进的动力，因为我们至多还是“使用 Linux 的 Windows 用户”，我们仍然基于鼠标，图形化界面和导航这些低效的外设，理念来使用高效的开发者系统。这一小节笔者提纲挈领的分享一下如何高质量地生存在开发者系统。在今后的博文系列中则会结合具体的软件分享更多的高效使用开发者系统的经验。</p>
 
-<p><strong>没有图标的桌面 &#8212; 做正确的事情，幷把它做到极致</strong></p>
+<p><strong>没有图标的桌面 --- 做正确的事情，幷把它做到极致</strong></p>
 
 <p>从这篇博客切换到你当前的桌面，数一数桌面上有多少个可以点击的图标。十个？二十个？或者更多？我们往往把常见的事情认为理所当然，没有人去质疑这个事情，甚至我自己在几年前也把铺满图标的桌面作为一种充实的象征，普罗大众系统也很鼓励创建桌面图标，几乎每次安装软件都会有新图标在桌面上（Ubuntu系统不会），除此以外，我们也常常按直觉把重要的东西放在桌面上。从短视的角度来看，确实很方便，但是日积月累之后，谁都会感觉在一堆红红绿绿的图标里找到自己想要的东西有多困难。造成这类<strong>视觉迷失</strong>痛苦体验的根源仍然是贪图方便，依赖视觉导航，没有花费脑力。</p>
 
 <p>一来我们是被普罗大众系统的设计误导了，二来我们缺少真正的思考去理解如何处理人和计算机的关系，从而达成高效的目标。</p>
 
-<p>运用心智并且乐于花费脑力的人会怎么解决这个问题？ 参考我们之前的理念：<strong>“命令优于导航”</strong>，与其在一堆桌面图标里找自己需要的东西，为什么不直接告诉计算机自己要什么呢？在 Ubuntu 里通过快捷键：ctrl+alt+T开启终端，然后输入自己想要打开的软件比如：</p>
+<p>运用心智并且乐于花费脑力的人会怎么解决这个问题？ 参考我们之前的理念：<strong>“命令优于导航”</strong>，与其在一堆桌面图标里找自己需要的东西，为什么不直接告诉计算机自己要什么呢？在 Ubuntu 里通过快捷键：ctrl+alt+T开启终端，然后输入自己想要打开的软件比如：
+<code>
+jiawzhang@company-ws:~$ firefox
+</code>
+键入firefox，然后浏览器就打开了。我们付出了一些记忆软件名称和敲击键盘的成本，却避免了视觉搜索和导航操作的低效率。这是一笔合算的买卖。不止于此，为了最小化这个成本，可以尝试只键入软件名的前几个字母，然后按Tab键，比如：
+<code>
+jiawzhang@company-ws:~$ fire[TAB]
+</code>
+终端系统会自动补全 firefox，所以理论上我们只需要零碎的记忆住常用软件的前几个字母，无需任何图标，只需要一个终端，你就可以启动任何程序。有人会抱怨自己的记忆力不佳，没办法记住系统里这么多软件名，但实际上开发者系统比你自己更了解这样一个事实：大脑是一个用进废退的器官，你越多敲击常用的软件名，你就越没有可能忘记它们，至于不常用的软件，用的时候再找也好过每次要在一堆图标里找，还有一些软件，这辈子你也不会再用，更没必要去记住它们。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ firefox</span></code></pre></td></tr></table></div></figure>
-
-
-<p>键入firefox，然后浏览器就打开了。我们付出了一些记忆软件名称和敲击键盘的成本，却避免了视觉搜索和导航操作的低效率。这是一笔合算的买卖。不止于此，为了最小化这个成本，可以尝试只键入软件名的前几个字母，然后按Tab键，比如：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ fire[TAB]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>终端系统会自动补全 firefox，所以理论上我们只需要零碎的记忆住常用软件的前几个字母，无需任何图标，只需要一个终端，你就可以启动任何程序。有人会抱怨自己的记忆力不佳，没办法记住系统里这么多软件名，但实际上开发者系统比你自己更了解这样一个事实：大脑是一个用进废退的器官，你越多敲击常用的软件名，你就越没有可能忘记它们，至于不常用的软件，用的时候再找也好过每次要在一堆图标里找，还有一些软件，这辈子你也不会再用，更没必要去记住它们。</p>
-
-<p>重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~/Dropbox/backup/tools/YaHei$ cd ~</span></code></pre></td></tr></table></div></figure>
-
-
-<p>就可以返回 home 目录，一般来说，和你个人账户相关的所有重要软件，文档，配置都会寄存在这里，它太重要了，以至于你还应该把它挂载在单独的分区中，我们下节再做更详细的讨论。</p>
+<p>重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：
+<code>
+jiawzhang@home-pc:~/Dropbox/backup/tools/YaHei$ cd ~
+</code>
+就可以返回 home 目录，一般来说，和你个人账户相关的所有重要软件，文档，配置都会寄存在这里，它太重要了，以至于你还应该把它挂载在单独的分区中，我们下节再做更详细的讨论。</p>
 
 <p>现在，你可以从终端中启动任何程序，访问任何重要的文档，桌面上的图标已经没有任何意义，不妨把他们全部删除。如果参照本文最开始的截图，你还可以看到 Ubuntu Unity 风格的桌面，即在桌面左侧自上而下有一个工具条，上面罗列着常用的应用程序，它们的存在和桌面图标一样没有必要，况且还占用了宝贵的屏幕空间，可以在 System Settings -> Appearance -> Behavior 中设置为自动隐藏。</p>
 
 <p>最后，我们得到了这样一个干净，整洁，终端常驻的桌面，它极致简约而又极致强大，在那个黝黑背景的终端上，闪烁着浅灰色的光标，安静而神秘，我们的先辈就是从这里开始创造了无数的奇迹，而如今这里又是充满了无限可能的地方，等待我们去发现。</p>
 
-<p>未完待续&#8230;</p>
+<p>未完待续...</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
+<p><img src="/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
 ]]></content>
   </entry>
   
@@ -223,7 +207,7 @@
 <ol>
 <li><p><strong>他们首先开源了代码</strong></p>
 
-<p> 这是一个吓坏了封闭和专利系统制作者的决定。因为那些闭源厂商依靠贩卖专利和二进制文件获利，公布自己的代码，并且连带修改和发行权利也一并不要了，这在闭源厂商是不能想象的。相反在开源系统中，开发者求知的愿望被充分尊重了，他们可以任意阅读自己感兴趣的代码，获取知识，修补臭虫，甚至参与开源项目，结识更多其它有求知欲的极客，从而提高自己的开发水平。在闭源系统中，开发者只能依赖厂商提供的 API，文档以及定期的补丁包&#8211;这些同样是普罗大众不那么关心但是开发者所不能接受的。因此使用开源系统无疑可以增强自己的技能水准，并且在使用系统的同时有机会改进和修补自己的系统。</p></li>
+<p> 这是一个吓坏了封闭和专利系统制作者的决定。因为那些闭源厂商依靠贩卖专利和二进制文件获利，公布自己的代码，并且连带修改和发行权利也一并不要了，这在闭源厂商是不能想象的。相反在开源系统中，开发者求知的愿望被充分尊重了，他们可以任意阅读自己感兴趣的代码，获取知识，修补臭虫，甚至参与开源项目，结识更多其它有求知欲的极客，从而提高自己的开发水平。在闭源系统中，开发者只能依赖厂商提供的 API，文档以及定期的补丁包--这些同样是普罗大众不那么关心但是开发者所不能接受的。因此使用开源系统无疑可以增强自己的技能水准，并且在使用系统的同时有机会改进和修补自己的系统。</p></li>
 <li><p><strong>他们更懂开发者</strong></p>
 
 <p> 从诞生之初起，这就是一个极客玩出来的操作系统。与其说他们是在开发操作系统不如说他们是在满足开发者自己的需求，这就是著名的“吃狗食“理论，需要一个开发者系统：1. 动手做一个 -> 2. 生存在其中 -> 3. 体会优劣 -> 4. 修补不足，增进优势使它更适合开发 -> 循环至 1. 生存在其中。所以这个系统会越来越朝着它的方向发展，那就取悦开发者自己。经过大约二十多年的发展，今天的开发者系统已经积累了无数提升开发生产力的哲学，理念和工具软件。几乎你能想到的和未能想到的一切和开发相关的需求都已经在开发者系统上被满足了，你需要做的就是学习，练习和使用。即便这仍然不能满足你，开发者系统上很容易对已有的存在做一个分支然后进行自我满足的工作。某些时候没人比你自己更懂自己，更多的时候他们比你更懂你自己，使用开发者系统的开发者时常就会想到要是有这么一个功能就好了，然后 Google 一下相关资料，接着自言自语 “哦。。。果然已经有了”。物以类聚，人以群分，如果我们的行为方式和思维模式相近，那么先前的开发者早就遇到过相同的困扰并且动手解决了问题。你仍然只需要学习，练习和使用，仅此而已。他们懂得键盘比起鼠标在大多数开发场合更高效，他们懂得软件界面首先需要的是命令行，其次才是图形化界面，他们懂得命令优于导航的哲学，你需要编辑器/编译器，他们提供了伟大的 Vim，Emacs/gcc, g++，你需要好用的脚本语言，他们内置了Bash Shell/Python，你需要更高效的操作电脑，他们提供了无数的实用命令行程序，幷为几乎每一个程序配置了无数参数来满足你的需要，一旦我们理解他们这么做的初衷，剩下的还是学习，练习和使用。</p></li>
@@ -253,9 +237,9 @@
 </ol>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install firefox</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+sudo apt-get install firefox
+</code></p>
 
 <p>那么为什么说<strong>命令优于导航？</strong>几点原因：</p>
 
@@ -273,7 +257,7 @@
 
 <p>前面我们提到过，在一个有几十个图标的桌面上，要定位到某个想要启动的程序，或者在一个多级菜单里寻找某个软件功能是费力费眼的。如果你了解等价的命令，直接键入程序名然后启动应用程序会快上很多倍。也就是说如果你知道你想干什么，使用键盘键入命令或者执行搜索，效果会比肉眼巡视来得高效很多。搜索这个概念在开发者系统的很多地方都贯穿得相当彻底，find/which/whereis/grep/vim/vimperator 很多命令都是基于搜索优于导航这一理念的。时刻养成搜索的习惯能帮助我们更高效的使用开发者系统。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/start_firefox.png" alt="Start Firefox" /></p>
+<p><img src="/images/ubuntu_living_handbook/start_firefox.png" alt="Start Firefox" /></p>
 
 <ul>
 <li><strong>命令操作更容易被开发，组合使用，以及更容易地进行参数调整，脚本化批量处理</strong></li>
@@ -299,93 +283,6 @@
 
 
 <p>最后，使用开发者系统的前提是认同 Linux 哲学，理解学习，记忆的代价是用来换取高效使用开发者系统而产生的。你越多的付出脑力成本使用这个系统，就会越高效安逸的生存在这个系统中，也就越认同她的哲学，使得你付出更多的脑力成本，继而进入同时锻炼脑力和提高生产力的良性循环中。这种变化甚至可以影响到你做任何事情的态度：收起懒散的心理和涣散的心智，使用脑力来提升效率，最终让你成为一个务实，智慧和高效的人。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[极客的博客]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/"/>
-    <updated>2012-04-20T00:30:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog</id>
-    <content type="html"><![CDATA[<h2>缘起</h2>
-
-<p>几乎每一个使用 <strong><a href="http://octopress.org/">Octopress</a></strong> 写博客的极客，第一篇博客必然是讨论 Octopress 本身, 我也不应该例外。</p>
-
-<!--more-->
-
-
-<h2>关于极客和我</h2>
-
-<p>假使按照极客的个性，哪怕只是自我标榜一下极客的身份也像是在哗众取宠般的做作，印象里极客应该低调，是别人称呼的，如果我自己标榜自己，我那么的高调，那我还是极客吗？如此这般，似乎产生了逻辑上的自我矛盾，所以理论上我不应该自我标榜极客，有贴金的嫌疑，何况博客是给大家看的，假使周遭的熟识对我从来没有极客的印象，又或者我不够资格到极客的水准，那我的第一篇博客就是在胡说八道，乱人视听，诸君报以一顿嗤之以鼻后姗姗离去，那我这是何苦来哉？ 不过虽然我自觉我这个人这般也差，那般也比不上别人，但是笨有笨的好处，蛮有蛮的力气，傻傻如郭靖，一根大条练到底，不过是练练少林长拳，耍起来虎虎生风，终究还是可以不一样。计算机与之我，譬如少林长拳与之郭靖，一路黑到底，约莫估计会有 <strong><a href="http://book.douban.com/subject/3134517/">Outliers</a></strong> 里 10000 小时理论的成效。再则，自从踏上这个行当，到底觉得就是因为这股子傻劲让我和别人不太一样，所以先在这里厚着脸皮标榜一番，三年五载之后，看官自有定论。</p>
-
-<h2>为什么要写博客？</h2>
-
-<p>关于这个问题，参考刘未鹏的<a href="http://mindhacks.cn/2009/02/15/why-you-should-start-blogging-now/">为什么你应该（从现在开始就）写博客</a>。然而年过三十，心智方才成熟到觉得必须留下点什么的程度，回望从前只有感叹虚掷年华的份儿，好在亡羊补牢，犹为晚也，好坏开个头吧。</p>
-
-<h2>为什么是 Octopress ？</h2>
-
-<p>图个方便，大可新浪博客，搜狐博客，CSDN 博客之流，只是提及这些个博客只怕更多联想到苍井空老师，袁萌老师之流，大煞风景，考虑到极客之精神所在，我辈以与之同流合污为耻。李笑来老师是明白这个道理的，他用了更符合 DIY 要义的 <strong><a href="http://wordpress.org/">WordPress</a></strong>，然而毕竟不能以我们的眼光太过要求一个新东方老师的博客标准，因为即使牛人如刘未鹏也并未使用 Octopress 来写博客，他也用 WordPress。所以是 WordPress？我差点就这么想了，但是关于 WordPress，我看到了自购主机，我看到了 MySQL，我看到了在线编辑。略微权衡一下，这些似乎就已经偏离了精神之所在，所以我想一定有其它的存在吧。</p>
-
-<p>那么一个极客眼中的博客应该具备哪些要素？</p>
-
-<ol>
-<li><p><strong>基于文本的编辑</strong></p>
-
-<p> 作为极客，你必须很在意 Vim, Emacs 之流，你应该鄙视一切在 Office，Web 里的文字工作，Office 之流很方便使用，但是实在没有什么效率。即便在我们这个行业里，很多人至今没有弄清楚方便不等于高效这个道理。所以我个人只认同使用 Vim 方式处理任何文本工作，包括代码和博客。</p></li>
-<li><p><strong>方便的书写和阅读格式</strong></p>
-
-<p> 假设你承认上述第一点的理念，那么我们还是在写博客，仍然需要格式化的文字使得文字本身在网络上更富表现力，方便读者阅读。但是 html 是一种很冗余的格式存在，既不方便书写也不方便对编辑的源码直接阅读。同时纯文本的格式又走上了另一个极端，书写和阅读基本没有任何代价，坏处在于纯文本几乎又没有任何表现力，除了可以分出段落，它不能粗体，不能斜体，不能更改字号，不能列表。所以结论是：我们需要一种介于 html 和纯文本之间的格式来书写博客，它有不那么大的书写和阅读的成本，又兼顾一定的文字表现力。答案就是 <strong><a href="http://daringfireball.net/projects/markdown/">Markdown</a></strong>，再送一份红利就是在线的 <strong><a href="http://www.ctrlshift.net/project/markdowneditor/">Markdown Editor</a></strong>。</p></li>
-<li><p><strong>灵活的备份和恢复</strong></p>
-
-<p> 这是一条足以放弃 WordPress 的重要理由。我们无非是在码字而已，没有理由引入数据库，基于文本的保存是最安全的保存，它便于检索(grep)，容易导入，导出，不依赖于任何第三方软件或者操作系统。几百年后，这篇文档仍然可以被那时的计算机打开，这很重要，好比我们今天仍然有机会看到前人的青铜器，但是我们的后人只能从图片上看看今天的各类一次性制品。如果要求更高一些，我们还希望有类似管理代码的方式来管理我们的博客，同样是文本，Version Control System 不应该是代码的专有权利。中央服务器也可以保证在任何地方，任何时候检出，更新，提交你的博客，并且也不妨碍除你以外的人这么做。</p></li>
-<li><p><strong>基于命令行的操作方式</strong></p>
-
-<p> 极客的重要特征是远离 Windows，所以我们甚至应该幻想一个 Windows 不友好的方式来写博客。它应该尽量基于命令行，在 Linux 系统上运行良好，羞啥那些 Windows 上的普通青年和 Mac 上的文艺青年，这不是说我很大度的表示我就是2B青年，只是我实在不愿意诸君承担2B青年的包袱，只好自己大度的承担罢了。</p></li>
-<li><p><strong>支持代码片段的显示</strong></p>
-
-<p> 偶尔想秀个小代码也是装2的内在诉求和外在表现之一，所以我们的博客应该是可以这样子的：</p></li>
-</ol>
-
-
-<figure class='code'><figcaption><span>Code Snips to test code blocks </span><a href='http://www.google.com'>link test</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">TestCode</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class='line'>      <span class="k">pass</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">testCode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class='line'>      <span class="k">print</span> <span class="s">&#39;hello world!&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p><strong>最后的最后，不缩水的博客</strong></p>
-
-<p>  好处不能都被你这个2B青年占完了不是吗？你要这个要那个，都满足你了，末了扔给你一个缩水的博客，你不由自主的和那些个不入你法眼的新浪博客，不讨巧的 WordPress 做比较了，于是你又开始不满意了。好吧，我们折中一下，RSS 导出不能少，分享到 Facebook，Twitter，甚至于新浪微博也不能落下，还要能访客留言，搜索过往，提示最近的博客，标注 tag。于是是除了你那些个蛋疼的特殊癖好，别人有的也全都要满足。。。</p></li>
-</ul>
-
-
-<h2>极客的博客，答案只能是 Octopress，没有之一</h2>
-
-<p>没有办法了，只能是 Octopress 可以满足我这样的2B青年了。诸君可以去了解，不用我在这里没完没了的磨机。我也不打算罗列详细的步骤去教诸君如何安装 Octopress 了，诸君都是成年人，有理想，有抱负，会 Google，不会 Google，起码也知道度娘其实被 PS 的过分了一些，不是吗？ 为了避免不必要的打击和骂娘的状况出现，我只在诸君打算做这个事情前罗列一些最基本的先决条件，如果诸君实在为难，我们也不能强求对不？</p>
-
-<ul>
-<li><p><strong>会 Google，至少会度娘</strong></p></li>
-<li><p><strong>你至少有一个 Linux 系统活在 Windows/Mac 的虚拟机里，偶尔也用用</strong></p></li>
-<li><p><strong>多少认同 Vim/Emacs，偶尔也用用，起码是用来看日志也算你一个</strong></p></li>
-<li><p><strong>了解一些 Ruby，Python 之流的动态语言</strong></p></li>
-<li><p><strong>了解 GitHub 和 Git 的一些基础知识，会 pull，能 push</strong></p></li>
-<li><p><strong>即使不知道什么是 Markdown 学学也乐意，深表认同 Markdown 哲学</strong></p></li>
-</ul>
-
-
-<p>感情没有哪个公司的招聘里会写上这些个应知应会，所以诸君在工作之余，在这个 Java，.Net 横行的年代里，居然还玩会了这些，不管诸君愿不愿意，我也只能承认你我都2到家了。再看看还有哪些人这么2的，无巧不巧，不用我们自己 Google，Octopress 自己煞有其事的列出了用他们这个博客的网站列表，参见 <strong><a href="https://github.com/imathis/octopress/wiki/Octopress-Sites">Octopress Sites</a></strong>，假使你有耐心一个一个参阅过来，你没有办法不承认他们都是极客的博客。</p>
-
-<h2>缘灭</h2>
-
-<p>木有想到第一篇博客写的这么猴累，再接再厉！欢迎新浪微博加我关注：<strong>ghosert</strong></p>
 ]]></content>
   </entry>
   

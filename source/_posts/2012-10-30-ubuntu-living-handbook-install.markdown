@@ -21,7 +21,7 @@ Ubuntu系统的基础设施
 
 <!--more-->
 
-从U盘安装
+从U盘安装系统
 --------------------------
 
 [上一篇][1] 博客中我们提到过， Ubuntu 的发行安装方式众多，我们仍然推荐从硬盘开始安装，比起光盘，相信很多同学也了解U盘的优势：易于携带，保存，复制。这里不再敷陈，我们就从制作启动U盘说起。
@@ -64,12 +64,113 @@ Ubuntu系统的基础设施
 
 1. 在 Installation type 界面选择 Something else 选项，这样你才有机会调整，保留现有分区以及分区上的数据，并将多个分区挂载到同一个系统的不同挂载点（上文所述的根目录和home目录）【推荐】。
 2. 选择 ext4 文件系统格式作为 Linux 的文件系统格式。
-3. 三个分区大小可按上个小节分配，根目录分区大小不必过大，50G至多，如果硬盘本身不大，只分配10G问题也不大。大多的数据应该存放在 /home， 因此 /home 所在分区应该足够大。
+3. 三个分区大小可按上个小节分配，根目录分区大小不必过大，50G至多，如果硬盘本身不大，只分配15G问题也不大。大多的数据应该存放在 /home， 因此 /home 所在分区应该足够大。
 4. Installation type 界面中 Device for boot loader installation 选项列表中记得选择硬盘所在条目一般是：/dev/sda，笔者安装 12.04 时因为不慎选择了 USB 所在媒介：/dev/sdb 导致安装完毕后只有插着USB才能启动系统，悲剧！
 
 大致的效果图如下（忽略分区尺寸一项，随意填的）
 
 ![installation-type]
+
+
+高速下载软件---关于Ubuntu源
+--------------------------
+
+**1. 官方Ubuntu源**
+
+安装完系统以后，我们来聊聊软件安装的问题。之前，我们说到通过强大的 **apt-get** 命令从网络上下载，安装软件的方式，而运行这个命令时，系统又是通过查询软件所在的 **Ubuntu源** 来了解从互联网的什么地址去下载软件，那么对于动辄上百兆或者数量繁多的软件来说，从你的 PC 到 **Ubuntu源** 之间的网速就决定了你安装下载软件的速度。一个新安装完毕的系统，默认选择的是美国服务器作为 **Ubuntu源**，因此我们需要选择更快的国内镜像作为系统的源来下载安装软件。具体步骤：
+
+* Ctrl+Alt+t打开终端，输入: update-manager
+```
+jiawzhang@home-pc:~$ update-manager
+```
+* 点击左下角Setting按钮，进入Ubuntu Software选项卡，点击Download from下拉列表中的Other项。
+* 在弹出的对框中，点击Select Best Server来进行源的测试工作。
+
+但实际上，考察一个源是不是足够好，光看速度并不正确，有时一个速度很快的源如果缺少某些软件，仍然会造成困扰。按笔者的经验，在国内可以直接选择http://ubuntu.cn99.com/ubuntu这个源，速度快，源里的软件也相当齐整。选择完源以后，再次打开终端，输入以下命令更新系统现有的软件：
+```
+jiawzhang@home-pc:~$ sudo apt-get update
+jiawzhang@home-pc:~$ sudo apt-get upgrade
+```
+
+**2. 第三方Ubuntu源**
+
+以上我们讲到的都是Ubuntu官方的源或者官方源在国内镜像，除此以外，Ubuntu也允许第三方制作第三方源以扩充软件的数量。但是如果你选择第三方源，官方并未对其中的软件进行过测试，也不保证软件的质量，系统兼容性等问题。反过来说如果你开发的软件进入了官方源，这是一种莫大的荣誉，它首先肯定了你软件的质量，其次也扩大了软件受众的数量，并且经过了官方认证和测试。
+
+假设你现在需要安装 Wine 这个软件，主要用来在 Ubuntu 下运行 Windows 的可执行文件。虽然这是一个合法的软件，但是 Ubuntu 官方没有可能在自己的源中加入一个可运行专利软件的软件，因此此时你需要自己去加入包含有 Wine 这个软件的第三方源，打开终端，运行：
+```
+jiawzhang@home-pc:~$ sudo add-apt-repository ppa:ubuntu-wine/ppa
+jiawzhang@home-pc:~$ sudo apt-get update
+jiawzhang@home-pc:~$ sudo apt-get install wine
+```
+
+**3. Canonical合作伙伴的源**
+
+Ubuntu的母公司Canonical另外还有一些合作伙伴，例如在 Ubuntu 12.04 上，如果你需要安装 skype，可以加入这个合作伙伴的源，然后进行安装。
+
+按照上面的步骤打开update-manager以后，仍旧点击Settings按钮，进入Other Software选项卡选中“Canonical Partners”和“Canonical Partners(Source Code)”加入合作伙伴源，接着运行：
+```
+jiawzhang@home-pc:~$ sudo apt-get update
+jiawzhang@home-pc:~$ sudo apt-get install skype
+```
+
+个人建议在系统安装完毕以后按此步骤加入这个源，方便以后的软件安装。
+
+
+显卡驱动安装
+--------------------------
+默认情况下，Ubuntu在安装完成以后，可以认出绝大多数的硬件，并不需要特别的设置。唯一例外的是，如果你无法开启某些窗口特效，意味着系统自带的驱动无法和你的显卡很好的匹配，这个时候你需要去手工安装显卡驱动。我们以 nvidia 的显卡为例，介绍一下显卡驱动的安装方法：
+
+**1. 访问 [nvidia 官网][5] 下载最新的驱动程序**
+
+假设下载文件名为：NVIDIA-Linux-x86_64-304.60.run的64位显卡驱动程序
+
+**2. 设置下次系统启动后，只运行在终端下，不启动 GUI 系统**
+
+就和在Windows下，系统要求你在保护模式下安装某些软件类似，安装显卡启动的时候，系统也往往要求在完全的终端里，不带任何图形界面的模式下安装驱动，因此我们需要让系统下次启动的时候进入终端模式，这里我们第一次需要修改系统的配置文件，在使用 Linux 系统的时候，今后我们会无数次的通过修改基于文本的配置文件来设置我们的系统，因此掌握一个好的文本编辑器也至关重要，Linux下标配的文本编辑器是强大的 vi，如果你现在还不熟悉，没关系，可以先使用 gedit，为了保持博客的专业性，我在今后的命令行中只使用 vi，读者自行替换成 gedit 即可。
+```
+sudo vi /etc/default/grub
+找到 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 这一行，修改为 GRUB_CMDLINE_LINUX_DEFAULT="text"
+sudo update-grub
+sudo shutdown -r 0 #重启电脑
+```
+
+**3. 进入重启后的终端，运行**
+
+```
+cd ~/Downloads/
+chmod u+x NVIDIA-Linux-x86_64-304.60.run # u代表当前用户，x代表可执行权限，u+x即表示赋予脚本当前用户的可执行权限
+sh NVIDIA-Linux-x86_64-304.60.run # 执行脚本
+```
+按提示完成安装以后，仍旧将系统改回下次重启时进入用户图形界面而非终端模式：
+```
+sudo vi /etc/default/grub
+找到 GRUB_CMDLINE_LINUX_DEFAULT="text" 这一行，修改为 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+sudo update-grub
+sudo shutdown -r 0 #重启电脑
+```
+
+Ubuntu视窗特效及思考
+--------------------------
+
+如果一切顺利和系统匹配的显卡驱动已经安装完成了，如果想开启一些视窗特效可以下载这个软件：
+```
+sudo apt-get install compizconfig-settings-manager
+ccsm # 运行compizconfig-settings-manager 设置特效
+```
+在Category->Effects里勾选上Wobbly Windows选项，还算一个很好玩的特效，在你拖动，最大化，恢复任何程序窗体的时候，会有夸张的扭动效果，几乎每一个看到我桌面的人都会赞叹一下。不过窗体特效毕竟是华而不实的玩意，不必花费过多时间在这个上面，在许多 Ubuntu 论坛里会有长篇累牍的文章介绍如何装扮炫目的动画效果，我只想反问：还记得我们使用 Linux 系统的初衷是什么？是高效的使用开发者系统，如果迷恋炫目的视觉效果，花费大量的时间精力去配置，一来有违初衷，二来也容易破坏系统的稳定性，历来一个操作系统的软肋就是GUI，开发最复杂，也最容易引发程序甚至系统崩溃，进而炫目的视觉特效实际上会导致低效的操作。例如渐变式的关闭或者开启一个窗口，看上去很炫，实质上为了完成这个特效，窗口延缓了开启或者关闭的时间，一两次延缓不会造成什么损失，考虑到我们会在这个系统中生存几十年，很可能有几万几十万次的延缓累加--那简直就是浪费生命了。撇开这个例子不谈，使用开发者系统追求高效的实质就是改进每一个微操作，通过改进哪怕只能节省几百毫秒的操作，只要这些操作会被无数次的重复，然后累积这些节省带来的效果，经年累月以后，都是惊人的节约。假设一个500人的公司，每个人每天因此可以受益5分钟的时间，那么一年下来：500 * 5 * 251（工作日）/ 60（分钟）/ 8 (一天工作小时) = 1307 天/人，相当于这500人在一年里节约出了5个人年的时间。
+
+Ubuntu 12.04 在切换程序这个环节因为采用特效其实也出了问题，有一些倒退的味道。大家可以试试 "Alt + Tab" 这个常用的程序切换的快捷键。它默认的行为是先对同一类的窗口进行分组，然后如果用户的切换动作在某一组窗口上略作停顿，系统才会展开这一组的窗口，继而在这一组窗口中的每一个窗口间进行切换。表面上看分组的形式减少了我们之前谈到的 **视觉迷失** 带来的困扰，实质上又引入了每个切换间的停顿时间，破坏了用户原本流畅操作的体验，况且，如上所述，累积停顿带来的后果也是不可承受的，而这里 **视觉迷失** 的问题其实又可以通过系统自带的 **虚拟桌面** 来解决，也算不上大问题。因此我个人推荐按以下方法舍弃这种切换特效：
+
+打开终端输入：ccsm 启动 CompizConfig Settings Manager, 进入 Windows Management，选择 Static Application Switcher 可能会报一些快捷键冲突的警告，强制切换即可。
+
+
+同步软件 Dropbox 的安装
+--------------------------
+
+
+
+
+
 
 [1]: /blog/2012/10/22/ubuntu-living-handbook-experience/
 [2]: http://www.ubuntu.com/download
@@ -78,4 +179,4 @@ Ubuntu系统的基础设施
 [Universal-USB-Installer]: /images/ubuntu_living_handbook/Universal-USB-Installer.png
 [startup-disk-creator]: /images/ubuntu_living_handbook/startup-disk-creator.png
 [installation-type]: /images/ubuntu_living_handbook/installation-type.png
-
+[5]: http://www.nvidia.com/object/unix.html

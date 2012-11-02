@@ -115,7 +115,7 @@
 
 <p><strong>1. 简单，易用，美观，默认软件齐全，适合入门</strong></p>
 
-<p>Ubuntu 在发行之初就以打造一个适合上手，容易入门的 Linux 系统而著称，吸引了大量来自 Windows 的用户。它的发行方式众多，包括 CD / DVD / U盘 等传播方式，用户可以自行下载 ISO 文件刻盘或者制作启动U盘，甚至可以免费向 Ubuntu 的母公司 Canonical 免费索取邮寄光盘。它的体验安装方式也很丰富，包括:</p>
+<p>Ubuntu 在发行之初就以打造一个适合上手，容易入门的 Linux 系统而著称，吸引了大量来自 Windows 的用户。它的发行方式众多，包括 CD / DVD / U盘 等传播方式，用户可以自行下载 ISO 文件刻盘或者制作启动U盘，甚至可以免费向 Ubuntu 的母公司 Canonical 索取邮寄光盘。它的体验安装方式也很丰富，包括:</p>
 
 <p><strong>a) 试用体验</strong>：无论用户的电脑是什么系统，都可以在启动的时候选择从光盘或者U盘启动 Ubuntu 进行试用，不破坏原有数据。再次从硬盘启动后仍旧进入用户的原有系统，很方便那些想尝鲜的用户。很多时候，在原有系统无法启动的情况下，甚至可以利用 Ubuntu 的这个特性来进行硬盘修复，挽救数据的工作。</p>
 
@@ -169,7 +169,7 @@
 
 <p><strong>2. 火狐浏览器</strong></p>
 
-<p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
+<p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷不觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
 
 <p><img src="/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
 
@@ -251,7 +251,41 @@
 
 <p>终端系统会自动补全 firefox，所以理论上我们只需要零碎的记忆住常用软件的前几个字母，无需任何图标，只需要一个终端，你就可以启动任何程序。有人会抱怨自己的记忆力不佳，没办法记住系统里这么多软件名，但实际上开发者系统比你自己更了解这样一个事实：大脑是一个用进废退的器官，你越多敲击常用的软件名，你就越没有可能忘记它们，至于不常用的软件，用的时候再找也好过每次要在一堆图标里找，还有一些软件，这辈子你也不会再用，更没必要去记住它们。</p>
 
-<p>重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：</p>
+<p>有些朋友反映在终端启动某些程序后会占用终端不释放，直至关闭那个程序，例如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ gedit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>启动 gedit 后，直至关闭 gedit，否则用户无法继续使用启动gedit的这个终端。为了解决这个问题，可以按Ctrl+Alt+t打开终端，在当前 home 目录（缩写为 <strong>~</strong>）下创建一个文本文件命名为 x，内容为：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
+</span><span class='line'>"$@" 1&gt;/dev/null 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个脚本的大意是运行软件的时候，不输出任何标准信息和错误信息，并且在后台运行，这样就可以避免占据终端的行为。接着执行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@comapny-ws:~$ mkdir ~/bin   # 在home目录下创建bin目录
+</span><span class='line'>jiawzhang@comapny-ws:~$ chmod u+x ~/x # 赋予x脚本用户级别的可执行权限
+</span><span class='line'>jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录</span></code></pre></td></tr></table></div></figure>
+
+
+<p>~/bin 目录是一个特殊的目录，任何放置在其中的脚本程序，都可以在终端中被直接识别，运行，因此今后只需要在被启动的程序名前加 x 如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ x gedit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>终端就不再会被占据。</p>
+
+<p>如果你使用带有 Unity 系统的 Ubuntu 版本，那么就更简单了，按一下标准键盘上的Windows键，出现 Dash home 搜索框，直接键入软件名，按回车启动即可，这个过程中不需要任何鼠标操作的介入。</p>
+
+<p>和桌面上的程序图标类似，重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~/Dropbox/backup/tools/YaHei$ cd ~</span></code></pre></td></tr></table></div></figure>
@@ -342,6 +376,8 @@ var jiathis_config={
         <a class="basic-alignment left" href="/blog/2012/10/14/ubuntu-living-handbook/" title="Previous Post: Ubuntu桌面生存指南 (1) --- 选择 Linux">&laquo; Ubuntu桌面生存指南 (1) --- 选择 Linux</a>
       
       
+        <a class="basic-alignment right" href="/blog/2012/10/30/ubuntu-living-handbook-install/" title="Next Post: Ubuntu桌面生存指南 (3) --- 构建Ubuntu系统基础设施">Ubuntu桌面生存指南 (3) --- 构建Ubuntu系统基础设施 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -359,6 +395,10 @@ var jiathis_config={
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/ubuntu-living-handbook-install/">Ubuntu桌面生存指南 (3) --- 构建Ubuntu系统基础设施</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/10/22/ubuntu-living-handbook-experience/">Ubuntu桌面生存指南 (2) --- Ubuntu桌面体验简介</a>

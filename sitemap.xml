@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/</loc>
-        <lastmod>2012-10-05T23:34:14+08:00</lastmod>
+        <lastmod>2012-11-01T20:13:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/</loc>
@@ -12,14 +12,18 @@
         <loc>
             http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/
         </loc>
-        <lastmod>2012-10-26T13:25:23+08:00</lastmod>
+        <lastmod>2012-11-02T15:08:22+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/</loc>
+        <lastmod>2012-11-02T15:08:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://ghosertBlog.github.com/</loc>
-        <lastmod>2012-10-26T13:25:23+08:00</lastmod>
+        <lastmod>2012-11-02T15:08:22+08:00</lastmod>
     </url>
     <url>
         <loc>http://ghosertBlog.github.com/blog/archives/</loc>
-        <lastmod>2012-10-26T13:25:23+08:00</lastmod>
+        <lastmod>2012-11-02T15:08:22+08:00</lastmod>
     </url>
 </urlset>

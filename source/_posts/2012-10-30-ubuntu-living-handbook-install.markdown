@@ -263,7 +263,8 @@ ls -al ~
 ```
 sudo apt-get install proxychains -y
 sudo vi /etc/proxychains.conf
-在文件最后追加一行：socket5 proxy_ip_address port
+注释掉文件中最后一行：socks4 127.0.0.1 9050
+幷在文件最后追加一行：socks5 proxy_ip_address port
 ```
 通过安装 proxychains 这个软件，同时我们在它的配置文件 /etc/proxychains.conf 中加入了代理服务器的 ip 地址和端口号，这样我们就可以要求任意被墙阻断的命令行软件通过代理服务器连接互联网了，使用方法也很简单，假设我们需要下载 facebook 的主页，就可以运行：
 ```
@@ -279,9 +280,9 @@ ssh username@machine_d_ip_address -D 127.0.0.1:7070 # 建立 ssh channel，并�
 ```
 此时本地 127.0.0.1:7070 这个地址端口已经具备了类似代理服务器 C 相同的作用，你只需要在任意 GUI 程序的代理服务器选项上填入 127.0.0.1:7070，或者在上述 /etc/proxychains.conf 文件最后追加一行
 ```
-socket5 127.0.0.1 7070
+socks5 127.0.0.1 7070
 ```
-即可。
+即可让 GUI 或者命令行程序通过本机代理服务器连接互联网。
 
 
 **未完待续......**

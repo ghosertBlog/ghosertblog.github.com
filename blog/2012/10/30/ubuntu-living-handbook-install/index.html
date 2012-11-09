@@ -422,9 +422,11 @@ ubuntu_install_guide.sh</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install proxychains -y
 </span><span class='line'>sudo vi /etc/proxychains.conf
-</span><span class='line'>在文件最后追加一行：socket5 proxy_ip_address port</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>注释掉文件中最后一行：socks4 127.0.0.1 9050
+</span><span class='line'>幷在文件最后追加一行：socks5 proxy_ip_address port</span></code></pre></td></tr></table></div></figure>
 
 
 <p>通过安装 proxychains 这个软件，同时我们在它的配置文件 /etc/proxychains.conf 中加入了代理服务器的 ip 地址和端口号，这样我们就可以要求任意被墙阻断的命令行软件通过代理服务器连接互联网了，使用方法也很简单，假设我们需要下载 facebook 的主页，就可以运行：</p>
@@ -446,10 +448,10 @@ ubuntu_install_guide.sh</p>
 <p>此时本地 127.0.0.1:7070 这个地址端口已经具备了类似代理服务器 C 相同的作用，你只需要在任意 GUI 程序的代理服务器选项上填入 127.0.0.1:7070，或者在上述 /etc/proxychains.conf 文件最后追加一行</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>socket5 127.0.0.1 7070</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>socks5 127.0.0.1 7070</span></code></pre></td></tr></table></div></figure>
 
 
-<p>即可。</p>
+<p>即可让 GUI 或者命令行程序通过本机代理服务器连接互联网。</p>
 
 <p><strong>未完待续&#8230;&#8230;</strong></p>
 </div>

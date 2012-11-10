@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu， Linux， Tools | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/ubuntu-linux-tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-11-09T23:53:02+08:00</updated>
+  <updated>2012-11-10T22:01:57+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -308,7 +308,7 @@ ssh username@machine_d_ip_address -D 127.0.0.1:7070 # 建立 ssh channel，并�
 <code>
 socks5 127.0.0.1 7070
 </code>
-即可让 GUI 或者命令行程序通过本机代理服务器连接互联网。</p>
+即可让 GUI 或者命令行程序通过代理服务器连接互联网。</p>
 
 <p><strong>未完待续......</strong></p>
 ]]></content>

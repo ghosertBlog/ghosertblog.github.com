@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu， Linux， Tools | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/ubuntu-linux-tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-11-10T22:01:57+08:00</updated>
+  <updated>2012-11-18T21:04:33+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -469,8 +469,11 @@ jiawzhang@company-ws:~$ gedit
 </code>
 jiawzhang@comapny-ws:~$ mkdir ~/bin   # 在home目录下创建bin目录
 jiawzhang@comapny-ws:~$ chmod u+x ~/x # 赋予x脚本用户级别的可执行权限
-jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录
-<code>
+jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录</p>
+
+<h1>重新登录或者重启机器使得这些变更生效</h1>
+
+<p><code>
 ~/bin 目录是一个特殊的目录，任何放置在其中的脚本程序，都可以在终端中被直接识别，运行，因此今后只需要在被启动的程序名前加 x 如：
 </code>
 jiawzhang@company-ws:~$ x gedit

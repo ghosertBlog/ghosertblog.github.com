@@ -4,7 +4,7 @@
   <title><![CDATA[张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-11-10T22:01:57+08:00</updated>
+  <updated>2012-11-18T21:08:37+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -542,9 +542,11 @@ ubuntu_install_guide.sh</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@comapny-ws:~$ mkdir ~/bin   # 在home目录下创建bin目录
 </span><span class='line'>jiawzhang@comapny-ws:~$ chmod u+x ~/x # 赋予x脚本用户级别的可执行权限
-</span><span class='line'>jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录
+</span><span class='line'># 重新登录或者重启机器使得这些变更生效</span></code></pre></td></tr></table></div></figure>
 
 
 <p>~/bin 目录是一个特殊的目录，任何放置在其中的脚本程序，都可以在终端中被直接识别，运行，因此今后只需要在被启动的程序名前加 x 如：</p>

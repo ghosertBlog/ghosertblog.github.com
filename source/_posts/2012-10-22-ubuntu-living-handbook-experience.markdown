@@ -164,6 +164,7 @@ jiawzhang@company-ws:~$ gedit
 jiawzhang@comapny-ws:~$ mkdir ~/bin   # 在home目录下创建bin目录
 jiawzhang@comapny-ws:~$ chmod u+x ~/x # 赋予x脚本用户级别的可执行权限
 jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录
+# 重新登录或者重启机器使得这些变更生效
 ```
 ~/bin 目录是一个特殊的目录，任何放置在其中的脚本程序，都可以在终端中被直接识别，运行，因此今后只需要在被启动的程序名前加 x 如：
 ```

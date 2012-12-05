@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu桌面生存指南 (1) --- 选择 Linux"
 date: 2012-10-14 22:49
 comments: true
-categories: [Ubuntu， Linux， Tools]
+categories: [Ubuntu, Linux, Tools]
 ---
 
 

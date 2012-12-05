@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu桌面生存指南 (2) --- Ubuntu桌面体验简介"
 date: 2012-10-22 09:06
 comments: true
-categories: [Ubuntu， Linux， Tools]
+categories: [Ubuntu, Linux, Tools]
 ---
 
 

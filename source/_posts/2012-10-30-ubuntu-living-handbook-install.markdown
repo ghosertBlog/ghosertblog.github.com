@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu桌面生存指南 (3) --- 构建Ubuntu系统基础设施"
 date: 2012-10-30 13:03
 comments: true
-categories: [Ubuntu， Linux， Tools]
+categories: [Ubuntu, Linux, Tools]
 ---
 
 

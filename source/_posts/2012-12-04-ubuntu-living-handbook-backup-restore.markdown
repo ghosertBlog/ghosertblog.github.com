@@ -14,7 +14,6 @@ Ubuntu系统备份恢复升级策略
 1. 脚本恢复策略
 2. tar包整体备份恢复策略
 3. 迁徙wubi系统到物理分区
-4. 谈谈 GitHub 作为备份的意义
 4. Ubuntu系统升级的频率，时机及注意事项
 
 <!--more-->
@@ -51,7 +50,7 @@ Ubuntu系统备份恢复升级策略
 沿用过去/home分区的数据毕竟在保留了数据的同时也保留了旧有的配置和目录结构，如前所述虽然在匹配新版本软件的时候，这不会是一个太大的问题，但是一旦出现状况，例如两个软件版本之间的差异过大，导致新版本无法正常工作在旧配置或者目录结构上，用户要有一定解决问题的能力，仍然需要通过查看脚本注释手动还原配置步骤。而且对于某些有心理洁癖的同学也会感觉这种方式不那么“干净”。
 
 
-tar包整体备份恢复策略
+tar包全盘备份恢复策略
 --------------------------
 上述两种恢复策略免不了还是需要在分区以后，插入启动U盘或者光盘，从头开始安装操作系统本身，并且安装完操作系统以后继续安装软件，恢复配置，熟悉Windows下大名鼎鼎的Ghost的同学一定在想，Ubuntu下是否也有这种一站式的全盘备份方案：无论计算机系统当前的状态，我可以对整个系统的每一个字节都做数据备份，当需要恢复系统的时候甚至都不必再次安装Ubuntu本身就可以把当初备份的那个状态复原到新的机器或者格式化以后的当前机器上，甚至是虚拟机上。这也是一般公司的IT部门在帮员工重装机器的时候最常用的策略，没有其它原因，就是因为这种方式最快捷。备份恢复一个系统的时间不会超过一个小时。
 
@@ -113,32 +112,96 @@ mount /dev/sda2 /tmp/root2
 cd /tmp/root2/jiawzhang/BACKUP_SYSTEM/
 sudo tar -jpxvf UBUNTU-2012-02-05.tar.bz2 -C /tmp/root
 ```
-使用U盘启动到live Ubuntu模式幷不会实际上挂载你的物理分区，所以这里需要使用mount命令手动挂载你刚才格式化以后的 / 分区并且将压缩包解压导入。新建两个目录/tmp/root /tmp/root2，将分区/dev/sda1 /dev/sda2分别挂载到这两个目录。确保sda1是系统恢复以后挂载 / 目录的分区，sda2是原来/home目录挂载的分区，其中有我们需要的备份压缩包存在。挂载完毕以后，/tmp/root 对应了 sda1 分区，/tmp/root2 对应了 sda2 分区，进入 /tmp/root2/jiawzhang/BACKUP_SYSTEM 就是我们原先的备份存储的位置。运行 sudo tar -jpxvf xxx.tar.bz2 -C /tmp/root 做解压操作，jpxvf 中的 x 指解压，-C /tmp/root 则指定了需要解压的目标目录，这里实际上就是 sda1 分区所在的根目录。完成这个操作以后，所有的数据就已经被还原到 sda1 分区。你应该可以查看到类似 /tmp/root/etc /tmp/root/home/ 这样的目录，它们对应的就是原先的 /etc /home 目录。我们下面的步骤会指定启动系统的时候把 sda1 分区挂载回 / 目录，这样在系统的目录结构就完全恢复了。另外由于/home目录对应的 sda2 分区在刚才没有进行过格式化操作，此时你可以选择删除/tmp/root2/jiawzhang/下除了BACKUP_SYSTEM以外的所有数据，然后
+使用U盘启动到live Ubuntu模式幷不会实际上挂载你的物理分区，所以这里需要使用mount命令手动挂载你刚才格式化以后的 / 分区并且将压缩包解压导入。新建两个目录/tmp/root /tmp/root2，将分区/dev/sda1 /dev/sda2分别挂载到这两个目录。确保sda1是系统恢复以后挂载 / 目录的分区，sda2是原来/home目录挂载的分区，其中有我们需要的备份压缩包存在。挂载完毕以后，/tmp/root 对应了 sda1 分区，/tmp/root2 对应了 sda2 分区，进入 /tmp/root2/jiawzhang/BACKUP_SYSTEM 就是我们原先的备份存储的位置。运行 sudo tar -jpxvf xxx.tar.bz2 -C /tmp/root 做解压操作，jpxvf 中的 x 指解压，-C /tmp/root 则指定了需要解压的目标目录，这里实际上就是 sda1 分区所在的根目录。完成这个操作以后，所有的数据就已经被还原到 sda1 分区。你应该可以查看到类似 /tmp/root/etc /tmp/root/home/ 这样的目录，它们对应的就是原先的 /etc /home 目录。我们下面的步骤会指定启动系统的时候把 sda1 分区挂载回 / 目录，sda2分区挂载回 /home 目录，这样在系统的目录结构就完全恢复了。另外由于/home目录对应的 sda2 分区在刚才没有进行过格式化操作，**此时你可以选择删除/tmp/root2/jiawzhang/下除了BACKUP_SYSTEM以外的所有数据**，然后
 ```
 cp /tmp/root/home/. /tmp/root2/ -r
 rm /tmp/root/home -rf
 ```
-
+将刚才从备份压缩包中解压出的/tmp/root/home部分的数据重新拷贝到/tmp/root2，然后删除/tmp/root/home，即完成了从sda1分区转移恢复后的home数据到sda2分区的工作，记得 sda2 分区是过后用来挂载 /home 目录的分区，理应把home下的数据恢复在这个分区。
 
 * 恢复分区的 GRUB/MBR 信息
 
-还原
+经过格式化，分区等等步骤以后，即便你是在现有硬盘上恢复自己的系统，分区的 uuid 都可能已经被改变，因此当初备份在压缩备份包里的启动引导信息诸如：GRUB/MBR都已经不再和目前实际的信息相匹配，此时需要我们手工做修复。
 
-# IF RESTORE TO NEW DISK OR YOUR GRUB/MBR IS MESSED UP, in guest system:
-# $ sudo add-apt-repository ppa:yannubuntu/boot-repair
-# $ sudo apt-get update
-# $ sudo apt-get install -y boot-repair
-# $ 'sudo boot-repair' to repair the GRUB/MBR by clicking default recommendation.
-# $ ls -al /dev/disk/by-uuid
-# make sure /tmp/root/etc/fstab is using the uuid and / /home /swap partitions above
-# make sure /tmp/root/boot/grub/grub.cfg is using the uuid and root/swap partitions above(this should have been done by boot-repair)
-# ENDIF
-#
-# recreate the --exclude path when backup like mkdir /tmp/root/proc /tmp/root/mnt /tmp/root/tmp /tmp/root/media
-#
-# 'chmod 777 /tmp/root/tmp' otherwise, it will fail to start.
-#
-# reboot
+仍旧在 live ubuntu 模式下运行：
+```
+$ sudo add-apt-repository ppa:yannubuntu/boot-repair
+$ sudo apt-get update
+$ sudo apt-get install -y boot-repair
+$ sudo boot-repair
+```
+下载运行启动修复软件 boot-repair，启动后点击默认推荐方式即可。如果想了解这个软件具体做了哪些工作，可以在这里参看[手工修复][2]的步骤。不过由于笔者并未验证其正确性，不能保证一定可用。
+```
+$ ls -al /dev/disk/by-uuid
+```
+再次查看各个分区的 uuid 信息，确保这些 uuid 和 /tmp/root/etc/fstab 中使用的 uuid 一致， 需要挂载的 /， /home，swap 在 /tmp/root/etc/fstab 中也和相应的 uuid 匹配。因为我们恢复的备份使用的是旧有的 uuid 信息，如果不一致手工打开/tmp/root/etc/fstab这个文件做更正，主要工作就是替换其中的 uuid 字符串和上述命令中的一致。在启动系统的时候，/etc/fstab 这个文件指定了分别挂载sda1 sda2 sda3分区到 /，/home，swap，如果没有正确的 uuid 以及分区目录挂载匹配，系统就无法正确启动。大家可以大致参看一下 /etc/fstab 这个文件的内容片段：
+```
+# / was on /dev/sda1 during installation
+UUID=f381f8cd-ca11-4227-b9ce-8de330bf0e9f /               ext4    errors=remount-ro 0       1
+# /home was on /dev/sda2 during installation
+UUID=b4b376c7-9ef0-48dc-9f50-28decd899190 /home           ext4    defaults        0       2
+# swap was on /dev/sda3 during installation
+UUID=d770aa08-a3f3-4469-a682-f161cff16135 none            swap    sw              0       0
+```
+另外如果你加装第二块硬盘以后也可以通过 'ls -al /dev/disk/by-uuid' 查看新硬盘的 uuid，幷新建这块硬盘分区对应的挂载目录以后，将这些信息一并写入 /etc/fstab 这个文件，这样，系统在启动以后就会自动加载你的新硬盘分区。
+
+* 重建系统目录
+
+这些目录就是我们当初做备份时加在 --exclude 参数后面的目录。
+```
+mkdir /tmp/root/proc /tmp/root/mnt /tmp/root/tmp /tmp/root/media
+chmod 777 /tmp/root/tmp
+```
+记得一定要赋予 /tmp/root/tmp 777 权限，这是一个系统级别的临时目录，需要完全的读写权限，否则你的系统无法启动成功，我自己在最初实践全盘备份恢复的时候就因为忽视了这个小细节差点放弃。
+
+
+* 重启计算机
+
+关闭计算机，幷从硬盘重启计算机，一切顺利的话，全盘恢复已经成功，至此，你可以别无二致的使用备份当时的专属高效系统了。
+
+全盘备份恢复的策略对初学者来说有一定的风险，如果担心操作不当丢失数据，可以先在虚拟机环境里练习，笔者实践过这种方法对虚拟机一样适用。
+
+
+迁徙wubi系统到物理分区
+--------------------------
+
+另外有一些用户最初是在Windows上通过Wubi的方式试用Ubuntu，最后决定彻底抛弃Windows的时候才发觉已经在Wubi里积累了太多的软件和配置，重装系统的代价很大，笔者自己最初也是在Wubi系统中操练Ubuntu，一年半以后才正式迁移到独立分区，彻底告别Windows。所以这里简要介绍一下如何将一个Wubi系统移植到物理分区。
+
+* 新建分区
+
+在Windows下使用分区工具将从现有的分区中划分出两个分区，假设分别叫做 /dev/sda5 用作安装系统， /dev/sda6 用作 swap 分区。
+
+* 进入Wubi系统
+
+* 下载运行移植脚本
+
+[点击下载][4]Wubi移植脚本后解压运行
+```
+sudo zxvf wubi-move.tar.gz
+sudo bash wubi-move.sh /dev/sda5 /dev/sda6
+```
+
+* 重启计算机
+
+一切顺利的话，系统会出现Grub引导菜单，你可以通过选择菜单选择进入Windows还是物理分区上的Ubuntu系统，这个Ubuntu系统的内容和你的Wubi系统也同样地别无二致。
+
+这个脚本的使用方法和更新也在持续进行中，目前支持Ubuntu 8.04 到 12.04 之间的所有版本。这里只是做了一些摘要，读者可以自行访问[Ubuntu Forums][3]查看这个脚本更多的用法和其它详细信息。
+
+
+Ubuntu系统升级的频率，时机及注意事项
+--------------------------
+
+* 频率
+
+Ubuntu官方一直以来每隔半年就会发布自己的新版本，对于用户来说实质上是一个不小的负担，往往还没有适应现在的版本，新的版本又推送过来，所以我个人的意见是不用追新，只升级两年一次的LTS版本即可。
+
+* 时机
+
+我们之前还说过Ubuntu某个版本源里的软件版本都会和Ubuntu自己的版本存在对应关系，例如：Ubuntu 10.04上的输入法软件iBus只会更新到1.2版本，如果你想使用最新的1.4版本，要么自己去编译安装，要么设法说服软件作者或者其它爱好者打包更新Ubuntu10.04源里的iBus版本或者找第三方源，相当的不方便。对于一个太早的发行版很多软件作者没有动力和热情再去为其做兼容性开发，测试和更新源的工作。所以当你发现自己手上的发行版源里的软件都过于腐旧，互相之间出现越来越多的兼容性问题的时候，这也是一个提醒你应当对现有系统做一次升级的信号。举我自己的例子，两个月前决定从10.04升级到12.04就是因为10.04下的拼音输入法fcitx和firefox较新版本之间存在冲突，总是导致页面假死。询问fcitx的源打包者又无果：不愿意更新10.04下的fcitx版本解决这个问题。才导致了有这次升级。
+
+* 注意事项
+
+虽然Ubuntu自己也提供了'sudo apt-get dist-upgrade'这样的命令做发行版之间的大升级，但是从听到的一些用户反馈来看效果并不理想，这种升级方式之后总有各种问题。因此还是建议读者可以参照本文前面的备份恢复策略进行这样的发行版升级，一般这样的升级不会有太多问题，除非某些软件的差异过大，用户自行适应一段时间即可。
 
 
 
@@ -149,3 +212,6 @@ rm /tmp/root/home -rf
 
 [1]: /blog/2012/10/30/ubuntu-living-handbook-install/
 [installation-type]: /images/ubuntu_living_handbook/installation-type.png
+[2]: http://ubuntuforums.org/showthread.php?t=224351 
+[3]: http://ubuntuforums.org/showthread.php?t=1519354
+[4]: /files/wubi-move.tar.gz

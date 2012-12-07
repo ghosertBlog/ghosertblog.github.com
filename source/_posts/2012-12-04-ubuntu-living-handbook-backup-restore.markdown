@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu桌面生存指南 (4) --- Ubuntu系统备份恢复升级策略"
 date: 2012-12-04 20:10
 comments: true
-categories: [Ubuntu， Linux， Tools]
+categories: [Ubuntu, Linux, Tools]
 ---
 
 
@@ -26,9 +26,11 @@ Ubuntu系统备份恢复升级策略
 所以一旦建立了这样一个脚本文件，即使需要重装系统或者面对一台全新的计算机，只需要执行这个脚本文件，查看脚本里的注释记录，就可以保证软件没有丢失，配置软件的步骤可以还原，重要的资料都被存储在云端：Dropbox（二进制文件），GitHub（文本文件，以下详述）。自然这个策略的前提是你在使用系统的时候必须保持勤于更新脚本的习惯，用于日后的系统恢复。
 
 1. 优点
+
 这种方法比较适用于希望将现有系统迁徙到更高版本的情形。例如：迁徙 Ubuntu 10.04 至 12.04的时候，在格式化系统，重新安装12.04以后，用户就可以通过这个脚本恢复原先计算机的面貌。并且由于Ubuntu源里的软件版本和Ubuntu发行版版本之间存在对应关系(例如：10.04源里的firefox版本可能在某个版本以后不再提供更新)，如果12.04在目前还是一个比较新的LTS版本，那么就可以保证在12.04上使用**apt-get install**安装的软件版本都比较新。同时如果你大多数的配置恢复是通过还原具体步骤完成的，那么就有机会检查这些步骤在新版本软件上是否仍旧适用。也不会出现从云端恢复旧版本软件的配置到新版本软件以后无法适用的状况，当然理论上这也不是一个太大的问题，Linux下许多著名的软件都非常尊重用户的旧有习惯，轻易不会变更自己读取配置文件的方式，大多数情况下恢复旧有软件的配置到新版本不会出现太多状况。
 
 2. 缺点
+
 由于没有采用全盘备份的方式，这种备份恢复策略的缺点同样明显，尽管可以保证在升级以后，计算机的原始面貌不会有任何丢失，但是相对来说，手动恢复许多软件的配置仍旧需要投入相当的时间和精力，即使在备份策略完善的前提下，笔者通过这种方式将Ubuntu 10.04升级到12.04的时候仍然花费了整整5天的国庆长假。因此个人建议只在每隔两年发布一次的LTS版本出现的时候才做这样的升级，以此保证计算机的全新状态。
 
 
@@ -41,9 +43,11 @@ Ubuntu系统备份恢复升级策略
 ![installation-type]
 
 1. 优点
+
 显而易见，这种策略很经济，省去很多的麻烦，是非常常见的系统恢复策略，同样也适用于在重新安装一个高版本发行版(从10.04LTS升级至12.04LTS)以后恢复计算机原先的面貌。
 
 2. 缺点
+
 沿用过去/home分区的数据毕竟在保留了数据的同时也保留了旧有的配置和目录结构，如前所述虽然在匹配新版本软件的时候，这不会是一个太大的问题，但是一旦出现状况，例如两个软件版本之间的差异过大，导致新版本无法正常工作在旧配置或者目录结构上，用户要有一定解决问题的能力，仍然需要通过查看脚本注释手动还原配置步骤。而且对于某些有心理洁癖的同学也会感觉这种方式不那么“干净”。
 
 
@@ -52,12 +56,89 @@ tar包整体备份恢复策略
 上述两种恢复策略免不了还是需要在分区以后，插入启动U盘或者光盘，从头开始安装操作系统本身，并且安装完操作系统以后继续安装软件，恢复配置，熟悉Windows下大名鼎鼎的Ghost的同学一定在想，Ubuntu下是否也有这种一站式的全盘备份方案：无论计算机系统当前的状态，我可以对整个系统的每一个字节都做数据备份，当需要恢复系统的时候甚至都不必再次安装Ubuntu本身就可以把当初备份的那个状态复原到新的机器或者格式化以后的当前机器上，甚至是虚拟机上。这也是一般公司的IT部门在帮员工重装机器的时候最常用的策略，没有其它原因，就是因为这种方式最快捷。备份恢复一个系统的时间不会超过一个小时。
 
 1. 优点
+
 最迅速快捷的备份恢复方式，可以通过刻录母盘的方式在各处恢复自己的备份。你既可以在一台物理机上做备份恢复到另一台物理机或者虚拟机，你甚至也可以将一台虚拟机里的备份恢复到一台物理机或者另一台虚拟机上，非常的灵活方便。
 
 2. 缺点
-采用这种方式的一个问题在于，如果需要还原的目标机器和做备份的源机器硬件配置差异过大，可能会发生恢复以后某些驱动程序工作不正常的状况，例如计算机没办法发声音，或者图形分辨率特别低，无法联网等状况。这个时候仍然需要用户自己尝试解决。第二个问题在于由于全盘备份，意味着如果你备份的是10.04的系统，那你也只能恢复到10.04的系统，这种恢复方式没有办法升级你的Ubuntu到更高的版本。第三个问题：一定的学习实践成本，以下就我个人的实践经验提供tar包全盘备份的基本步骤和原理，也许你在网络上可以找到更方便的脚本或者备份软件替代这些工作，但是如果遇到问题回到这些具体的步骤和原理可以帮助你了解到底是哪里出了问题，咋么解决这些问题。
+
+采用这种方式的一个问题在于，如果需要还原的目标机器和做备份的源机器硬件配置差异过大，可能会发生恢复以后某些驱动程序工作不正常的状况，例如计算机没办法发声音，或者图形分辨率特别低，无法联网等状况。这个时候仍然需要用户自己尝试解决。第二个问题在于由于全盘备份，意味着如果你备份的是10.04的系统，那你也只能恢复到10.04的系统，这种恢复方式没有办法升级你的Ubuntu到更高的版本。第三个问题：一定的学习实践成本，以下就我个人的实践经验提供tar包全盘备份的基本步骤和原理，也许你在网络上可以找到更方便的脚本或者备份软件替代这些工作，但是如果遇到问题回到这些具体的步骤和原理可以帮助你了解到底是哪里出了问题，怎么解决这些问题。
 
 
+**1. 全盘备份**
+
+得益于强大的Linux系统的命令行和系统设计，全盘备份一个Ubuntu系统的基本原理相当：	使用tar命令打包必要的文件目录即可。
+
+新建一个脚本文件BACKUP_SYSTEM.sh，在其中添加以下内容：
+
+```
+mkdir ~/BACKUP_SYSTEM
+sudo tar --exclude /proc --exclude /mnt --exclude /tmp --exclude /media --exclude /home/jiawzhang/Downloads --exclude /home/jiawzhang/Templates --exclude '/home/jiawzhang/VirtualBox VMs' --exclude /home/jiawzhang/BACKUP_SYSTEM -jpcvf ~/BACKUP_SYSTEM/Ubuntu-12.04-20121114-home-pc.tar.bz2 /
+```
+
+这两条命令首先在home目录新建了一个BACKUP_SYSTEM的目录用于放置备份后的tar包。随后tar命令的 --exclude 参数排除了某些你认为没有必要进行备份的目录，例如 Download, Templates 目录，同时我的案例里也排除 VirtualBox VMs 这个目录，因为安装虚拟机以后，Virtualbox所在的这个目录会极度膨胀，就没有必要把几十个G的虚拟机镜像全都备份进tar包了。-jpcvf 这个命令中：j 表示使用 bzip2 这个格式，这是一种压缩耗时但是压缩比很高的格式，经常用于压缩大数据。p 表示在压缩tar包的时候保留目标目录结构的用户权限等信息，最大程度的对文件系统做现场保护。cvf 表示创建一个压缩包，并且列出详细的压缩过程。~/BACKUP_SYSTEM/Ubuntu-12.04-20121114-home-pc.tar.bz2 则是指定了压缩包的文件名，我个人偏向于在这个文件名种写清楚版本信息，打包的时间和在哪一台机器上做的备份，有助于今后做恢复操作。这条命令的最后有一个 “/” 字符就是表示从本机的根目录开始做全盘备份，你本机的所有东西除了被 --exclude 的目录都会被打进最终的压缩包。即使是全盘备份，事前一定要甄别清楚到底哪些目录是没必要备份的，否则压缩和解压过程都会变得无法接受的漫长。
+
+开启终端运行 sh BACKUP_SYSTEM.sh 开始备份。取决于读者的备份数据的多少和机器的硬件配置备份的时长会有所不同。在笔者本机上，去除非必要目录的全盘备份花费了大约1个小时，把 40G 的资料压缩在 9G 大小的压缩包内。
+
+
+**2. 全盘恢复**
+
+恢复系统的步骤会比备份繁琐许多，以下是主要步骤，我会尽量解释每个步骤的含义。
+
+* 确保事先备份的压缩包在某个分区可以被访问到，这里假设你的备份压缩包位于/home/jiawzhang/BACKUP_SYSTEM/UBUNTU-2012-02-05.tar.bz2
+
+* 通过Ubuntu的启动U盘或者光盘重启电脑，进入试用Ubuntu的模式。
+
+* 在试用模式的Ubuntu中开启终端，运行命令
+```
+sudo su -
+```
+切换至 root 权限，取得 root 权限以后类似 fdisk -l, df -h 这些命令才能返回准确的结果。
+
+* 运行命令
+```
+sudo gparted
+```
+打开Linux下的分区软件gparted，如果提示需要安装，则运行
+```
+sudo apt-get install gparted
+```
+之后可以按照[上一篇][1]博客的分区推荐方案进行分区，如果你对自己的分区已经满意，也可以略过分区的步骤，只需要格式化 / 所在分区即可，/home 所在分区因为用于存放备份压缩包，可以选择暂时不做格式化。
+
+* 运行命令
+```
+mkdir /tmp/root
+mkdir /tmp/root2
+mount /dev/sda1 /tmp/root
+mount /dev/sda2 /tmp/root2
+cd /tmp/root2/jiawzhang/BACKUP_SYSTEM/
+sudo tar -jpxvf UBUNTU-2012-02-05.tar.bz2 -C /tmp/root
+```
+使用U盘启动到live Ubuntu模式幷不会实际上挂载你的物理分区，所以这里需要使用mount命令手动挂载你刚才格式化以后的 / 分区并且将压缩包解压导入。新建两个目录/tmp/root /tmp/root2，将分区/dev/sda1 /dev/sda2分别挂载到这两个目录。确保sda1是系统恢复以后挂载 / 目录的分区，sda2是原来/home目录挂载的分区，其中有我们需要的备份压缩包存在。挂载完毕以后，/tmp/root 对应了 sda1 分区，/tmp/root2 对应了 sda2 分区，进入 /tmp/root2/jiawzhang/BACKUP_SYSTEM 就是我们原先的备份存储的位置。运行 sudo tar -jpxvf xxx.tar.bz2 -C /tmp/root 做解压操作，jpxvf 中的 x 指解压，-C /tmp/root 则指定了需要解压的目标目录，这里实际上就是 sda1 分区所在的根目录。完成这个操作以后，所有的数据就已经被还原到 sda1 分区。你应该可以查看到类似 /tmp/root/etc /tmp/root/home/ 这样的目录，它们对应的就是原先的 /etc /home 目录。我们下面的步骤会指定启动系统的时候把 sda1 分区挂载回 / 目录，这样在系统的目录结构就完全恢复了。另外由于/home目录对应的 sda2 分区在刚才没有进行过格式化操作，此时你可以选择删除/tmp/root2/jiawzhang/下除了BACKUP_SYSTEM以外的所有数据，然后
+```
+cp /tmp/root/home/. /tmp/root2/ -r
+rm /tmp/root/home -rf
+```
+
+
+* 恢复分区的 GRUB/MBR 信息
+
+还原
+
+# IF RESTORE TO NEW DISK OR YOUR GRUB/MBR IS MESSED UP, in guest system:
+# $ sudo add-apt-repository ppa:yannubuntu/boot-repair
+# $ sudo apt-get update
+# $ sudo apt-get install -y boot-repair
+# $ 'sudo boot-repair' to repair the GRUB/MBR by clicking default recommendation.
+# $ ls -al /dev/disk/by-uuid
+# make sure /tmp/root/etc/fstab is using the uuid and / /home /swap partitions above
+# make sure /tmp/root/boot/grub/grub.cfg is using the uuid and root/swap partitions above(this should have been done by boot-repair)
+# ENDIF
+#
+# recreate the --exclude path when backup like mkdir /tmp/root/proc /tmp/root/mnt /tmp/root/tmp /tmp/root/media
+#
+# 'chmod 777 /tmp/root/tmp' otherwise, it will fail to start.
+#
+# reboot
 
 
 

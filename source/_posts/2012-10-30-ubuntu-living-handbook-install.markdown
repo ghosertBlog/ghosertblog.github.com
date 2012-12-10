@@ -173,7 +173,7 @@ Ubuntu 12.04 在切换程序这个环节因为采用特效其实也出了问题�
 
 **2. 开启终端，输入安装deb包的命令：**
 ```
-dpkg -i dropbox_1.4.0_amd64.deb
+sudo dpkg -i dropbox_1.4.0_amd64.deb
 ```
 dpkg 是一个比 apt-get 更低阶的安装命令，apt-get 命令下载的就是 .deb 文件，然后调用 dpkg -i 进行安装， 以上命令只是安装了 Dropbox 的 GUI 壳，运行以后会继续下载 Dropbox daemon 程序，由于 GFW 的阻挠，这个过程无法进行。读者选择退出 Dropbox 即可。
 

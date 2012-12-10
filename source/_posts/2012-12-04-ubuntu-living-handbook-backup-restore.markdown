@@ -108,7 +108,7 @@ sudo apt-get install gparted
 ```
 之后可以按照[上一篇][1]博客的分区推荐方案进行分区，如果你对自己的分区已经满意，也可以略过分区的步骤，只需要格式化 / 所在分区即可，/home 所在分区因为用于存放备份压缩包，可以选择暂时不做格式化。
 
-* 运行命令
+* 解压备份压缩包
 ```
 mkdir /tmp/root
 mkdir /tmp/root2
@@ -174,7 +174,7 @@ chmod 777 /tmp/root/tmp
 
 * 新建分区
 
-在Windows下使用分区工具将从现有的分区中划分出两个分区，假设分别叫做 /dev/sda5 用作安装系统， /dev/sda6 用作 swap 分区。
+在Windows下使用分区工具从现有的分区中划分出两个分区，假设分别叫做 /dev/sda5 用作安装系统， /dev/sda6 用作 swap 分区。（如果需要独立的/home分区，可以再多分一个）
 
 * 进入Wubi系统
 
@@ -185,6 +185,7 @@ chmod 777 /tmp/root/tmp
 sudo zxvf wubi-move.tar.gz
 sudo bash wubi-move.sh /dev/sda5 /dev/sda6
 ```
+如果有独立的/home分区，读者可以再参考之前的**解压备份压缩包**小节中恢复/home分区数据的部分。
 
 * 重启计算机
 

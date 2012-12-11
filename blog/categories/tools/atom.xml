@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[张佳伟的博客]]></title>
-  <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Tools | 张佳伟的博客]]></title>
+  <link href="http://ghosertBlog.github.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
   <updated>2012-12-10T14:23:39+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
@@ -20,11 +20,11 @@
     <id>http://ghosertBlog.github.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore</id>
     <content type="html"><![CDATA[<h2>Ubuntu系统备份恢复升级策略</h2>
 
-<p>继续上篇的内容，在最初使用开发者系统的时候，无论是<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">构建Ubuntu系统基础设施</a>，还是安装配置各种软件都是一个费心劳力的过程：由于开发者系统是一个需要付出脑力成本换取高效率的系统，它因此被设计成一个高可定制又极度自由的系统，暂且不说你可以自由地从编译源码的方式配置安装整个操作系统，即便是大多数的常用软件例如：vi，emacs等等通过变更配置文件都可以玩出无数的操作方式，用户需要花费时间去变更尝试这些配置，使得操作这些软件的方式最符合自己的习惯，达到高效的目的。因此经过一段时间调配，每一个Linux用户都会有一个自己专属的高效系统，有1000个用户就会有1000个专属高效系统，每一个系统上安装的软件和配置方法都各不一样，并且每一个用户在打造这个专属系统的过程中都会耗费大量的精力和时间。丢失自己的专属系统，就意味着时间精力的丢失，对于一个长期使用Linux的用户更是如此：用户已经在这个系统上积累太多软件和操作习惯，如果因为系统崩溃而需要从头开始配置一个全新的系统，在事前又没有任何备份措施，那剩下的简直就是一场灾难。这也是有经验的Linux用户很注意备份的原因。介于此，笔者在本章节结合自己的一些经验来介绍一下Ubuntu系统的备份恢复以及升级策略:</p>
+<p>继续上篇的内容，在最初使用开发者系统的时候，无论是<a href="/blog/2012/10/30/ubuntu-living-handbook-install/">构建Ubuntu系统基础设施</a>，还是安装配置各种软件都是一个费心劳力的过程：由于开发者系统是一个需要付出脑力成本换取高效率的系统，它因此被设计成一个高可定制又极度自由的系统，暂且不说你可以自由地从编译源码的方式配置安装整个操作系统，即便是大多数的常用软件例如：vi，emacs等等通过变更配置文件都可以玩出无数的操作方式，用户需要花费时间去变更尝试这些配置，使得操作这些软件的方式最符合自己的习惯，达到高效的目的。因此经过一段时间调配，每一个Linux用户都会有一个自己专属的高效系统，有1000个用户就会有1000个专属高效系统，每一个系统上安装的软件和配置方法都各不一样，并且每一个用户在打造这个专属系统的过程中都会耗费大量的精力和时间。丢失自己的专属系统，就意味着时间精力的丢失，对于一个长期使用Linux的用户更是如此：用户已经在这个系统上积累太多软件和操作习惯，如果因为系统崩溃而需要从头开始配置一个全新的系统，在事前又没有任何备份措施，那剩下的简直就是一场灾难。这也是有经验的Linux用户很注意备份的原因。介于此，笔者在本章节结合自己的一些经验来介绍一下Ubuntu系统的备份恢复以及升级策略:</p>
 
 <ol>
-<li>脚本恢复策略 &#8212; 完全格式化更新</li>
-<li>脚本恢复策略 &#8212; 沿用/home分区数据</li>
+<li>脚本恢复策略 --- 完全格式化更新</li>
+<li>脚本恢复策略 --- 沿用/home分区数据</li>
 <li>tar包全盘备份恢复策略</li>
 <li>迁徙wubi系统到物理分区</li>
 <li>Ubuntu系统升级策略</li>
@@ -34,9 +34,9 @@
 <!--more-->
 
 
-<h2>脚本恢复策略 &#8212; 完全格式化更新</h2>
+<h2>脚本恢复策略 --- 完全格式化更新</h2>
 
-<p>我们前面介绍过Ubuntu系统的一个特色就是可以从自己的源通过<strong>apt-get</strong>命令来下载需要的软件，因此用户可以建立一个脚本文件，通过写入常用的<strong>apt-get install</strong>命令的方式来备份需要的软件(参见<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>中的<strong>在云端保存一个软件安装的脚本</strong>部分)，同时在这个脚本文件中加入某些需要手工干预的个性化配置的具体步骤，例如：更改激活拼音输入法快捷键的具体步骤(大多数拼音输入法抢占了ctrl+space，如果不更改，开发者用户就无法在诸如Eclipse这样的IDE里使用这个快捷键激活智能代码提示的功能)，又例如：你可能对 Firefox 的默认字体并不满意，需要替换一下，这些详细的步骤都应该以注释的形式记录在这个脚本里，如果这些步骤实在太过繁琐，也可以在配置以后，找到对应的配置文件，直接保存在Dropbox里，方便今后直接从云端恢复这些配置到本机。例如，你自己定制化了Vim的行为并且加装了Vim插件，那你只需要将~/.vimrc ~/.vim备份在云端即可。</p>
+<p>我们前面介绍过Ubuntu系统的一个特色就是可以从自己的源通过<strong>apt-get</strong>命令来下载需要的软件，因此用户可以建立一个脚本文件，通过写入常用的<strong>apt-get install</strong>命令的方式来备份需要的软件(参见<a href="/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>中的<strong>在云端保存一个软件安装的脚本</strong>部分)，同时在这个脚本文件中加入某些需要手工干预的个性化配置的具体步骤，例如：更改激活拼音输入法快捷键的具体步骤(大多数拼音输入法抢占了ctrl+space，如果不更改，开发者用户就无法在诸如Eclipse这样的IDE里使用这个快捷键激活智能代码提示的功能)，又例如：你可能对 Firefox 的默认字体并不满意，需要替换一下，这些详细的步骤都应该以注释的形式记录在这个脚本里，如果这些步骤实在太过繁琐，也可以在配置以后，找到对应的配置文件，直接保存在Dropbox里，方便今后直接从云端恢复这些配置到本机。例如，你自己定制化了Vim的行为并且加装了Vim插件，那你只需要将~/.vimrc ~/.vim备份在云端即可。</p>
 
 <p>所以一旦建立了这样一个脚本文件，即使需要重装系统或者面对一台全新的计算机，只需要执行这个脚本文件，查看脚本里的注释记录，就可以保证软件没有丢失，配置软件的步骤可以还原，重要的资料都被存储在云端：Dropbox（二进制文件），GitHub（文本文件，以后详述）。自然这个策略的前提是：你在使用系统的时候必须保持勤于更新脚本的习惯，用于日后的系统恢复。</p>
 
@@ -48,13 +48,13 @@
 
 <p>由于没有采用全盘备份的方式，这种备份恢复策略的缺点同样明显，尽管可以保证在升级以后，计算机的原始面貌不会有任何丢失，但是相对来说，手动恢复许多软件的配置仍旧需要投入相当的时间和精力，即使在备份策略完善的前提下，笔者通过这种方式将Ubuntu 10.04升级到12.04的时候仍然花费了整整5天的国庆长假。因此个人建议只在每隔两年发布一次的LTS版本出现的时候才做这样的升级，以此保证计算机的全新状态。</p>
 
-<h2>脚本恢复策略 &#8212; 沿用/home分区数据</h2>
+<h2>脚本恢复策略 --- 沿用/home分区数据</h2>
 
 <p>我们前面提到过独立/home分区的原因在于用户大多数重要的个性化配置和数据都保存在这个目录，以至于Ubuntu官方的云端备份软件Ubuntu One在默认情况下就是协助用户备份/home分区所在的数据到云端。因此如果可以在重装系统的时候沿用这个分区的数据，无疑可以为我们节省大量的数据恢复和配置恢复的时间，更何况某些数据如电影，照片可能占据几百个G的空间，没有独立/home分区，用户在重装系统，格式化分区的时候根本就没有可以容纳那么大数据的第二个媒介做临时的备份，除非你有第二块硬盘。另一方面在恢复系统的时候因为配置和数据仍旧在/home目录，你只需要执行前面提到的脚本重新安装软件即可，无需手工还原配置软件的步骤。</p>
 
-<p>为了使用这种恢复策略，在首次安装Ubuntu的时候可以参考<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案独立出/home分区，在使用系统的过程中时刻保证只在这个目录下存储自己重要的数据和配置，如果一定有一些特例状况也一定要在恢复脚本中加以记录，在云端有另外的备份措施。只要你的/home分区没有被损坏，再次恢复的代价就相当的小。重装系统的时候可以格式化 / 目录所挂载的分区，但是记得在以下Installation type界面上千万不要选择格式化 /home 所在的分区，否则就无法沿用这个分区的数据。</p>
+<p>为了使用这种恢复策略，在首次安装Ubuntu的时候可以参考<a href="/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案独立出/home分区，在使用系统的过程中时刻保证只在这个目录下存储自己重要的数据和配置，如果一定有一些特例状况也一定要在恢复脚本中加以记录，在云端有另外的备份措施。只要你的/home分区没有被损坏，再次恢复的代价就相当的小。重装系统的时候可以格式化 / 目录所挂载的分区，但是记得在以下Installation type界面上千万不要选择格式化 /home 所在的分区，否则就无法沿用这个分区的数据。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
+<p><img src="/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
 
 <p><strong>优点</strong></p>
 
@@ -82,21 +82,18 @@
 
 <p>新建一个脚本文件BACKUP_SYSTEM.sh，在其中添加以下内容：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir ~/BACKUP_SYSTEM
-</span><span class='line'>sudo tar --exclude /proc --exclude /mnt --exclude /tmp --exclude /media --exclude /home/jiawzhang/Downloads --exclude /home/jiawzhang/Templates --exclude '/home/jiawzhang/VirtualBox VMs' --exclude /home/jiawzhang/BACKUP_SYSTEM -jpcvf ~/BACKUP_SYSTEM/Ubuntu-12.04-20121114-home-pc.tar.bz2 /</span></code></pre></td></tr></table></div></figure>
+<p><code>
+mkdir ~/BACKUP_SYSTEM
+sudo tar --exclude /proc --exclude /mnt --exclude /tmp --exclude /media --exclude /home/jiawzhang/Downloads --exclude /home/jiawzhang/Templates --exclude '/home/jiawzhang/VirtualBox VMs' --exclude /home/jiawzhang/BACKUP_SYSTEM -jpcvf ~/BACKUP_SYSTEM/Ubuntu-12.04-20121114-home-pc.tar.bz2 /
+</code></p>
 
+<p>这两条命令首先在home目录新建了一个BACKUP_SYSTEM的目录用于放置备份后的tar包。随后tar命令的 --exclude 参数排除了某些你认为没有必要进行备份的目录，例如 Download, Templates 目录，同时我的案例里也排除 VirtualBox VMs 这个目录，因为安装虚拟机以后，Virtualbox所在的这个目录会极度膨胀，我们没有必要把几十个G的虚拟机镜像全都备份进tar包。-jpcvf 这个命令中：j 表示使用 bzip2 格式打包，这是一种压缩耗时但是压缩比很高的格式，经常用于压缩大数据。p 表示在制作tar包的时候保留目录结构的用户权限信息，最大程度的对文件系统做现场保护。cvf 表示创建一个压缩包，并且列出详细的压缩过程。~/BACKUP_SYSTEM/Ubuntu-12.04-20121114-home-pc.tar.bz2 指定了压缩包的文件名，我个人偏向于在这个文件名里写清楚版本信息，打包的时间和在哪一台机器上做的备份，有助于今后做恢复操作。这条命令的最后有一个 “/” 字符就是表示从本机的根目录开始做全盘备份，你本机的所有东西除了被 --exclude 的目录都会被打进最终的压缩包。即使是全盘备份，事前一定要甄别清楚到底哪些目录是没必要备份的，否则压缩和解压过程都会变得无法接受的漫长。</p>
 
-<p>这两条命令首先在home目录新建了一个BACKUP_SYSTEM的目录用于放置备份后的tar包。随后tar命令的 &#8211;exclude 参数排除了某些你认为没有必要进行备份的目录，例如 Download, Templates 目录，同时我的案例里也排除 VirtualBox VMs 这个目录，因为安装虚拟机以后，Virtualbox所在的这个目录会极度膨胀，我们没有必要把几十个G的虚拟机镜像全都备份进tar包。-jpcvf 这个命令中：j 表示使用 bzip2 格式打包，这是一种压缩耗时但是压缩比很高的格式，经常用于压缩大数据。p 表示在制作tar包的时候保留目录结构的用户权限信息，最大程度的对文件系统做现场保护。cvf 表示创建一个压缩包，并且列出详细的压缩过程。~/BACKUP_SYSTEM/Ubuntu-12.04-20121114-home-pc.tar.bz2 指定了压缩包的文件名，我个人偏向于在这个文件名里写清楚版本信息，打包的时间和在哪一台机器上做的备份，有助于今后做恢复操作。这条命令的最后有一个 “/” 字符就是表示从本机的根目录开始做全盘备份，你本机的所有东西除了被 &#8211;exclude 的目录都会被打进最终的压缩包。即使是全盘备份，事前一定要甄别清楚到底哪些目录是没必要备份的，否则压缩和解压过程都会变得无法接受的漫长。</p>
-
-<p>开启终端运行 sh BACKUP_SYSTEM.sh 开始备份。取决于用户备份数据的多少和硬件配置的好坏，备份的时长会有所不同。在笔者本机上，去除非必要目录的全盘备份花费了大约1个小时，把 40G 的资料压缩在 9G 大小的压缩包内。如果你想时刻了解压缩的进度，可以开启另一个终端，运行以下命令：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>watch -d -n 5 ls -alh ~/BACKUP_SYSTEM/</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这个watch命令用于每隔5秒执行一遍随后的 &#8216;ls -alh ~/BASHUP_SYSTEM/&#8217; 幷高亮出两次执行之间的不同，因此你可以观察到正在制作中的压缩包大小的变化。</p>
+<p>开启终端运行 sh BACKUP_SYSTEM.sh 开始备份。取决于用户备份数据的多少和硬件配置的好坏，备份的时长会有所不同。在笔者本机上，去除非必要目录的全盘备份花费了大约1个小时，把 40G 的资料压缩在 9G 大小的压缩包内。如果你想时刻了解压缩的进度，可以开启另一个终端，运行以下命令：
+<code>
+watch -d -n 5 ls -alh ~/BACKUP_SYSTEM/
+</code>
+这个watch命令用于每隔5秒执行一遍随后的 'ls -alh ~/BASHUP_SYSTEM/' 幷高亮出两次执行之间的不同，因此你可以观察到正在制作中的压缩包大小的变化。</p>
 
 <p><strong>2. 全盘恢复</strong></p>
 
@@ -105,119 +102,80 @@
 <ul>
 <li><p>确保事先备份的压缩包在某个分区可以被访问到，这里假设你的备份压缩包位于/home/jiawzhang/BACKUP_SYSTEM/UBUNTU-2012-02-05.tar.bz2</p></li>
 <li><p>通过Ubuntu的启动U盘或者光盘重启电脑，进入试用Ubuntu的模式。</p></li>
-<li><p>在试用模式的Ubuntu中开启终端，运行命令</p></li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo su -</span></code></pre></td></tr></table></div></figure>
-
-
-<p>切换至 root 权限，取得 root 权限以后类似 fdisk -l, df -h 这些命令才能返回准确的结果。</p>
-
-<ul>
-<li>运行命令</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo gparted</span></code></pre></td></tr></table></div></figure>
-
-
-<p>打开Linux下的分区软件gparted，如果提示需要安装，则运行</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install gparted</span></code></pre></td></tr></table></div></figure>
-
-
-<p>之后可以按照<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案进行分区，如果你对自己的分区已经满意，也可以略过分区的步骤，只需要格式化 / 所在分区即可，/home 所在分区因为用于存放备份压缩包，可以选择暂时不做格式化。</p>
-
-<ul>
-<li>解压备份压缩包</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir /tmp/root
-</span><span class='line'>mkdir /tmp/root2
-</span><span class='line'>mount /dev/sda1 /tmp/root
-</span><span class='line'>mount /dev/sda2 /tmp/root2
-</span><span class='line'>cd /tmp/root2/jiawzhang/BACKUP_SYSTEM/
-</span><span class='line'>sudo tar -jpxvf UBUNTU-2012-02-05.tar.bz2 -C /tmp/root</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用U盘启动到live Ubuntu模式幷不会实际上挂载你的物理分区，所以这里需要使用mount命令手动挂载你刚才格式化以后的 / 分区并且将压缩包解压导入。新建两个目录/tmp/root /tmp/root2，将分区/dev/sda1 /dev/sda2分别挂载到这两个目录。确保sda1是系统恢复以后挂载 / 目录的分区，sda2是原来/home目录挂载的分区，其中有我们需要的备份压缩包存在。挂载完毕以后，/tmp/root 对应了 sda1 分区，/tmp/root2 对应了 sda2 分区，进入 /tmp/root2/jiawzhang/BACKUP_SYSTEM 就是我们原先的备份存储的位置。运行 sudo tar -jpxvf xxx.tar.bz2 -C /tmp/root 做解压操作，jpxvf 中的 x 指解压，-C /tmp/root 则指定了需要解压的目标目录，这里实际上就是 sda1 分区所在的根目录。完成这个操作以后，所有的数据就已经被还原到 sda1 分区。你应该可以查看到类似 /tmp/root/etc， /tmp/root/home/ 这样的目录，它们对应的目录就是原先的 /etc， /home。我们下面的步骤会指定启动系统的时候把 sda1 分区挂载回 / 目录，sda2分区挂载回 /home 目录，这样在系统的目录结构就完全恢复了。另外由于/home目录对应的 sda2 分区之前没有进行过格式化操作，<strong>此时你可以选择删除/tmp/root2/jiawzhang/下除了BACKUP_SYSTEM以外的所有数据</strong>，然后运行</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cp /tmp/root/home/. /tmp/root2/ -r
-</span><span class='line'>rm /tmp/root/home -rf</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将刚才从备份压缩包中解压出的/tmp/root/home部分的数据重新拷贝到/tmp/root2，然后删除/tmp/root/home，即完成了从sda1分区转移恢复后的home数据到sda2分区的工作：sda2 分区是过后用来挂载 /home 目录的分区，理应把home下的数据恢复在这个分区。</p>
-
-<ul>
-<li>恢复分区的 GRUB/MBR 信息</li>
+<li><p>在试用模式的Ubuntu中开启终端，运行命令
+<code>
+sudo su -
+</code>
+切换至 root 权限，取得 root 权限以后类似 fdisk -l, df -h 这些命令才能返回准确的结果。</p></li>
+<li><p>运行命令
+<code>
+sudo gparted
+</code>
+打开Linux下的分区软件gparted，如果提示需要安装，则运行
+<code>
+sudo apt-get install gparted
+</code>
+之后可以按照<a href="/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案进行分区，如果你对自己的分区已经满意，也可以略过分区的步骤，只需要格式化 / 所在分区即可，/home 所在分区因为用于存放备份压缩包，可以选择暂时不做格式化。</p></li>
+<li><p>解压备份压缩包
+<code>
+mkdir /tmp/root
+mkdir /tmp/root2
+mount /dev/sda1 /tmp/root
+mount /dev/sda2 /tmp/root2
+cd /tmp/root2/jiawzhang/BACKUP_SYSTEM/
+sudo tar -jpxvf UBUNTU-2012-02-05.tar.bz2 -C /tmp/root
+</code>
+使用U盘启动到live Ubuntu模式幷不会实际上挂载你的物理分区，所以这里需要使用mount命令手动挂载你刚才格式化以后的 / 分区并且将压缩包解压导入。新建两个目录/tmp/root /tmp/root2，将分区/dev/sda1 /dev/sda2分别挂载到这两个目录。确保sda1是系统恢复以后挂载 / 目录的分区，sda2是原来/home目录挂载的分区，其中有我们需要的备份压缩包存在。挂载完毕以后，/tmp/root 对应了 sda1 分区，/tmp/root2 对应了 sda2 分区，进入 /tmp/root2/jiawzhang/BACKUP_SYSTEM 就是我们原先的备份存储的位置。运行 sudo tar -jpxvf xxx.tar.bz2 -C /tmp/root 做解压操作，jpxvf 中的 x 指解压，-C /tmp/root 则指定了需要解压的目标目录，这里实际上就是 sda1 分区所在的根目录。完成这个操作以后，所有的数据就已经被还原到 sda1 分区。你应该可以查看到类似 /tmp/root/etc， /tmp/root/home/ 这样的目录，它们对应的目录就是原先的 /etc， /home。我们下面的步骤会指定启动系统的时候把 sda1 分区挂载回 / 目录，sda2分区挂载回 /home 目录，这样在系统的目录结构就完全恢复了。另外由于/home目录对应的 sda2 分区之前没有进行过格式化操作，<strong>此时你可以选择删除/tmp/root2/jiawzhang/下除了BACKUP_SYSTEM以外的所有数据</strong>，然后运行
+<code>
+cp /tmp/root/home/. /tmp/root2/ -r
+rm /tmp/root/home -rf
+</code>
+将刚才从备份压缩包中解压出的/tmp/root/home部分的数据重新拷贝到/tmp/root2，然后删除/tmp/root/home，即完成了从sda1分区转移恢复后的home数据到sda2分区的工作：sda2 分区是过后用来挂载 /home 目录的分区，理应把home下的数据恢复在这个分区。</p></li>
+<li><p>恢复分区的 GRUB/MBR 信息</p></li>
 </ul>
 
 
 <p>经过格式化，分区等等步骤以后，即便你是在现有硬盘上恢复自己的系统，分区的 uuid 都可能已经被改变，因此当初备份在压缩备份包里的启动引导信息诸如：GRUB/MBR都已经不再和目前实际的信息相匹配，我们因此要做修复工作。</p>
 
-<p>仍旧在 live ubuntu 模式下运行：</p>
+<p>仍旧在 live ubuntu 模式下运行：
+<code>
+$ sudo add-apt-repository ppa:yannubuntu/boot-repair
+$ sudo apt-get update
+$ sudo apt-get install -y boot-repair
+$ sudo boot-repair
+</code>
+下载运行启动修复软件 boot-repair，启动后点击默认推荐方式即可。如果想了解这个软件具体做了哪些工作，可以在这里参看<a href="http://ubuntuforums.org/showthread.php?t=224351">手工修复</a>的步骤。不过由于笔者并未验证其正确性，不能保证一定可用。
+<code>
+$ ls -al /dev/disk/by-uuid
+</code>
+再次查看各个分区的 uuid 信息，确保这些 uuid 和 /tmp/root/etc/fstab 中使用的 uuid 一致， 需要挂载的 /， /home，swap 在 /tmp/root/etc/fstab 中也和相应的 uuid 匹配。因为我们恢复的备份使用的是旧有的 uuid 信息，如果不一致：手工打开/tmp/root/etc/fstab这个文件做更正，主要工作就是替换其中的 uuid 字符串和上述命令中的一致。在启动系统的时候，/etc/fstab 这个文件指定了分别挂载sda1 sda2 sda3分区到 /，/home，swap，如果没有正确的 uuid 以及分区目录挂载匹配，系统就无法正确启动。大家可以大致参看一下 /etc/fstab 这个文件的内容片段：
+```</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo add-apt-repository ppa:yannubuntu/boot-repair
-</span><span class='line'>$ sudo apt-get update
-</span><span class='line'>$ sudo apt-get install -y boot-repair
-</span><span class='line'>$ sudo boot-repair</span></code></pre></td></tr></table></div></figure>
+<h1>/ was on /dev/sda1 during installation</h1>
 
+<p>UUID=f381f8cd-ca11-4227-b9ce-8de330bf0e9f /               ext4    errors=remount-ro 0       1</p>
 
-<p>下载运行启动修复软件 boot-repair，启动后点击默认推荐方式即可。如果想了解这个软件具体做了哪些工作，可以在这里参看<a href="http://ubuntuforums.org/showthread.php?t=224351">手工修复</a>的步骤。不过由于笔者并未验证其正确性，不能保证一定可用。</p>
+<h1>/home was on /dev/sda2 during installation</h1>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls -al /dev/disk/by-uuid</span></code></pre></td></tr></table></div></figure>
+<p>UUID=b4b376c7-9ef0-48dc-9f50-28decd899190 /home           ext4    defaults        0       2</p>
 
+<h1>swap was on /dev/sda3 during installation</h1>
 
-<p>再次查看各个分区的 uuid 信息，确保这些 uuid 和 /tmp/root/etc/fstab 中使用的 uuid 一致， 需要挂载的 /， /home，swap 在 /tmp/root/etc/fstab 中也和相应的 uuid 匹配。因为我们恢复的备份使用的是旧有的 uuid 信息，如果不一致：手工打开/tmp/root/etc/fstab这个文件做更正，主要工作就是替换其中的 uuid 字符串和上述命令中的一致。在启动系统的时候，/etc/fstab 这个文件指定了分别挂载sda1 sda2 sda3分区到 /，/home，swap，如果没有正确的 uuid 以及分区目录挂载匹配，系统就无法正确启动。大家可以大致参看一下 /etc/fstab 这个文件的内容片段：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># / was on /dev/sda1 during installation
-</span><span class='line'>UUID=f381f8cd-ca11-4227-b9ce-8de330bf0e9f /               ext4    errors=remount-ro 0       1
-</span><span class='line'># /home was on /dev/sda2 during installation
-</span><span class='line'>UUID=b4b376c7-9ef0-48dc-9f50-28decd899190 /home           ext4    defaults        0       2
-</span><span class='line'># swap was on /dev/sda3 during installation
-</span><span class='line'>UUID=d770aa08-a3f3-4469-a682-f161cff16135 none            swap    sw              0       0</span></code></pre></td></tr></table></div></figure>
-
-
-<p>另外如果你加装第二块硬盘以后也可以通过 &#8216;ls -al /dev/disk/by-uuid&#8217; 查看新硬盘的 uuid，幷新建这块硬盘分区对应的挂载目录以后，将这些信息一并写入 /etc/fstab，这样，系统在启动以后就会自动加载你的新硬盘分区。</p>
+<p>UUID=d770aa08-a3f3-4469-a682-f161cff16135 none            swap    sw              0       0
+```
+另外如果你加装第二块硬盘以后也可以通过 'ls -al /dev/disk/by-uuid' 查看新硬盘的 uuid，幷新建这块硬盘分区对应的挂载目录以后，将这些信息一并写入 /etc/fstab，这样，系统在启动以后就会自动加载你的新硬盘分区。</p>
 
 <ul>
 <li>重建系统目录</li>
 </ul>
 
 
-<p>这些目录就是我们当初做备份时加在 &#8211;exclude 参数后面的目录。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir /tmp/root/proc /tmp/root/mnt /tmp/root/tmp /tmp/root/media
-</span><span class='line'>chmod 777 /tmp/root/tmp</span></code></pre></td></tr></table></div></figure>
-
-
-<p>记得一定要赋予 /tmp/root/tmp 777 权限，这是一个系统级别的临时目录，需要完全的读写权限，否则你的系统无法启动成功，我自己在最初实践全盘备份恢复的时候就因为忽视了这个小细节，导致屡次恢复系统失败，差点放弃。</p>
+<p>这些目录就是我们当初做备份时加在 --exclude 参数后面的目录。
+<code>
+mkdir /tmp/root/proc /tmp/root/mnt /tmp/root/tmp /tmp/root/media
+chmod 777 /tmp/root/tmp
+</code>
+记得一定要赋予 /tmp/root/tmp 777 权限，这是一个系统级别的临时目录，需要完全的读写权限，否则你的系统无法启动成功，我自己在最初实践全盘备份恢复的时候就因为忽视了这个小细节，导致屡次恢复系统失败，差点放弃。</p>
 
 <ul>
 <li>重启计算机</li>
@@ -245,15 +203,12 @@
 </ul>
 
 
-<p><a href="http://ghosertBlog.github.com/files/wubi-move.tar.gz">点击下载</a>Wubi移植脚本后解压运行</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo zxvf wubi-move.tar.gz
-</span><span class='line'>sudo bash wubi-move.sh /dev/sda5 /dev/sda6</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果有独立的/home分区，读者可参考前面<strong>解压备份压缩包</strong>小节中恢复/home分区数据的部分。</p>
+<p><a href="/files/wubi-move.tar.gz">点击下载</a>Wubi移植脚本后解压运行
+<code>
+sudo zxvf wubi-move.tar.gz
+sudo bash wubi-move.sh /dev/sda5 /dev/sda6
+</code>
+如果有独立的/home分区，读者可参考前面<strong>解压备份压缩包</strong>小节中恢复/home分区数据的部分。</p>
 
 <ul>
 <li>重启计算机</li>
@@ -276,9 +231,9 @@
 
 <p><strong>方式</strong></p>
 
-<p>虽然Ubuntu自己也提供了&#8217;sudo apt-get dist-upgrade&#8217;这样的命令做发行版之间的大升级，但是从一些用户反馈来看效果并不理想，采用这种方式升级的系统总会存在各种问题。因此还是建议读者可以参照本文前面的备份恢复策略进行跨大版本的升级，一般这样的升级不会有太多问题，除非某些软件的差异过大，用户自行适应一段时间即可。另一方面在 Ubuntu Server 上做大版本升级的时候，我又推荐使用&#8217;sudo apt-get dist-upgrade&#8217;这种方式，其一没有GUI软件的升级会更平滑，其二以我自己的实践：在 Server 端做这样的升级会相当顺利，运行apt命令以后，只用了半小时就完成了Ubuntu版本的升级和全部软件的更新。</p>
+<p>虽然Ubuntu自己也提供了'sudo apt-get dist-upgrade'这样的命令做发行版之间的大升级，但是从一些用户反馈来看效果并不理想，采用这种方式升级的系统总会存在各种问题。因此还是建议读者可以参照本文前面的备份恢复策略进行跨大版本的升级，一般这样的升级不会有太多问题，除非某些软件的差异过大，用户自行适应一段时间即可。另一方面在 Ubuntu Server 上做大版本升级的时候，我又推荐使用'sudo apt-get dist-upgrade'这种方式，其一没有GUI软件的升级会更平滑，其二以我自己的实践：在 Server 端做这样的升级会相当顺利，运行apt命令以后，只用了半小时就完成了Ubuntu版本的升级和全部软件的更新。</p>
 
-<p><strong>未完待续&#8230;&#8230;</strong></p>
+<p><strong>未完待续......</strong></p>
 ]]></content>
   </entry>
   
@@ -307,7 +262,7 @@
 
 <h2>从U盘安装系统</h2>
 
-<p><a href="http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中我们提到过，虽然 Ubuntu 的发行安装方式众多，我们仍然推荐从硬盘开始安装。另一方面比起光盘，相信很多同学也了解U盘的优势：易于携带，保存，复制。这里不再敷陈，我们就从制作启动U盘说起。</p>
+<p><a href="/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中我们提到过，虽然 Ubuntu 的发行安装方式众多，我们仍然推荐从硬盘开始安装。另一方面比起光盘，相信很多同学也了解U盘的优势：易于携带，保存，复制。这里不再敷陈，我们就从制作启动U盘说起。</p>
 
 <p><strong>1. 下载 Ubuntu ISO 文件</strong></p>
 
@@ -317,19 +272,19 @@
 
 <p>在 Windows 下访问 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a> 的主页，这个Ubuntu官方推荐的绿色小工具就是帮助用户在手头没有 Ubuntu 的情况下，使用 Windows 来制作启动U盘。这个页面不仅包括了工具的下载链接，同时也包含了详细的操作步骤，同学们准备好1G容量以上的U盘和刚才下载到的ISO文件，按部就班操作即可。制作U盘的时候注意相应的选项，按我个人的经验它制作出的启动U盘质量相当高，甚至超越了Ubuntu下自带的工具。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/Universal-USB-Installer.png" alt="Universal-USB-Installer" /></p>
+<p><img src="/images/ubuntu_living_handbook/Universal-USB-Installer.png" alt="Universal-USB-Installer" /></p>
 
 <p><strong>3. 从 Ubuntu 制作启动U盘</strong></p>
 
 <p>如果你手头有一台安装完毕的 Ubuntu 系统，你也可以通过启动 Startup Disk Creator 这个系统自带的工具制作启动U盘。注意如果你是跨版本的制作相应的启动盘可能会存在问题，笔者曾经在Ubuntu 10.04下使用这个工具制作基于12.04 ISO的启动盘，结果启动盘无法启动电脑，花了一个晚上才搞清楚原来是跨版本引发的问题，最后切换到 Windows 下的 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a> 才解决问题。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/startup-disk-creator.png" alt="startup-disk-creator" /></p>
+<p><img src="/images/ubuntu_living_handbook/startup-disk-creator.png" alt="startup-disk-creator" /></p>
 
 <p><strong>4. Ubuntu 分区推荐方案</strong></p>
 
 <p>在安装之前，我们先分析一下 Ubuntu 桌面系统的分区方案。</p>
 
-<p>要了解分区方案，先从 Linux 系统的目录结构说起。使用 Windows 系统的用户都知道，Windows 系统先有分区的存在，然后在不同的分区下创建文件目录结构。于是我们看到诸如 C:\Windows D:\Downloads 之类目录，也就是说每一个目录首先是存在于某个分区的。Linux 系统则相反，它首先确定有目录的存在，例如：/， /usr， /media/usb，/media/cdrom， /disk 然后才确定这个目录上挂载的是哪个分区（甚至挂载的可能是CDROM， USB等外设以及ISO光盘镜像文件：类似 Windows 下虚拟光驱的作用）。访问某个目录，实质上就相当于访问挂载在这个目录上的分区，外设或者光盘镜像文件。我们在 <a href="http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中提到过一个系统存储重要数据的目录： <strong>/home</strong> 目录， 在通常的最佳实践中，可以把这个 home 目录作为一个单独的挂载点，挂载一个独立分区。这样做有几个好处：</p>
+<p>要了解分区方案，先从 Linux 系统的目录结构说起。使用 Windows 系统的用户都知道，Windows 系统先有分区的存在，然后在不同的分区下创建文件目录结构。于是我们看到诸如 C:\Windows D:\Downloads 之类目录，也就是说每一个目录首先是存在于某个分区的。Linux 系统则相反，它首先确定有目录的存在，例如：/， /usr， /media/usb，/media/cdrom， /disk 然后才确定这个目录上挂载的是哪个分区（甚至挂载的可能是CDROM， USB等外设以及ISO光盘镜像文件：类似 Windows 下虚拟光驱的作用）。访问某个目录，实质上就相当于访问挂载在这个目录上的分区，外设或者光盘镜像文件。我们在 <a href="/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中提到过一个系统存储重要数据的目录： <strong>/home</strong> 目录， 在通常的最佳实践中，可以把这个 home 目录作为一个单独的挂载点，挂载一个独立分区。这样做有几个好处：</p>
 
 <ol>
 <li>系统分区如果损坏，幷不影响到 /home 分区所在的数据。这些数据通常非常重要，包括有你常用的软件，重要的文档以及各类软件的配置信息，反过来我们也鼓励把重要的数据存放在 /home 目录下，使得他们保存在系统分区以外的分区，避免因为系统的问题受损。</li>
@@ -358,62 +313,50 @@
 
 <p>大致的效果图如下（忽略分区尺寸一项，随意填的）</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
+<p><img src="/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
 
-<h2>高速下载软件&#8212;关于Ubuntu源</h2>
+<h2>高速下载软件---关于Ubuntu源</h2>
 
 <p><strong>1. 官方Ubuntu源</strong></p>
 
 <p>安装完系统以后，我们来聊聊软件安装的问题。之前，我们说到通过强大的 <strong>apt-get</strong> 命令从网络上下载，安装软件的方式，而运行这个命令时，系统又是通过查询软件所在的 <strong>Ubuntu源</strong> 来了解从互联网的什么地址去下载软件，那么对于动辄上百兆或者数量繁多的软件来说，从你的 PC 到 <strong>Ubuntu源</strong> 之间的网速就决定了你安装下载软件的速度。一个新安装完毕的系统，默认选择的是美国服务器作为 <strong>Ubuntu源</strong>，因此我们需要选择更快的国内镜像作为系统的源来下载安装软件。具体步骤：</p>
 
 <ul>
-<li>Ctrl+Alt+t打开终端，输入: update-manager</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~$ update-manager</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
+<li>Ctrl+Alt+t打开终端，输入: update-manager
+<code>
+jiawzhang@home-pc:~$ update-manager
+</code></li>
 <li>点击左下角Setting按钮，进入Ubuntu Software选项卡，点击Download from下拉列表中的Other项。</li>
 <li>在弹出的对框中，点击Select Best Server来进行源的测试工作。</li>
 </ul>
 
 
-<p>但实际上，考察一个源是不是足够好，光看速度并不正确，有时一个速度很快的源如果缺少某些软件，仍然会造成困扰。按笔者的经验，在国内可以直接选择http://ubuntu.cn99.com/ubuntu这个源，速度快，源里的软件也相当齐整。选择完源以后，再次打开终端，输入以下命令更新系统现有的软件：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~$ sudo apt-get update
-</span><span class='line'>jiawzhang@home-pc:~$ sudo apt-get upgrade</span></code></pre></td></tr></table></div></figure>
-
+<p>但实际上，考察一个源是不是足够好，光看速度并不正确，有时一个速度很快的源如果缺少某些软件，仍然会造成困扰。按笔者的经验，在国内可以直接选择http://ubuntu.cn99.com/ubuntu这个源，速度快，源里的软件也相当齐整。选择完源以后，再次打开终端，输入以下命令更新系统现有的软件：
+<code>
+jiawzhang@home-pc:~$ sudo apt-get update
+jiawzhang@home-pc:~$ sudo apt-get upgrade
+</code></p>
 
 <p><strong>2. 第三方Ubuntu源</strong></p>
 
 <p>以上我们讲到的都是Ubuntu官方的源或者官方源在国内镜像，除此以外，Ubuntu也允许第三方制作第三方源以扩充软件的数量。但是如果你选择第三方源，官方并未对其中的软件进行过测试，也不保证软件的质量，系统兼容性等问题。反过来说如果你开发的软件进入了官方源，这是一种莫大的荣誉，它首先肯定了你软件的质量，其次也扩大了软件受众的数量，并且经过了官方认证和测试。</p>
 
-<p>假设你现在需要安装 Wine 这个软件&#8212;&#8212;主要用来在 Ubuntu 下运行 Windows 的可执行文件。虽然这是一个合法的软件，但是 Ubuntu 官方没有可能在自己的源中加入一个可运行专利程序的软件，因此你需要自己去加入包含有 Wine 这个软件的第三方源，打开终端，运行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~$ sudo add-apt-repository ppa:ubuntu-wine/ppa
-</span><span class='line'>jiawzhang@home-pc:~$ sudo apt-get update
-</span><span class='line'>jiawzhang@home-pc:~$ sudo apt-get install wine</span></code></pre></td></tr></table></div></figure>
-
+<p>假设你现在需要安装 Wine 这个软件------主要用来在 Ubuntu 下运行 Windows 的可执行文件。虽然这是一个合法的软件，但是 Ubuntu 官方没有可能在自己的源中加入一个可运行专利程序的软件，因此你需要自己去加入包含有 Wine 这个软件的第三方源，打开终端，运行：
+<code>
+jiawzhang@home-pc:~$ sudo add-apt-repository ppa:ubuntu-wine/ppa
+jiawzhang@home-pc:~$ sudo apt-get update
+jiawzhang@home-pc:~$ sudo apt-get install wine
+</code></p>
 
 <p><strong>3. Canonical合作伙伴的源</strong></p>
 
 <p>Ubuntu的母公司Canonical另外还有一些合作伙伴，例如在 Ubuntu 12.04 上，如果你需要安装 skype，可以加入这个合作伙伴的源，然后进行安装。</p>
 
-<p>按照上面的步骤打开update-manager以后，仍旧点击Settings按钮，进入Other Software选项卡选中“Canonical Partners”和“Canonical Partners(Source Code)”加入合作伙伴源，接着运行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~$ sudo apt-get update
-</span><span class='line'>jiawzhang@home-pc:~$ sudo apt-get install skype</span></code></pre></td></tr></table></div></figure>
-
+<p>按照上面的步骤打开update-manager以后，仍旧点击Settings按钮，进入Other Software选项卡选中“Canonical Partners”和“Canonical Partners(Source Code)”加入合作伙伴源，接着运行：
+<code>
+jiawzhang@home-pc:~$ sudo apt-get update
+jiawzhang@home-pc:~$ sudo apt-get install skype
+</code></p>
 
 <p>个人建议在系统安装完毕以后按此步骤加入这个源，方便以后的软件安装。</p>
 
@@ -427,53 +370,39 @@
 
 <p><strong>2. 设置下次系统启动后，只运行在终端下，不启动 GUI 系统</strong></p>
 
-<p>就和在Windows下，系统要求你在保护模式下安装某些软件类似，安装显卡驱动的时候，系统也往往要求在完全的终端里，不带任何图形界面的模式下，因此我们需要让系统下次启动的时候进入终端模式，这里我们第一次需要修改系统的配置文件，在使用 Linux 系统的时候，今后我们会无数次的通过修改基于文本的配置文件来设置我们的系统，因此掌握一个好的文本编辑器也至关重要，Linux下标配的文本编辑器是强大的 vi，如果你现在还不熟悉，没关系，可以先使用 gedit，为了保持博客的专业性，我在今后的命令行中只使用 vi，读者自行替换成 gedit 即可。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /etc/default/grub
-</span><span class='line'>找到 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 这一行，修改为 GRUB_CMDLINE_LINUX_DEFAULT="text"
-</span><span class='line'>sudo update-grub
-</span><span class='line'>sudo shutdown -r 0 #重启电脑</span></code></pre></td></tr></table></div></figure>
-
+<p>就和在Windows下，系统要求你在保护模式下安装某些软件类似，安装显卡驱动的时候，系统也往往要求在完全的终端里，不带任何图形界面的模式下，因此我们需要让系统下次启动的时候进入终端模式，这里我们第一次需要修改系统的配置文件，在使用 Linux 系统的时候，今后我们会无数次的通过修改基于文本的配置文件来设置我们的系统，因此掌握一个好的文本编辑器也至关重要，Linux下标配的文本编辑器是强大的 vi，如果你现在还不熟悉，没关系，可以先使用 gedit，为了保持博客的专业性，我在今后的命令行中只使用 vi，读者自行替换成 gedit 即可。
+<code>
+sudo vi /etc/default/grub
+找到 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 这一行，修改为 GRUB_CMDLINE_LINUX_DEFAULT="text"
+sudo update-grub
+sudo shutdown -r 0 #重启电脑
+</code></p>
 
 <p><strong>3. 进入重启后的终端，运行</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~/Downloads/
-</span><span class='line'>chmod u+x NVIDIA-Linux-x86_64-304.60.run # u代表当前用户，x代表可执行权限，u+x即表示赋予脚本当前用户的可执行权限
-</span><span class='line'>sh NVIDIA-Linux-x86_64-304.60.run # 执行脚本</span></code></pre></td></tr></table></div></figure>
-
-
-<p>按提示完成安装以后，仍旧将系统改回下次重启时进入用户图形界面而非终端模式：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /etc/default/grub
-</span><span class='line'>找到 GRUB_CMDLINE_LINUX_DEFAULT="text" 这一行，修改为 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-</span><span class='line'>sudo update-grub
-</span><span class='line'>sudo shutdown -r 0 #重启电脑</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+cd ~/Downloads/
+chmod u+x NVIDIA-Linux-x86_64-304.60.run # u代表当前用户，x代表可执行权限，u+x即表示赋予脚本当前用户的可执行权限
+sh NVIDIA-Linux-x86_64-304.60.run # 执行脚本
+</code>
+按提示完成安装以后，仍旧将系统改回下次重启时进入用户图形界面而非终端模式：
+<code>
+sudo vi /etc/default/grub
+找到 GRUB_CMDLINE_LINUX_DEFAULT="text" 这一行，修改为 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+sudo update-grub
+sudo shutdown -r 0 #重启电脑
+</code></p>
 
 <h2>Ubuntu视窗特效及思考</h2>
 
-<p>如果一切顺利和系统匹配的显卡驱动已经安装完成了，如果想开启一些视窗特效可以下载这个软件：</p>
+<p>如果一切顺利和系统匹配的显卡驱动已经安装完成了，如果想开启一些视窗特效可以下载这个软件：
+<code>
+sudo apt-get install compizconfig-settings-manager
+ccsm # 运行compizconfig-settings-manager 设置特效
+</code>
+在Category->Effects里勾选上Wobbly Windows选项，还算一个很好玩的特效，在你拖动，最大化，恢复任何程序窗体的时候，会有夸张的扭动效果，几乎每一个看到我桌面的人都会赞叹一下。不过窗体特效毕竟是华而不实的玩意，不必花费过多时间在这个上面，在许多 Ubuntu 论坛里会有长篇累牍的文章介绍如何装扮炫目的动画效果，我只想反问：还记得我们使用 Linux 系统的初衷是什么？是高效的使用开发者系统，如果迷恋炫目的视觉效果，花费大量的时间精力去配置，一来有违初衷，二来也容易破坏系统的稳定性，历来一个操作系统的软肋就是GUI，开发最复杂，也最容易引发程序甚至系统崩溃，进而炫目的视觉特效实际上会导致低效的操作。例如渐变式的关闭或者开启一个窗口，看上去很炫，实质上为了完成这个特效，窗口延缓了开启或者关闭的时间，一两次延缓不会造成什么损失，考虑到我们会在这个系统中生存几十年，很可能有几万几十万次的延缓累加--那简直就是浪费生命了。撇开这个例子不谈，使用开发者系统追求高效的实质就是改进每一个微操作，通过改进哪怕只能节省几百毫秒的操作，只要这些操作会被无数次的重复，然后累积这些节省带来的效果，经年累月以后，都是惊人的节约。假设一个500人的公司，每个人每天因此可以受益5分钟的时间，那么一年下来：500 * 5 * 251（工作日）/ 60（分钟）/ 8 (一天工作小时) = 1307 天/人，相当于这500人在一年里节约出了5个人年的时间。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install compizconfig-settings-manager
-</span><span class='line'>ccsm # 运行compizconfig-settings-manager 设置特效</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在Category->Effects里勾选上Wobbly Windows选项，还算一个很好玩的特效，在你拖动，最大化，恢复任何程序窗体的时候，会有夸张的扭动效果，几乎每一个看到我桌面的人都会赞叹一下。不过窗体特效毕竟是华而不实的玩意，不必花费过多时间在这个上面，在许多 Ubuntu 论坛里会有长篇累牍的文章介绍如何装扮炫目的动画效果，我只想反问：还记得我们使用 Linux 系统的初衷是什么？是高效的使用开发者系统，如果迷恋炫目的视觉效果，花费大量的时间精力去配置，一来有违初衷，二来也容易破坏系统的稳定性，历来一个操作系统的软肋就是GUI，开发最复杂，也最容易引发程序甚至系统崩溃，进而炫目的视觉特效实际上会导致低效的操作。例如渐变式的关闭或者开启一个窗口，看上去很炫，实质上为了完成这个特效，窗口延缓了开启或者关闭的时间，一两次延缓不会造成什么损失，考虑到我们会在这个系统中生存几十年，很可能有几万几十万次的延缓累加&#8211;那简直就是浪费生命了。撇开这个例子不谈，使用开发者系统追求高效的实质就是改进每一个微操作，通过改进哪怕只能节省几百毫秒的操作，只要这些操作会被无数次的重复，然后累积这些节省带来的效果，经年累月以后，都是惊人的节约。假设一个500人的公司，每个人每天因此可以受益5分钟的时间，那么一年下来：500 * 5 * 251（工作日）/ 60（分钟）/ 8 (一天工作小时) = 1307 天/人，相当于这500人在一年里节约出了5个人年的时间。</p>
-
-<p>Ubuntu 12.04 在切换程序这个环节因为采用特效其实也出了问题，有一些倒退的味道。大家可以试试 &#8220;Alt + Tab&#8221; 这个常用的程序切换的快捷键。它默认的行为是先对同一类的窗口进行分组，然后如果用户的切换动作在某一组窗口上略作停顿，系统才会展开这一组的窗口，继而在这一组窗口中的每一个窗口间进行切换。表面上看分组的形式减少了我们之前谈到的 <strong>视觉迷失</strong> 带来的困扰，实质上又增加了每个切换间的停顿时间，破坏了用户原本流畅操作的体验，况且，如上所述，累积停顿带来的后果也是不可承受的，而这里 <strong>视觉迷失</strong> 的问题其实又可以通过系统自带的 <strong>虚拟桌面</strong> 来解决，也算不上大问题。因此我个人推荐按以下方法舍弃这种切换特效：</p>
+<p>Ubuntu 12.04 在切换程序这个环节因为采用特效其实也出了问题，有一些倒退的味道。大家可以试试 "Alt + Tab" 这个常用的程序切换的快捷键。它默认的行为是先对同一类的窗口进行分组，然后如果用户的切换动作在某一组窗口上略作停顿，系统才会展开这一组的窗口，继而在这一组窗口中的每一个窗口间进行切换。表面上看分组的形式减少了我们之前谈到的 <strong>视觉迷失</strong> 带来的困扰，实质上又增加了每个切换间的停顿时间，破坏了用户原本流畅操作的体验，况且，如上所述，累积停顿带来的后果也是不可承受的，而这里 <strong>视觉迷失</strong> 的问题其实又可以通过系统自带的 <strong>虚拟桌面</strong> 来解决，也算不上大问题。因此我个人推荐按以下方法舍弃这种切换特效：</p>
 
 <p>打开终端输入：ccsm 启动 CompizConfig Settings Manager, 进入 Windows Management，选择 Static Application Switcher 可能会报一些快捷键冲突的警告，强制切换即可。</p>
 
@@ -483,39 +412,32 @@
 
 <p><strong>1. 访问 <a href="https://www.dropbox.com/install">Dropbox下载</a> 页面，下载 Ubuntu 版本对应的 .deb 文件</strong></p>
 
-<p><strong>2. 开启终端，输入安装deb包的命令：</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo dpkg -i dropbox_1.4.0_amd64.deb</span></code></pre></td></tr></table></div></figure>
-
-
-<p>dpkg 是一个比 apt-get 更低阶的安装命令，apt-get 命令下载的就是 .deb 文件，然后调用 dpkg -i 进行安装， 以上命令只是安装了 Dropbox 的 GUI 壳，运行以后会继续下载 Dropbox daemon 程序，由于 GFW 的阻挠，这个过程无法进行。读者选择退出 Dropbox 即可。</p>
+<p><strong>2. 开启终端，输入安装deb包的命令：</strong>
+<code>
+sudo dpkg -i dropbox_1.4.0_amd64.deb
+</code>
+dpkg 是一个比 apt-get 更低阶的安装命令，apt-get 命令下载的就是 .deb 文件，然后调用 dpkg -i 进行安装， 以上命令只是安装了 Dropbox 的 GUI 壳，运行以后会继续下载 Dropbox daemon 程序，由于 GFW 的阻挠，这个过程无法进行。读者选择退出 Dropbox 即可。</p>
 
 <p><strong>3. 手动下载 Dropbox daemon</strong></p>
 
-<p>32-bit:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -</span></code></pre></td></tr></table></div></figure>
-
-
-<p>64-bit:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -</span></code></pre></td></tr></table></div></figure>
-
+<p>32-bit:
+<code>
+cd ~ &amp;&amp; wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
+</code>
+64-bit:
+<code>
+cd ~ &amp;&amp; wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+</code></p>
 
 <p>解释一下：cd ~ 就是进入 home 目录， &amp;&amp; 是指在 cd ~ 成功以后，继续下一个 wget 的命令。 wget 会去后面 https 起首的地址下载 Dropbox daemon 的压缩包，之后再通过 | 把压缩包传递给 tar xzf - 这个命令进行解压的操作。如果读者暂时无法理解，也没关系，直接把上述命令复制粘帖进终端即可。</p>
 
 <p><strong>4. 再次启动 dropbox</strong></p>
 
-<p>打开终端，输入：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dropbox start</span></code></pre></td></tr></table></div></figure>
-
-
-<p>至此，安装完毕，按笔者目前的网络环境，在安装以后，最新的 Dropbox 版本可以正常使用，无需修改任何配置，所有以 https 起首的 dropbox 网址也可以在浏览器中没有限制的访问。所以只要按上述步骤解决安装的问题就可以了。笔者没有测试所有网络环境下的条件，如果还有问题，可以在博客评论中描述状况，本人负责做力所能及的解答。</p>
+<p>打开终端，输入：
+<code>
+dropbox start
+</code>
+至此，安装完毕，按笔者目前的网络环境，在安装以后，最新的 Dropbox 版本可以正常使用，无需修改任何配置，所有以 https 起首的 dropbox 网址也可以在浏览器中没有限制的访问。所以只要按上述步骤解决安装的问题就可以了。笔者没有测试所有网络环境下的条件，如果还有问题，可以在博客评论中描述状况，本人负责做力所能及的解答。</p>
 
 <p><strong>如果对 Dropbox 感兴趣，可以通过本人帐号的推广链接创建帐号：<a href="http://db.tt/oNnbpla">http://db.tt/oNnbpla</a> 你我各自增加 500M 的空间大小，惠己利人。</strong></p>
 
@@ -530,57 +452,46 @@
 <p><strong>2. 在云端保存一个软件安装的脚本</strong></p>
 
 <p>apt-get 作为命令行安装软件的一大优势就在于可脚本化幷反复运行。每次运行 apt-get 下载安装一个软件以后，都把这一句 apt-get 命令保存在脚本文件里，这样，一旦发生系统崩溃的情况，只需要在全新安装后的系统上重新运行这个脚本，就可以恢复我们系统上曾经安装的软件。更进一步，如果我们有编译安装软件的步骤或者定制系统的工作都可以用命令行的形式固化在这个脚本中，用以今后恢复系统。实践上，我自己将这个脚本的内容和上述第1点的知识文档合二为一，所有的知识文本以注释的形式存在于这个系统恢复脚本中。因此这个脚本既可以用来恢复系统，也可以用来记录，查询知识点，当然为了方便使用，这个脚本也需要时时刻刻的更新和维护以保证最大的正确性和可用性。以下是摘自我个人脚本中的片段：
-ubuntu_install_guide.sh</p>
+ubuntu_install_guide.sh
+```</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
-</span><span class='line'>cd ~
-</span><span class='line'>sudo apt-get update # This is very important step to update system first.
-</span><span class='line'># install gcc/g++ first
-</span><span class='line'>sudo apt-get install gcc -y # if there is no gcc, do this first.
-</span><span class='line'>sudo apt-get install g++ -y # if there is no g++, do this first.
-</span><span class='line'># install gvim
-</span><span class='line'>sudo apt-get install vim-gnome -y
-</span><span class='line'>......
-</span><span class='line'>......
-</span><span class='line'>......
-</span><span class='line'># XXX Tips:
-</span><span class='line'># Visit http://www.google.com/ncr to make sure no country redirection, this will resolve some issues on resetting google-search-result(by GFW or ISP).
-</span><span class='line'>
-</span><span class='line'># XXX Tips:
-</span><span class='line'># Start gvim from terminal and get global menu in Ubuntu 12.04: gvim -f filename
-</span><span class='line'>......
-</span><span class='line'>......
-</span><span class='line'>......</span></code></pre></td></tr></table></div></figure>
+<h1>!/bin/sh</h1>
 
+<p>cd ~
+sudo apt-get update # This is very important step to update system first.</p>
+
+<h1>install gcc/g++ first</h1>
+
+<p>sudo apt-get install gcc -y # if there is no gcc, do this first.
+sudo apt-get install g++ -y # if there is no g++, do this first.</p>
+
+<h1>install gvim</h1>
+
+<p>sudo apt-get install vim-gnome -y
+......
+......
+......</p>
+
+<h1>XXX Tips:</h1>
+
+<h1>Visit http://www.google.com/ncr to make sure no country redirection, this will resolve some issues on resetting google-search-result(by GFW or ISP).</h1>
+
+<h1>XXX Tips:</h1>
+
+<h1>Start gvim from terminal and get global menu in Ubuntu 12.04: gvim -f filename</h1>
+
+<p>......
+......
+......
+```</p>
 
 <p><strong>3. 在云端备份 home 目录下重要的配置文件</strong></p>
 
-<p>在重新恢复一个系统的时候，除了软件的恢复可以通过上述云端的脚本，另外还有一个重要的东西就是软件的配置文件。由于 Linux 软件的高可定制化，许多高效率的用户之所以可以灵活驾驭 Linux 系统，实际上是花费了大量的时间在适应软件，或者调整软件的配置来适应自己，达到人机合一的境界，而一旦切换到别人的环境上，由于人与人之间习惯的不同导致配置的不同，效率立刻就下降几个数量级，甚至根本在别人的环境里无法工作。因此丢失配置文件对于高效用户来说，就相当于丢失效率，必须从头开始花费心力去配置软件，损失大量的时间，而与用户相关的配置文件一般都会存放在 home 目录，因此及时备份这些数据到云端就显得尤为重要了。一来可以在安装完软件以后恢复这些配置文件，二来我们也可以通过云端在不同计算机上共享这些配置，无需在多个计算机上反复进行相同的配置工作。一般来说，这些文件都以 <strong>.</strong> 起首的隐藏文件形式存在，可以使用以下命令查看</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ls -al ~</span></code></pre></td></tr></table></div></figure>
-
-
-<p>例如：.vim .vimrc 保存了 gvim 的配置信息， .mozilla 保存了 firefox 的配置信息，等等。</p>
+<p>在重新恢复一个系统的时候，除了软件的恢复可以通过上述云端的脚本，另外还有一个重要的东西就是软件的配置文件。由于 Linux 软件的高可定制化，许多高效率的用户之所以可以灵活驾驭 Linux 系统，实际上是花费了大量的时间在适应软件，或者调整软件的配置来适应自己，达到人机合一的境界，而一旦切换到别人的环境上，由于人与人之间习惯的不同导致配置的不同，效率立刻就下降几个数量级，甚至根本在别人的环境里无法工作。因此丢失配置文件对于高效用户来说，就相当于丢失效率，必须从头开始花费心力去配置软件，损失大量的时间，而与用户相关的配置文件一般都会存放在 home 目录，因此及时备份这些数据到云端就显得尤为重要了。一来可以在安装完软件以后恢复这些配置文件，二来我们也可以通过云端在不同计算机上共享这些配置，无需在多个计算机上反复进行相同的配置工作。一般来说，这些文件都以 <strong>.</strong> 起首的隐藏文件形式存在，可以使用以下命令查看
+<code>
+ls -al ~
+</code>
+例如：.vim .vimrc 保存了 gvim 的配置信息， .mozilla 保存了 firefox 的配置信息，等等。</p>
 
 <p><strong>4. 在云端存储其它重要的文档，电子书，音乐，图片等等</strong></p>
 
@@ -596,45 +507,34 @@ ubuntu_install_guide.sh</p>
 
 <ol>
 <li>通常成熟的带 GUI 的软件，譬如 Firefox，IMs 软件等等，都会在设置中包含代理服务器选项，你只需要填入代理服务器的地址即可。</li>
-<li>基于<strong>命令优于图形化界面</strong>，我们又有许多命令行软件例如：wget，git，w3m，apt-get 需要连接互联网才能运行，一旦目标地址有墙的阻隔，又没有办法像 GUI 软件那样设置代理服务器那就成问题了，好在 Linux 早就为我们解决了这个问题，打开终端，输入：</li>
+<li>基于<strong>命令优于图形化界面</strong>，我们又有许多命令行软件例如：wget，git，w3m，apt-get 需要连接互联网才能运行，一旦目标地址有墙的阻隔，又没有办法像 GUI 软件那样设置代理服务器那就成问题了，好在 Linux 早就为我们解决了这个问题，打开终端，输入：
+<code>
+sudo apt-get install proxychains -y
+sudo vi /etc/proxychains.conf
+注释掉文件中最后一行：socks4 127.0.0.1 9050
+幷在文件最后追加一行：socks5 proxy_ip_address port
+</code>
+通过安装 proxychains 这个软件，同时我们在它的配置文件 /etc/proxychains.conf 中加入了代理服务器的 ip 地址和端口号，这样我们就可以要求任意被墙阻断的命令行软件通过代理服务器连接互联网了，使用方法也很简单，假设我们需要下载 facebook 的主页，就可以运行：
+<code>
+proxychains wget http://www.facebook.com
+</code>
+即在任何命令行前首先加注 proxychains 这个命令。</li>
 </ol>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install proxychains -y
-</span><span class='line'>sudo vi /etc/proxychains.conf
-</span><span class='line'>注释掉文件中最后一行：socks4 127.0.0.1 9050
-</span><span class='line'>幷在文件最后追加一行：socks5 proxy_ip_address port</span></code></pre></td></tr></table></div></figure>
-
-
-<p>通过安装 proxychains 这个软件，同时我们在它的配置文件 /etc/proxychains.conf 中加入了代理服务器的 ip 地址和端口号，这样我们就可以要求任意被墙阻断的命令行软件通过代理服务器连接互联网了，使用方法也很简单，假设我们需要下载 facebook 的主页，就可以运行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>proxychains wget http://www.facebook.com</span></code></pre></td></tr></table></div></figure>
-
-
-<p>即在任何命令行前首先加注 proxychains 这个命令。</p>
-
 <p><strong>设置本地计算机为代理服务器</strong></p>
 
-<p>假设目前我们没有代理服务器 C，但是另外有一台装有 ssh server的国外主机 D，这个时候我们可以在本地计算机和国外主机 D 之间建立 ssh channel，然后通过这个 channel 把本机设置为代理服务器，所有通过本机代理的请求都会被再次转发到国外主机 D，再经由 D 访问最终的目标地址，最后再把结果回传给本地程序。具体步骤，打开终端输入：</p>
+<p>假设目前我们没有代理服务器 C，但是另外有一台装有 ssh server的国外主机 D，这个时候我们可以在本地计算机和国外主机 D 之间建立 ssh channel，然后通过这个 channel 把本机设置为代理服务器，所有通过本机代理的请求都会被再次转发到国外主机 D，再经由 D 访问最终的目标地址，最后再把结果回传给本地程序。具体步骤，打开终端输入：
+<code>
+ssh username@machine_d_ip_address -D 127.0.0.1:7070 # 建立 ssh channel，并且不要关闭这个终端或者退出 ssh
+</code>
+此时本地 127.0.0.1:7070 这个地址端口已经具备了类似代理服务器 C 相同的作用，你只需要在任意 GUI 程序的代理服务器选项上填入 127.0.0.1:7070，或者在上述 /etc/proxychains.conf 文件最后追加一行
+<code>
+socks5 127.0.0.1 7070
+</code>
+即可让 GUI 或者命令行程序通过代理服务器连接互联网。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh username@machine_d_ip_address -D 127.0.0.1:7070 # 建立 ssh channel，并且不要关闭这个终端或者退出 ssh</span></code></pre></td></tr></table></div></figure>
-
-
-<p>此时本地 127.0.0.1:7070 这个地址端口已经具备了类似代理服务器 C 相同的作用，你只需要在任意 GUI 程序的代理服务器选项上填入 127.0.0.1:7070，或者在上述 /etc/proxychains.conf 文件最后追加一行</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>socks5 127.0.0.1 7070</span></code></pre></td></tr></table></div></figure>
-
-
-<p>即可让 GUI 或者命令行程序通过代理服务器连接互联网。</p>
-
-<p><strong>未完待续&#8230;&#8230;</strong></p>
+<p><strong>未完待续......</strong></p>
 ]]></content>
   </entry>
   
@@ -647,7 +547,7 @@ ubuntu_install_guide.sh</p>
 
 <p>对于准备迁徙到 Linux 的用户来说，另一个头疼的问题就是选择发行版。所谓发行版是指在同一个 Linux Kernal 上由不同厂商，社区定制包装了不同桌面管理系统和附带了常用软件的 Linux 发行版本，通俗来说就是可以交付给用户安装的 Linux 系统。常见的发行版有 Ubuntu, Mint，RedHat， Fedora 等等，总数不下几百种。面对数量庞大的发行版，新人总是很难做出选择。好在每个发行版本都比较有针对性，有些是针对桌面应用，有些是针对服务器系统，还有一些比较适合初级用户，或者资深极客，大致了解各自的特性以及用户自己的需求也不难做出选择，另外实际上每种发行版之间的区别幷没有大到完全对立的地步，即便随便选择一种用起来上手，大多数的知识还是可以延续和继承在另一种发行版上的。只要不是三天两头换装各种发行版，也不算浪费时间和精力。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
+<p><img src="/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
 
 <!--more-->
 
@@ -670,25 +570,19 @@ ubuntu_install_guide.sh</p>
 
 <p><strong>2. 先进方便的软件包管理 apt-get</strong></p>
 
-<p>在 Linux 下安装软件有两种方式：1. 从源代码开始编译安装 2. 选择发行版自带的软件包管理系统。前者需要一定的开发知识，了解一些编译器，makefile的基本工作原理，如果安装过程中出现问题，要有一定解决问题的能力，能够根据错误信息做相应的调整，对于新手来说有不小的难度。后者则是由厂商直接提供经过测试的，和当前系统匹配的二进制软件。官方和第三方厂商都会提供相应的软件源，只要连接互联网，你就可以通过命令的方式下载需要的软件，例如在终端运行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install firefox</span></code></pre></td></tr></table></div></figure>
-
-
-<p>就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get purge firefox</span></code></pre></td></tr></table></div></figure>
-
-
-<p>经过一段时间以后，系统还会定期提示哪些软件有新版本，你同样只需要运行一个命令完成所有软件的升级：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get upgrade</span></code></pre></td></tr></table></div></figure>
-
-
-<p>回想 Windows 系统，你需要在互联网上满世界找下载链接，还可能携带病毒，相当不方便，反倒是360软件管家提供了类似的功能。</p>
+<p>在 Linux 下安装软件有两种方式：1. 从源代码开始编译安装 2. 选择发行版自带的软件包管理系统。前者需要一定的开发知识，了解一些编译器，makefile的基本工作原理，如果安装过程中出现问题，要有一定解决问题的能力，能够根据错误信息做相应的调整，对于新手来说有不小的难度。后者则是由厂商直接提供经过测试的，和当前系统匹配的二进制软件。官方和第三方厂商都会提供相应的软件源，只要连接互联网，你就可以通过命令的方式下载需要的软件，例如在终端运行：
+<code>
+sudo apt-get install firefox
+</code>
+就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：
+<code>
+sudo apt-get purge firefox
+</code>
+经过一段时间以后，系统还会定期提示哪些软件有新版本，你同样只需要运行一个命令完成所有软件的升级：
+<code>
+sudo apt-get upgrade
+</code>
+回想 Windows 系统，你需要在互联网上满世界找下载链接，还可能携带病毒，相当不方便，反倒是360软件管家提供了类似的功能。</p>
 
 <p>大多数的发行版都有自己的软件包管理器，例如 redhat 系列的 rpm， Debian/Ubuntu 系列的 deb，哪个管理器可以更方便的使用，更少存在安装卸载问题，更好的理清楚软件之间的依赖关系都是我们选择发行版的重要依据， Ubuntu在这方面天然强大。</p>
 
@@ -706,19 +600,19 @@ ubuntu_install_guide.sh</p>
 
 <p>我们在前面说过 Linux 哲学中最重要的一条就是：<strong>命令优于导航</strong>，因此一个好用的终端系统尤为重要，终端系统是用户输入命令行，查看输出结果的媒介，一个合格的 Linux 使用者会花费至少 20% 的时间在终端中，如果你是一个开发者，这个比例会更高。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
+<p><img src="/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
 
 <p><strong>2. 火狐浏览器</strong></p>
 
 <p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷不觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
+<p><img src="/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
 
 <p><strong>3. LibreOffice</strong></p>
 
-<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
+<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
+<p><img src="/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
 
 <p><strong>4. iBus 输入法架构</strong></p>
 
@@ -728,19 +622,19 @@ ubuntu_install_guide.sh</p>
 
 <p>作为音乐播放器没有皮肤，没有华丽丽的桌面歌词功能，提供本地音乐，网络电台，在线播客等功能，中规中矩，简单实用。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
+<p><img src="/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
 
 <p><strong>6. Totem Movie Player</strong></p>
 
 <p>系统自带的视频播放软件，由于许多视频解压缩算法首先是在 Linux 平台发明的，所以在视频格式的兼容性问题上，Linux 平台反而很少出现没有办法播放视频的状况，除非是微软的私有格式。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
+<p><img src="/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
 
 <p><strong>7. Ubuntu 软件中心</strong></p>
 
-<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
+<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
+<p><img src="/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
 
 <p>至此，系统默认自带的软件已经为我们提供了终端，浏览器，办公套件，输入法，音乐，视频播放和统一的软件中心，其它的必备软件不再一一列举，基本上用户总是可以找到和 Windows 相对应的软件。从普罗大众的角度来说，即使把这个状态的 Ubuntu 当作 Windows 来使用，一样可以胜任等价的工作，并且没有花费一分钱的专利费用。更由于对病毒木马的天然免疫，无需安装价格不菲的杀毒软件和声誉不佳的360系列软件。</p>
 
@@ -748,101 +642,83 @@ ubuntu_install_guide.sh</p>
 
 <p>自由新世界并不是完美世界。普罗大众在迁徙过程中集中抱怨的稀缺软件有：迅雷，网银，国内流行的 IMs（MSN，QQ），游戏，行业领域的特殊商业软件。道理上讲，这个算不上 Ubuntu 的问题，商业公司在利益驱动下，对于非主流的操作系统总是采取选择性忽略，疏于开发 Linux 平台的兼容版本。一些 Linux 极端主义者对此表示：不提供 Linux 版本的软件都是没有用的软件。笔者什么都不表示，默默的装上这个软件:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install virtualbox
-</span><span class='line'>sudo apt-get install virtualbox-guest-additions
-</span><span class='line'>sudo apt-get install virtualbox-guest-additions-iso</span></code></pre></td></tr></table></div></figure>
+<p><code>
+sudo apt-get install virtualbox
+sudo apt-get install virtualbox-guest-additions
+sudo apt-get install virtualbox-guest-additions-iso
+</code></p>
 
-
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
+<p><img src="/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
 
 <p>也有同学喜欢用 Wine 的方式来运行 Windows 下的软件，我的意见是：对于大多数软件运行在虚拟机里是最省力的做法，Wine 实在是考验人品的利器，除非万不得已，不要轻易使用，笔者只有一个 PDF 软件使用了 Wine 这种方式，以后再做具体介绍。其它譬如：迅雷，MSN，QQ，行业软件，部分游戏都可以在虚拟机里运行。关于网银，支付宝有直接支持火狐浏览器，大多数带有U盘做电子证书的网上银行譬如招行也都可以毫无压力的运行在虚拟机里。但是需要为了使 Virtualbox 辨认出物理 USB 外设做如下设置：</p>
 
-<p>对于 Ubuntu 12.04 系统安装（10.04系统可以省略）：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install gnome-system-tools</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在 Ubuntu 已安装的应用程序中找到：Users And Groups，点击 Manage Groups，双击“vboxusers”后选择当前用户名，点击确认。重启计算机后运行 Virtualbox 启动 Windows，在底部隐藏菜单内选择“Devices->USB Devices->对应的 USB 外设” 即可。</p>
+<p>对于 Ubuntu 12.04 系统安装（10.04系统可以省略）：
+<code>
+sudo apt-get install gnome-system-tools
+</code>
+在 Ubuntu 已安装的应用程序中找到：Users And Groups，点击 Manage Groups，双击“vboxusers”后选择当前用户名，点击确认。重启计算机后运行 Virtualbox 启动 Windows，在底部隐藏菜单内选择“Devices->USB Devices->对应的 USB 外设” 即可。</p>
 
 <h2>高质量的生存，从桌面图标说起</h2>
 
 <p>写到这里，我们已经具备了基本的生存条件，千万不要高兴太早，失去前进的动力，因为我们至多还是“使用 Linux 的 Windows 用户”，我们仍然基于鼠标，图形化界面和导航这些低效的外设，理念来使用高效的开发者系统。这一小节笔者提纲挈领的分享一下如何高质量地生存在开发者系统。在今后的博文系列中则会结合具体的软件分享更多的高效使用开发者系统的经验。</p>
 
-<p><strong>没有图标的桌面 &#8212; 做正确的事情，幷把它做到极致</strong></p>
+<p><strong>没有图标的桌面 --- 做正确的事情，幷把它做到极致</strong></p>
 
 <p>从这篇博客切换到你当前的桌面，数一数桌面上有多少个可以点击的图标。十个？二十个？或者更多？我们往往把常见的事情认为理所当然，没有人去质疑这个事情，甚至我自己在几年前也把铺满图标的桌面作为一种充实的象征，普罗大众系统也很鼓励创建桌面图标，几乎每次安装软件都会有新图标在桌面上（Ubuntu系统不会），除此以外，我们也常常按直觉把重要的东西放在桌面上。从短视的角度来看，确实很方便，但是日积月累之后，谁都会感觉在一堆红红绿绿的图标里找到自己想要的东西有多困难。造成这类<strong>视觉迷失</strong>痛苦体验的根源仍然是贪图方便，依赖视觉导航，没有花费脑力。</p>
 
 <p>一来我们是被普罗大众系统的设计误导了，二来我们缺少真正的思考去理解如何处理人和计算机的关系，从而达成高效的目标。</p>
 
-<p>运用心智并且乐于花费脑力的人会怎么解决这个问题？ 参考我们之前的理念：<strong>“命令优于导航”</strong>，与其在一堆桌面图标里找自己需要的东西，为什么不直接告诉计算机自己要什么呢？在 Ubuntu 里通过快捷键：ctrl+alt+T开启终端，然后输入自己想要打开的软件比如：</p>
+<p>运用心智并且乐于花费脑力的人会怎么解决这个问题？ 参考我们之前的理念：<strong>“命令优于导航”</strong>，与其在一堆桌面图标里找自己需要的东西，为什么不直接告诉计算机自己要什么呢？在 Ubuntu 里通过快捷键：ctrl+alt+T开启终端，然后输入自己想要打开的软件比如：
+<code>
+jiawzhang@company-ws:~$ firefox
+</code>
+键入firefox，然后浏览器就打开了。我们付出了一些记忆软件名称和敲击键盘的成本，却避免了视觉搜索和导航操作的低效率。这是一笔合算的买卖。不止于此，为了最小化这个成本，可以尝试只键入软件名的前几个字母，然后按Tab键，比如：
+<code>
+jiawzhang@company-ws:~$ fire[TAB]
+</code>
+终端系统会自动补全 firefox，所以理论上我们只需要零碎的记忆住常用软件的前几个字母，无需任何图标，只需要一个终端，你就可以启动任何程序。有人会抱怨自己的记忆力不佳，没办法记住系统里这么多软件名，但实际上开发者系统比你自己更了解这样一个事实：大脑是一个用进废退的器官，你越多敲击常用的软件名，你就越没有可能忘记它们，至于不常用的软件，用的时候再找也好过每次要在一堆图标里找，还有一些软件，这辈子你也不会再用，更没必要去记住它们。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ firefox</span></code></pre></td></tr></table></div></figure>
+<p>有些朋友反映在终端启动某些程序后会占用终端不释放，直至关闭那个程序，例如：
+<code>
+jiawzhang@company-ws:~$ gedit
+</code>
+启动 gedit 后，直至关闭 gedit，否则用户无法继续使用启动gedit的这个终端。为了解决这个问题，可以按Ctrl+Alt+t打开终端，在当前 home 目录（缩写为 <strong>~</strong>）下创建一个文本文件命名为 x，内容为：
+```</p>
 
+<h1>!/bin/sh</h1>
 
-<p>键入firefox，然后浏览器就打开了。我们付出了一些记忆软件名称和敲击键盘的成本，却避免了视觉搜索和导航操作的低效率。这是一笔合算的买卖。不止于此，为了最小化这个成本，可以尝试只键入软件名的前几个字母，然后按Tab键，比如：</p>
+<p>"$@" 1>/dev/null 2>&amp;1 &amp;
+<code>
+这个脚本的大意是运行软件的时候，不输出任何标准信息和错误信息，并且在后台运行，这样就可以避免占据终端的行为。接着执行：
+</code>
+jiawzhang@comapny-ws:~$ mkdir ~/bin   # 在home目录下创建bin目录
+jiawzhang@comapny-ws:~$ chmod u+x ~/x # 赋予x脚本用户级别的可执行权限
+jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ fire[TAB]</span></code></pre></td></tr></table></div></figure>
+<h1>重新登录或者重启机器使得这些变更生效</h1>
 
-
-<p>终端系统会自动补全 firefox，所以理论上我们只需要零碎的记忆住常用软件的前几个字母，无需任何图标，只需要一个终端，你就可以启动任何程序。有人会抱怨自己的记忆力不佳，没办法记住系统里这么多软件名，但实际上开发者系统比你自己更了解这样一个事实：大脑是一个用进废退的器官，你越多敲击常用的软件名，你就越没有可能忘记它们，至于不常用的软件，用的时候再找也好过每次要在一堆图标里找，还有一些软件，这辈子你也不会再用，更没必要去记住它们。</p>
-
-<p>有些朋友反映在终端启动某些程序后会占用终端不释放，直至关闭那个程序，例如：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ gedit</span></code></pre></td></tr></table></div></figure>
-
-
-<p>启动 gedit 后，直至关闭 gedit，否则用户无法继续使用启动gedit的这个终端。为了解决这个问题，可以按Ctrl+Alt+t打开终端，在当前 home 目录（缩写为 <strong>~</strong>）下创建一个文本文件命名为 x，内容为：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
-</span><span class='line'>"$@" 1&gt;/dev/null 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这个脚本的大意是运行软件的时候，不输出任何标准信息和错误信息，并且在后台运行，这样就可以避免占据终端的行为。接着执行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@comapny-ws:~$ mkdir ~/bin   # 在home目录下创建bin目录
-</span><span class='line'>jiawzhang@comapny-ws:~$ chmod u+x ~/x # 赋予x脚本用户级别的可执行权限
-</span><span class='line'>jiawzhang@comapny-ws:~$ mv ~/x ~/bin  # 将x脚本移动到bin目录
-</span><span class='line'># 重新登录或者重启机器使得这些变更生效</span></code></pre></td></tr></table></div></figure>
-
-
-<p>~/bin 目录是一个特殊的目录，任何放置在其中的脚本程序，都可以在终端中被直接识别，运行，因此今后只需要在被启动的程序名前加 x 如：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@company-ws:~$ x gedit</span></code></pre></td></tr></table></div></figure>
-
-
-<p>终端就不再会被占据。</p>
+<p><code>
+~/bin 目录是一个特殊的目录，任何放置在其中的脚本程序，都可以在终端中被直接识别，运行，因此今后只需要在被启动的程序名前加 x 如：
+</code>
+jiawzhang@company-ws:~$ x gedit
+```
+终端就不再会被占据。</p>
 
 <p>如果你使用带有 Unity 系统的 Ubuntu 版本，那么就更简单了，按一下标准键盘上的Windows键，出现 Dash home 搜索框，直接键入软件名，按回车启动即可，这个过程中不需要任何鼠标操作的介入。</p>
 
-<p>和桌面上的程序图标类似，重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jiawzhang@home-pc:~/Dropbox/backup/tools/YaHei$ cd ~</span></code></pre></td></tr></table></div></figure>
-
-
-<p>就可以返回 home 目录，一般来说，和你个人账户相关的所有重要软件，文档，配置都会寄存在这里，它太重要了，以至于你还应该把它挂载在单独的分区中，我们下节再做更详细的讨论。</p>
+<p>和桌面上的程序图标类似，重要的文档，文件夹也是如此，随手用鼠标往桌面上一扔，不会有什么好结果，所以 Linux 系统有一个 home 目录的概念，每次你打开终端，当前目录总是你的 home 目录，你可以把重要的文档寄存在这里的某个子目录下，这样只需要打开终端，你就可以访问这些文档。Linux 还为 home 目录单独分配了一个叫做 ～ 的别名，无论你当前在哪个目录只需要：
+<code>
+jiawzhang@home-pc:~/Dropbox/backup/tools/YaHei$ cd ~
+</code>
+就可以返回 home 目录，一般来说，和你个人账户相关的所有重要软件，文档，配置都会寄存在这里，它太重要了，以至于你还应该把它挂载在单独的分区中，我们下节再做更详细的讨论。</p>
 
 <p>现在，你可以从终端中启动任何程序，访问任何重要的文档，桌面上的图标已经没有任何意义，不妨把他们全部删除。如果参照本文最开始的截图，你还可以看到 Ubuntu Unity 风格的桌面，即在桌面左侧自上而下有一个工具条，上面罗列着常用的应用程序，它们的存在和桌面图标一样没有必要，况且还占用了宝贵的屏幕空间，可以在 System Settings -> Appearance -> Behavior 中设置为自动隐藏。</p>
 
 <p>最后，我们得到了这样一个干净，整洁，终端常驻的桌面，它极致简约而又极致强大，在那个黝黑背景的终端上，闪烁着浅灰色的光标，安静而神秘，我们的先辈就是从这里开始创造了无数的奇迹，而如今这里又是充满了无限可能的地方，等待我们去发现。</p>
 
-<p>未完待续&#8230;</p>
+<p>未完待续...</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
+<p><img src="/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
 ]]></content>
   </entry>
   
@@ -884,7 +760,7 @@ ubuntu_install_guide.sh</p>
 <ol>
 <li><p><strong>他们首先开源了代码</strong></p>
 
-<p> 这是一个吓坏了封闭和专利系统制作者的决定。因为那些闭源厂商依靠贩卖专利和二进制文件获利，公布自己的代码，并且连带修改和发行权利也一并不要了，这在闭源厂商是不能想象的。相反在开源系统中，开发者求知的愿望被充分尊重了，他们可以任意阅读自己感兴趣的代码，获取知识，修补臭虫，甚至参与开源项目，结识更多其它有求知欲的极客，从而提高自己的开发水平。在闭源系统中，开发者只能依赖厂商提供的 API，文档以及定期的补丁包&#8211;这些同样是普罗大众不那么关心但是开发者所不能接受的。因此使用开源系统无疑可以增强自己的技能水准，并且在使用系统的同时有机会改进和修补自己的系统。</p></li>
+<p> 这是一个吓坏了封闭和专利系统制作者的决定。因为那些闭源厂商依靠贩卖专利和二进制文件获利，公布自己的代码，并且连带修改和发行权利也一并不要了，这在闭源厂商是不能想象的。相反在开源系统中，开发者求知的愿望被充分尊重了，他们可以任意阅读自己感兴趣的代码，获取知识，修补臭虫，甚至参与开源项目，结识更多其它有求知欲的极客，从而提高自己的开发水平。在闭源系统中，开发者只能依赖厂商提供的 API，文档以及定期的补丁包--这些同样是普罗大众不那么关心但是开发者所不能接受的。因此使用开源系统无疑可以增强自己的技能水准，并且在使用系统的同时有机会改进和修补自己的系统。</p></li>
 <li><p><strong>他们更懂开发者</strong></p>
 
 <p> 从诞生之初起，这就是一个极客玩出来的操作系统。与其说他们是在开发操作系统不如说他们是在满足开发者自己的需求，这就是著名的“吃狗食“理论，需要一个开发者系统：1. 动手做一个 -> 2. 生存在其中 -> 3. 体会优劣 -> 4. 修补不足，增进优势使它更适合开发 -> 循环至 1. 生存在其中。所以这个系统会越来越朝着它的方向发展，那就取悦开发者自己。经过大约二十多年的发展，今天的开发者系统已经积累了无数提升开发生产力的哲学，理念和工具软件。几乎你能想到的和未能想到的一切和开发相关的需求都已经在开发者系统上被满足了，你需要做的就是学习，练习和使用。即便这仍然不能满足你，开发者系统上很容易对已有的存在做一个分支然后进行自我满足的工作。某些时候没人比你自己更懂自己，更多的时候他们比你更懂你自己，使用开发者系统的开发者时常就会想到要是有这么一个功能就好了，然后 Google 一下相关资料，接着自言自语 “哦。。。果然已经有了”。物以类聚，人以群分，如果我们的行为方式和思维模式相近，那么先前的开发者早就遇到过相同的困扰并且动手解决了问题。你仍然只需要学习，练习和使用，仅此而已。他们懂得键盘比起鼠标在大多数开发场合更高效，他们懂得软件界面首先需要的是命令行，其次才是图形化界面，他们懂得命令优于导航的哲学，你需要编辑器/编译器，他们提供了伟大的 Vim，Emacs/gcc, g++，你需要好用的脚本语言，他们内置了Bash Shell/Python，你需要更高效的操作电脑，他们提供了无数的实用命令行程序，幷为几乎每一个程序配置了无数参数来满足你的需要，一旦我们理解他们这么做的初衷，剩下的还是学习，练习和使用。</p></li>
@@ -914,9 +790,9 @@ ubuntu_install_guide.sh</p>
 </ol>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install firefox</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+sudo apt-get install firefox
+</code></p>
 
 <p>那么为什么说<strong>命令优于导航？</strong>几点原因：</p>
 
@@ -934,7 +810,7 @@ ubuntu_install_guide.sh</p>
 
 <p>前面我们提到过，在一个有几十个图标的桌面上，要定位到某个想要启动的程序，或者在一个多级菜单里寻找某个软件功能是费力费眼的。如果你了解等价的命令，直接键入程序名然后启动应用程序会快上很多倍。也就是说如果你知道你想干什么，使用键盘键入命令或者执行搜索，效果会比肉眼巡视来得高效很多。搜索这个概念在开发者系统的很多地方都贯穿得相当彻底，find/which/whereis/grep/vim/vimperator 很多命令都是基于搜索优于导航这一理念的。时刻养成搜索的习惯能帮助我们更高效的使用开发者系统。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/start_firefox.png" alt="Start Firefox" /></p>
+<p><img src="/images/ubuntu_living_handbook/start_firefox.png" alt="Start Firefox" /></p>
 
 <ul>
 <li><strong>命令操作更容易被开发，组合使用，以及更容易地进行参数调整，脚本化批量处理</strong></li>
@@ -960,93 +836,6 @@ ubuntu_install_guide.sh</p>
 
 
 <p>最后，使用开发者系统的前提是认同 Linux 哲学，理解学习，记忆的代价是用来换取高效使用开发者系统而产生的。你越多的付出脑力成本使用这个系统，就会越高效安逸的生存在这个系统中，也就越认同她的哲学，使得你付出更多的脑力成本，继而进入同时锻炼脑力和提高生产力的良性循环中。这种变化甚至可以影响到你做任何事情的态度：收起懒散的心理和涣散的心智，使用脑力来提升效率，最终让你成为一个务实，智慧和高效的人。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[极客的博客]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/"/>
-    <updated>2012-04-20T00:30:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog</id>
-    <content type="html"><![CDATA[<h2>缘起</h2>
-
-<p>几乎每一个使用 <strong><a href="http://octopress.org/">Octopress</a></strong> 写博客的极客，第一篇博客必然是讨论 Octopress 本身, 我也不应该例外。</p>
-
-<!--more-->
-
-
-<h2>关于极客和我</h2>
-
-<p>假使按照极客的个性，哪怕只是自我标榜一下极客的身份也像是在哗众取宠般的做作，印象里极客应该低调，是别人称呼的，如果我自己标榜自己，我那么的高调，那我还是极客吗？如此这般，似乎产生了逻辑上的自我矛盾，所以理论上我不应该自我标榜极客，有贴金的嫌疑，何况博客是给大家看的，假使周遭的熟识对我从来没有极客的印象，又或者我不够资格到极客的水准，那我的第一篇博客就是在胡说八道，乱人视听，诸君报以一顿嗤之以鼻后姗姗离去，那我这是何苦来哉？ 不过虽然我自觉我这个人这般也差，那般也比不上别人，但是笨有笨的好处，蛮有蛮的力气，傻傻如郭靖，一根大条练到底，不过是练练少林长拳，耍起来虎虎生风，终究还是可以不一样。计算机与之我，譬如少林长拳与之郭靖，一路黑到底，约莫估计会有 <strong><a href="http://book.douban.com/subject/3134517/">Outliers</a></strong> 里 10000 小时理论的成效。再则，自从踏上这个行当，到底觉得就是因为这股子傻劲让我和别人不太一样，所以先在这里厚着脸皮标榜一番，三年五载之后，看官自有定论。</p>
-
-<h2>为什么要写博客？</h2>
-
-<p>关于这个问题，参考刘未鹏的<a href="http://mindhacks.cn/2009/02/15/why-you-should-start-blogging-now/">为什么你应该（从现在开始就）写博客</a>。然而年过三十，心智方才成熟到觉得必须留下点什么的程度，回望从前只有感叹虚掷年华的份儿，好在亡羊补牢，犹为晚也，好坏开个头吧。</p>
-
-<h2>为什么是 Octopress ？</h2>
-
-<p>图个方便，大可新浪博客，搜狐博客，CSDN 博客之流，只是提及这些个博客只怕更多联想到苍井空老师，袁萌老师之流，大煞风景，考虑到极客之精神所在，我辈以与之同流合污为耻。李笑来老师是明白这个道理的，他用了更符合 DIY 要义的 <strong><a href="http://wordpress.org/">WordPress</a></strong>，然而毕竟不能以我们的眼光太过要求一个新东方老师的博客标准，因为即使牛人如刘未鹏也并未使用 Octopress 来写博客，他也用 WordPress。所以是 WordPress？我差点就这么想了，但是关于 WordPress，我看到了自购主机，我看到了 MySQL，我看到了在线编辑。略微权衡一下，这些似乎就已经偏离了精神之所在，所以我想一定有其它的存在吧。</p>
-
-<p>那么一个极客眼中的博客应该具备哪些要素？</p>
-
-<ol>
-<li><p><strong>基于文本的编辑</strong></p>
-
-<p> 作为极客，你必须很在意 Vim, Emacs 之流，你应该鄙视一切在 Office，Web 里的文字工作，Office 之流很方便使用，但是实在没有什么效率。即便在我们这个行业里，很多人至今没有弄清楚方便不等于高效这个道理。所以我个人只认同使用 Vim 方式处理任何文本工作，包括代码和博客。</p></li>
-<li><p><strong>方便的书写和阅读格式</strong></p>
-
-<p> 假设你承认上述第一点的理念，那么我们还是在写博客，仍然需要格式化的文字使得文字本身在网络上更富表现力，方便读者阅读。但是 html 是一种很冗余的格式存在，既不方便书写也不方便对编辑的源码直接阅读。同时纯文本的格式又走上了另一个极端，书写和阅读基本没有任何代价，坏处在于纯文本几乎又没有任何表现力，除了可以分出段落，它不能粗体，不能斜体，不能更改字号，不能列表。所以结论是：我们需要一种介于 html 和纯文本之间的格式来书写博客，它有不那么大的书写和阅读的成本，又兼顾一定的文字表现力。答案就是 <strong><a href="http://daringfireball.net/projects/markdown/">Markdown</a></strong>，再送一份红利就是在线的 <strong><a href="http://www.ctrlshift.net/project/markdowneditor/">Markdown Editor</a></strong>。</p></li>
-<li><p><strong>灵活的备份和恢复</strong></p>
-
-<p> 这是一条足以放弃 WordPress 的重要理由。我们无非是在码字而已，没有理由引入数据库，基于文本的保存是最安全的保存，它便于检索(grep)，容易导入，导出，不依赖于任何第三方软件或者操作系统。几百年后，这篇文档仍然可以被那时的计算机打开，这很重要，好比我们今天仍然有机会看到前人的青铜器，但是我们的后人只能从图片上看看今天的各类一次性制品。如果要求更高一些，我们还希望有类似管理代码的方式来管理我们的博客，同样是文本，Version Control System 不应该是代码的专有权利。中央服务器也可以保证在任何地方，任何时候检出，更新，提交你的博客，并且也不妨碍除你以外的人这么做。</p></li>
-<li><p><strong>基于命令行的操作方式</strong></p>
-
-<p> 极客的重要特征是远离 Windows，所以我们甚至应该幻想一个 Windows 不友好的方式来写博客。它应该尽量基于命令行，在 Linux 系统上运行良好，羞啥那些 Windows 上的普通青年和 Mac 上的文艺青年，这不是说我很大度的表示我就是2B青年，只是我实在不愿意诸君承担2B青年的包袱，只好自己大度的承担罢了。</p></li>
-<li><p><strong>支持代码片段的显示</strong></p>
-
-<p> 偶尔想秀个小代码也是装2的内在诉求和外在表现之一，所以我们的博客应该是可以这样子的：</p></li>
-</ol>
-
-
-<figure class='code'><figcaption><span>Code Snips to test code blocks </span><a href='http://www.google.com'>link test</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">TestCode</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class='line'>      <span class="k">pass</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">testCode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class='line'>      <span class="k">print</span> <span class="s">&#39;hello world!&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p><strong>最后的最后，不缩水的博客</strong></p>
-
-<p>  好处不能都被你这个2B青年占完了不是吗？你要这个要那个，都满足你了，末了扔给你一个缩水的博客，你不由自主的和那些个不入你法眼的新浪博客，不讨巧的 WordPress 做比较了，于是你又开始不满意了。好吧，我们折中一下，RSS 导出不能少，分享到 Facebook，Twitter，甚至于新浪微博也不能落下，还要能访客留言，搜索过往，提示最近的博客，标注 tag。于是是除了你那些个蛋疼的特殊癖好，别人有的也全都要满足。。。</p></li>
-</ul>
-
-
-<h2>极客的博客，答案只能是 Octopress，没有之一</h2>
-
-<p>没有办法了，只能是 Octopress 可以满足我这样的2B青年了。诸君可以去了解，不用我在这里没完没了的磨机。我也不打算罗列详细的步骤去教诸君如何安装 Octopress 了，诸君都是成年人，有理想，有抱负，会 Google，不会 Google，起码也知道度娘其实被 PS 的过分了一些，不是吗？ 为了避免不必要的打击和骂娘的状况出现，我只在诸君打算做这个事情前罗列一些最基本的先决条件，如果诸君实在为难，我们也不能强求对不？</p>
-
-<ul>
-<li><p><strong>会 Google，至少会度娘</strong></p></li>
-<li><p><strong>你至少有一个 Linux 系统活在 Windows/Mac 的虚拟机里，偶尔也用用</strong></p></li>
-<li><p><strong>多少认同 Vim/Emacs，偶尔也用用，起码是用来看日志也算你一个</strong></p></li>
-<li><p><strong>了解一些 Ruby，Python 之流的动态语言</strong></p></li>
-<li><p><strong>了解 GitHub 和 Git 的一些基础知识，会 pull，能 push</strong></p></li>
-<li><p><strong>即使不知道什么是 Markdown 学学也乐意，深表认同 Markdown 哲学</strong></p></li>
-</ul>
-
-
-<p>感情没有哪个公司的招聘里会写上这些个应知应会，所以诸君在工作之余，在这个 Java，.Net 横行的年代里，居然还玩会了这些，不管诸君愿不愿意，我也只能承认你我都2到家了。再看看还有哪些人这么2的，无巧不巧，不用我们自己 Google，Octopress 自己煞有其事的列出了用他们这个博客的网站列表，参见 <strong><a href="https://github.com/imathis/octopress/wiki/Octopress-Sites">Octopress Sites</a></strong>，假使你有耐心一个一个参阅过来，你没有办法不承认他们都是极客的博客。</p>
-
-<h2>缘灭</h2>
-
-<p>木有想到第一篇博客写的这么猴累，再接再厉！欢迎新浪微博加我关注：<strong>ghosert</strong></p>
 ]]></content>
   </entry>
   

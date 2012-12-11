@@ -9,11 +9,7 @@
   <meta name="author" content="张佳伟">
 
   
-  <meta name="description" content="Ubuntu系统的基础设施 任何一个高可用的操作系统，必须解决以下几个重要的问题： 系统易于安装升级
-软件丰富，完备
-便捷的系统备份与恢复
-硬件驱动完善
-突破墙的封锁（中国特色问题） 这一节中，我们将讨论从头开始搭建一个基础设施完善的 Ubuntu 系统。主要包括基于 Ubuntu 系统的安装， &hellip;">
+  <meta name="description" content="Ubuntu系统备份恢复升级策略 继续上篇的内容，在最初使用开发者系统的时候，无论是构建Ubuntu系统基础设施，还是安装配置各种软件都是一个费心劳力的过程：由于开发者系统是一个需要付出脑力成本换取高效率的系统，它因此被设计成一个高可定制又极度自由的系统， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +76,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/04/ubuntu-living-handbook-backup-restore/">Ubuntu桌面生存指南 (4) &#8212; Ubuntu系统备份恢复升级策略</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-04T20:10:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Ubuntu系统备份恢复升级策略</h2>
+
+<p>继续上篇的内容，在最初使用开发者系统的时候，无论是<a href="/blog/2012/10/30/ubuntu-living-handbook-install/">构建Ubuntu系统基础设施</a>，还是安装配置各种软件都是一个费心劳力的过程：由于开发者系统是一个需要付出脑力成本换取高效率的系统，它因此被设计成一个高可定制又极度自由的系统，暂且不说你可以自由地从编译源码的方式配置安装整个操作系统，即便是大多数的常用软件例如：vi，emacs等等通过变更配置文件都可以玩出无数的操作方式，用户需要花费时间去变更尝试这些配置，使得操作这些软件的方式最符合自己的习惯，达到高效的目的。因此经过一段时间调配，每一个Linux用户都会有一个自己专属的高效系统，有1000个用户就会有1000个专属高效系统，每一个系统上安装的软件和配置方法都各不一样，并且每一个用户在打造这个专属系统的过程中都会耗费大量的精力和时间。丢失自己的专属系统，就意味着时间精力的丢失，对于一个长期使用Linux的用户更是如此：用户已经在这个系统上积累太多软件和操作习惯，如果因为系统崩溃而需要从头开始配置一个全新的系统，在事前又没有任何备份措施，那剩下的简直就是一场灾难。这也是有经验的Linux用户很注意备份的原因。介于此，笔者在本章节结合自己的一些经验来介绍一下Ubuntu系统的备份恢复以及升级策略:</p>
+
+<ol>
+<li>脚本恢复策略 &#8212; 完全格式化更新</li>
+<li>脚本恢复策略 &#8212; 沿用/home分区数据</li>
+<li>tar包全盘备份恢复策略</li>
+<li>迁徙wubi系统到物理分区</li>
+<li>Ubuntu系统升级策略</li>
+</ol>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/04/ubuntu-living-handbook-backup-restore/">阅读全文 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -277,6 +325,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/ubuntu-living-handbook-backup-restore/">Ubuntu桌面生存指南 (4) &#8212; Ubuntu系统备份恢复升级策略</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/10/30/ubuntu-living-handbook-install/">Ubuntu桌面生存指南 (3) &#8212; 构建Ubuntu系统基础设施</a>

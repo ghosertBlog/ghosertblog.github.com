@@ -305,7 +305,7 @@
 <p><strong>2. 开启终端，输入安装deb包的命令：</strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dpkg -i dropbox_1.4.0_amd64.deb</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo dpkg -i dropbox_1.4.0_amd64.deb</span></code></pre></td></tr></table></div></figure>
 
 
 <p>dpkg 是一个比 apt-get 更低阶的安装命令，apt-get 命令下载的就是 .deb 文件，然后调用 dpkg -i 进行安装， 以上命令只是安装了 Dropbox 的 GUI 壳，运行以后会继续下载 Dropbox daemon 程序，由于 GFW 的阻挠，这个过程无法进行。读者选择退出 Dropbox 即可。</p>
@@ -336,7 +336,7 @@
 
 <p>至此，安装完毕，按笔者目前的网络环境，在安装以后，最新的 Dropbox 版本可以正常使用，无需修改任何配置，所有以 https 起首的 dropbox 网址也可以在浏览器中没有限制的访问。所以只要按上述步骤解决安装的问题就可以了。笔者没有测试所有网络环境下的条件，如果还有问题，可以在博客评论中描述状况，本人负责做力所能及的解答。</p>
 
-<p><strong>如果对 Dropbox 感兴趣，可以通过本人帐号的推广链接创建帐号：<a href="http://db.tt/oNnbpla">http://db.tt/oNnbpla</a> 你我各自增加 250M 的空间大小，惠己利人。</strong></p>
+<p><strong>如果对 Dropbox 感兴趣，可以通过本人帐号的推广链接创建帐号：<a href="http://db.tt/oNnbpla">http://db.tt/oNnbpla</a> 你我各自增加 500M 的空间大小，惠己利人。</strong></p>
 
 <h2>同步软件使用经验</h2>
 
@@ -422,9 +422,11 @@ ubuntu_install_guide.sh</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install proxychains -y
 </span><span class='line'>sudo vi /etc/proxychains.conf
-</span><span class='line'>在文件最后追加一行：socket5 proxy_ip_address port</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>注释掉文件中最后一行：socks4 127.0.0.1 9050
+</span><span class='line'>幷在文件最后追加一行：socks5 proxy_ip_address port</span></code></pre></td></tr></table></div></figure>
 
 
 <p>通过安装 proxychains 这个软件，同时我们在它的配置文件 /etc/proxychains.conf 中加入了代理服务器的 ip 地址和端口号，这样我们就可以要求任意被墙阻断的命令行软件通过代理服务器连接互联网了，使用方法也很简单，假设我们需要下载 facebook 的主页，就可以运行：</p>
@@ -446,10 +448,10 @@ ubuntu_install_guide.sh</p>
 <p>此时本地 127.0.0.1:7070 这个地址端口已经具备了类似代理服务器 C 相同的作用，你只需要在任意 GUI 程序的代理服务器选项上填入 127.0.0.1:7070，或者在上述 /etc/proxychains.conf 文件最后追加一行</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>socket5 127.0.0.1 7070</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>socks5 127.0.0.1 7070</span></code></pre></td></tr></table></div></figure>
 
 
-<p>即可。</p>
+<p>即可让 GUI 或者命令行程序通过代理服务器连接互联网。</p>
 
 <p><strong>未完待续&#8230;&#8230;</strong></p>
 </div>
@@ -479,7 +481,7 @@ ubuntu_install_guide.sh</p>
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ubuntu-linux-tools/'>Ubuntu， Linux， Tools</a>
+    <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/tools/'>Tools</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
   
 </span>
 
@@ -528,6 +530,8 @@ var jiathis_config={
         <a class="basic-alignment left" href="/blog/2012/10/22/ubuntu-living-handbook-experience/" title="Previous Post: Ubuntu桌面生存指南 (2) --- Ubuntu桌面体验简介">&laquo; Ubuntu桌面生存指南 (2) --- Ubuntu桌面体验简介</a>
       
       
+        <a class="basic-alignment right" href="/blog/2012/12/04/ubuntu-living-handbook-backup-restore/" title="Next Post: Ubuntu桌面生存指南 (4) --- Ubuntu系统备份恢复升级策略">Ubuntu桌面生存指南 (4) --- Ubuntu系统备份恢复升级策略 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -545,6 +549,10 @@ var jiathis_config={
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/ubuntu-living-handbook-backup-restore/">Ubuntu桌面生存指南 (4) --- Ubuntu系统备份恢复升级策略</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/10/30/ubuntu-living-handbook-install/">Ubuntu桌面生存指南 (3) --- 构建Ubuntu系统基础设施</a>

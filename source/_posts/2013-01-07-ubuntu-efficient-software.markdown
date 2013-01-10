@@ -202,7 +202,7 @@ $ w3m http://www.douban.com
 
 ## 屏幕管理器：tmux
 
-## ：Vimperator
+## 火狐的瑞士军刀：Vimperator
 
 
 

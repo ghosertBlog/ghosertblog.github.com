@@ -170,7 +170,7 @@ keynav
 
 更多用法参考 man：
 ```
-$ man find
+$ man keynav
 ```
 
 ## 文本浏览器：w3m

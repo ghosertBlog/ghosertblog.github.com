@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-01-12T20:56:54+08:00</updated>
+  <updated>2013-01-12T23:31:11+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -301,7 +301,7 @@ $ tmux
 
 <p><strong>3. 革新的浏览器人机交互</strong></p>
 
-<p>Web 最重要的特征就是可以跳转的链接。Vimperator 充分考虑了浏览器的人机交互特征，如果你没有使用过类似的工具，你也许可以想象使用快捷键在浏览器里翻页，滚屏，前进，后退，但是你可能无法想想如何使用键盘点击网页上的链接。看看 Vimperator 的做法，这是一个很讨巧，很聪明的做法：</p>
+<p>Web 最重要的特征就是可以跳转的链接。Vimperator 充分考虑了浏览器的人机交互特征，如果你没有使用过类似的工具，你也许可以想象使用快捷键在浏览器里翻页，滚屏，前进，后退，但是你可能无法想象如何使用键盘点击网页上的链接。看看 Vimperator 的做法，这是一个很讨巧，很聪明的做法：</p>
 
 <p><img src="/images/ubuntu_living_handbook/vimperator_hints.png" title="vimperator hints screenshot" alt="vimperator-hints" /></p>
 

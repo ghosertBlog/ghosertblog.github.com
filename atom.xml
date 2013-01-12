@@ -4,7 +4,7 @@
   <title><![CDATA[张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-01-12T23:31:11+08:00</updated>
+  <updated>2013-01-12T23:50:21+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -231,7 +231,7 @@
 <p>更多用法参考 man：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ man find</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ man keynav</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>文本浏览器：w3m</h2>

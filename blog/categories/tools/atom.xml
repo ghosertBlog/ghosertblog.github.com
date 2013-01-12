@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-01-12T23:31:11+08:00</updated>
+  <updated>2013-01-12T23:50:21+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -193,7 +193,7 @@ keynav
 
 <p>更多用法参考 man：
 <code>
-$ man find
+$ man keynav
 </code></p>
 
 <h2>文本浏览器：w3m</h2>

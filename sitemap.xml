@@ -1,39 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/</loc>
+        <loc>http://ghosert.loadtrend.com/blog/2012/04/20/geeks-blog/</loc>
         <lastmod>2012-10-22T01:08:11+08:00</lastmod>
     </url>
     <url>
-        <loc>http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/</loc>
+        <loc>http://ghosert.loadtrend.com/blog/2012/10/14/ubuntu-living-handbook/</loc>
         <lastmod>2012-12-05T22:06:55+08:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/
-        </loc>
+        <loc>http://ghosert.loadtrend.com/blog/2012/10/22/ubuntu-living-handbook-experience/</loc>
         <lastmod>2012-12-05T22:07:06+08:00</lastmod>
     </url>
     <url>
-        <loc>http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/</loc>
+        <loc>http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install/</loc>
         <lastmod>2012-12-10T18:48:53+08:00</lastmod>
     </url>
     <url>
         <loc>
-            http://ghosertBlog.github.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore/
+            http://ghosert.loadtrend.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore/
         </loc>
         <lastmod>2013-01-10T23:43:11+08:00</lastmod>
     </url>
     <url>
-        <loc>http://ghosertBlog.github.com/blog/2013/01/07/ubuntu-efficient-software/</loc>
+        <loc>http://ghosert.loadtrend.com/blog/2013/01/07/ubuntu-efficient-software/</loc>
         <lastmod>2013-01-12T23:50:20+08:00</lastmod>
     </url>
     <url>
-        <loc>http://ghosertBlog.github.com/</loc>
+        <loc>http://ghosert.loadtrend.com/</loc>
         <lastmod>2013-01-12T23:50:20+08:00</lastmod>
     </url>
     <url>
-        <loc>http://ghosertBlog.github.com/blog/archives/</loc>
+        <loc>http://ghosert.loadtrend.com/blog/archives/</loc>
         <lastmod>2013-01-12T23:50:20+08:00</lastmod>
     </url>
 </urlset>

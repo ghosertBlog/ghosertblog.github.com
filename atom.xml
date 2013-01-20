@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[张佳伟的博客]]></title>
-  <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
-  <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-01-20T15:45:33+08:00</updated>
-  <id>http://ghosertBlog.github.com/</id>
+  <link href="http://ghosert.loadtrend.com/atom.xml" rel="self"/>
+  <link href="http://ghosert.loadtrend.com/"/>
+  <updated>2013-01-20T16:45:26+08:00</updated>
+  <id>http://ghosert.loadtrend.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ubuntu桌面生存指南 (5) --- Ubuntu常用效率软件简介]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2013/01/07/ubuntu-efficient-software/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2013/01/07/ubuntu-efficient-software/"/>
     <updated>2013-01-07T19:45:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2013/01/07/ubuntu-efficient-software</id>
+    <id>http://ghosert.loadtrend.com/blog/2013/01/07/ubuntu-efficient-software</id>
     <content type="html"><![CDATA[<h2>Ubuntu常用效率软件简介</h2>
 
 <p>之前的一系列博客里，基本上我们夯实了使用Ubuntu系统所需的基础知识，这一篇里我们来谈谈在这个低调而强大的平台上，如何使得操作者遵循系统的设计理念，通过恰当的选用软件，从而达到人机合一的化境，将这个平台的潜能发挥到极致，进而十倍，百倍的提升操作者的生产效率。我们就接着聊聊Ubuntu/Linux下的常用效率软件，网络上常常有Linux用户在学习，使用了这个平台上的软件以后发出这样的感叹：“几乎每一个Linux软件都可以写成一本书”。这基本上就是Linux系软件强大到令人敬畏的最好注脚。也因此在有限的篇幅里不可能涵盖那么多软件的方方面面，更何况笔者本人视野有限，故以下文字只做提纲挈领的引介，希望起到抛砖引玉，启示读者的作用。这一篇里先对常用软件做简介，考虑到Linux作为一个开发者系统的角色，我们在下篇里再介绍针对开发者需要的软件。大体上我会按以下思路介绍每个软件：</p>
@@ -100,7 +100,7 @@
 
 <p>这样插件文件会被集中管理在~/.vim/bundle/vim-css-color，同时只需要在插件目录中执行 git pull 就可以一键更新，vim-css-color 插件效果图如下。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/vim-css-color.png" title="vim css color screenshot" alt="vim css color" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/vim-css-color.png" title="vim css color screenshot" alt="vim css color" /></p>
 
 <h3>入门与心得</h3>
 
@@ -130,7 +130,7 @@
 
 <p>以下是装上若干插件以后的效果图：</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/gvim-editor.png" title="gvim-editor screenshot" alt="gvim-editor" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/gvim-editor.png" title="gvim-editor screenshot" alt="gvim-editor" /></p>
 
 <h2>搜索的艺术：find &amp; grep</h2>
 
@@ -260,7 +260,7 @@
 
 <p>使用 w3m 的 web 渲染效果很美观，用 w3m 访问 gmail 的效果图：</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/w3m-gmail.png" title="w3m gmail" alt="w3m-gmail" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/w3m-gmail.png" title="w3m gmail" alt="w3m-gmail" /></p>
 
 <h3>安装配置与入门</h3>
 
@@ -328,7 +328,7 @@
 
 <p>以下是一个分割出四个区域三个Tab的 tmux 效果图，注意图片左下角绿色状态栏的三个单词代表了三个Tab，带*号的Tab表示当前Tab，黑色高亮的那两个单词表示另外两个非当前Tab的终端内容有变化，例如你在当前Tab内编辑文本，在另外的Tab里如果有log输出，那么就会有黑色背景提醒你需要查看变化。图片右下角的状态栏上同样很贴心的给出了当前系统时间和计算机的hostname：</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/tmux-sc.png" title="tmux screenshot" alt="tmux-sc" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/tmux-sc.png" title="tmux screenshot" alt="tmux-sc" /></p>
 
 <h2>火狐的瑞士军刀：Vimperator</h2>
 
@@ -352,7 +352,7 @@
 
 <p>Web 最重要的特征就是可以跳转的链接。Vimperator 充分考虑了浏览器的人机交互特征，如果你没有使用过类似的工具，你也许可以想象使用快捷键在浏览器里翻页，滚屏，前进，后退，但是你可能无法想象如何使用键盘点击网页上的链接。看看 Vimperator 的做法，这是一个很讨巧，很聪明的做法：</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/vimperator_hints.png" title="vimperator hints screenshot" alt="vimperator-hints" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/vimperator_hints.png" title="vimperator hints screenshot" alt="vimperator-hints" /></p>
 
 <p>装完这个插件以后，按下 f 键，页面上所有可以点击的对象包括：链接，图片，文本，按钮都被显式高亮，并且标上数字记号。这个时候你只需要在键盘上按下相应的数字就代表了一次鼠标点击。你也可以使用搜索关键字的方法，定位到一个链接，然后直接回车跳转。这远比一次鼠标导航要高效。</p>
 
@@ -378,12 +378,12 @@
   
   <entry>
     <title type="html"><![CDATA[Ubuntu桌面生存指南 (4) --- Ubuntu系统备份恢复升级策略]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore/"/>
     <updated>2012-12-04T20:10:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore</id>
+    <id>http://ghosert.loadtrend.com/blog/2012/12/04/ubuntu-living-handbook-backup-restore</id>
     <content type="html"><![CDATA[<h2>Ubuntu系统备份恢复升级策略</h2>
 
-<p>继续上篇的内容，在最初使用开发者系统的时候，无论是<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">构建Ubuntu系统基础设施</a>，还是安装配置各种软件都是一个费心劳力的过程：由于开发者系统是一个需要付出脑力成本换取高效率的系统，它因此被设计成一个高可定制又极度自由的系统，暂且不说你可以自由地从编译源码的方式配置安装整个操作系统，即便是大多数的常用软件例如：vi，emacs等等通过变更配置文件都可以玩出无数的操作方式，用户需要花费时间去变更尝试这些配置，使得操作这些软件的方式最符合自己的习惯，达到高效的目的。因此经过一段时间调配，每一个Linux用户都会有一个自己专属的高效系统，有1000个用户就会有1000个专属高效系统，每一个系统上安装的软件和配置方法都各不一样，并且每一个用户在打造这个专属系统的过程中都会耗费大量的精力和时间。丢失自己的专属系统，就意味着时间精力的丢失，对于一个长期使用Linux的用户更是如此：用户已经在这个系统上积累太多软件和操作习惯，如果因为系统崩溃而需要从头开始配置一个全新的系统，在事前又没有任何备份措施，那剩下的简直就是一场灾难。这也是有经验的Linux用户很注意备份的原因。介于此，笔者在本章节结合自己的一些经验来介绍一下Ubuntu系统的备份恢复以及升级策略:</p>
+<p>继续上篇的内容，在最初使用开发者系统的时候，无论是<a href="http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install/">构建Ubuntu系统基础设施</a>，还是安装配置各种软件都是一个费心劳力的过程：由于开发者系统是一个需要付出脑力成本换取高效率的系统，它因此被设计成一个高可定制又极度自由的系统，暂且不说你可以自由地从编译源码的方式配置安装整个操作系统，即便是大多数的常用软件例如：vi，emacs等等通过变更配置文件都可以玩出无数的操作方式，用户需要花费时间去变更尝试这些配置，使得操作这些软件的方式最符合自己的习惯，达到高效的目的。因此经过一段时间调配，每一个Linux用户都会有一个自己专属的高效系统，有1000个用户就会有1000个专属高效系统，每一个系统上安装的软件和配置方法都各不一样，并且每一个用户在打造这个专属系统的过程中都会耗费大量的精力和时间。丢失自己的专属系统，就意味着时间精力的丢失，对于一个长期使用Linux的用户更是如此：用户已经在这个系统上积累太多软件和操作习惯，如果因为系统崩溃而需要从头开始配置一个全新的系统，在事前又没有任何备份措施，那剩下的简直就是一场灾难。这也是有经验的Linux用户很注意备份的原因。介于此，笔者在本章节结合自己的一些经验来介绍一下Ubuntu系统的备份恢复以及升级策略:</p>
 
 <ol>
 <li>脚本恢复策略 &#8212; 完全格式化更新</li>
@@ -401,7 +401,7 @@
 
 <h2>脚本恢复策略 &#8212; 完全格式化更新</h2>
 
-<p>我们前面介绍过Ubuntu系统的一个特色就是可以从自己的源通过<strong>apt-get</strong>命令来下载需要的软件，因此用户可以建立一个脚本文件，通过写入常用的<strong>apt-get install</strong>命令的方式来备份需要的软件(参见<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>中的<strong>在云端保存一个软件安装的脚本</strong>部分)，同时在这个脚本文件中加入某些需要手工干预的个性化配置的具体步骤，例如：更改激活拼音输入法快捷键的具体步骤(大多数拼音输入法抢占了ctrl+space，如果不更改，开发者用户就无法在诸如Eclipse这样的IDE里使用这个快捷键激活智能代码提示的功能)，又例如：你可能对 Firefox 的默认字体并不满意，需要替换一下，这些详细的步骤都应该以注释的形式记录在这个脚本里，如果这些步骤实在太过繁琐，也可以在配置以后，找到对应的配置文件，直接保存在Dropbox里，方便今后直接从云端恢复这些配置到本机。例如，你自己定制化了Vim的行为并且加装了Vim插件，那你只需要将~/.vimrc ~/.vim备份在云端即可。</p>
+<p>我们前面介绍过Ubuntu系统的一个特色就是可以从自己的源通过<strong>apt-get</strong>命令来下载需要的软件，因此用户可以建立一个脚本文件，通过写入常用的<strong>apt-get install</strong>命令的方式来备份需要的软件(参见<a href="http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>中的<strong>在云端保存一个软件安装的脚本</strong>部分)，同时在这个脚本文件中加入某些需要手工干预的个性化配置的具体步骤，例如：更改激活拼音输入法快捷键的具体步骤(大多数拼音输入法抢占了ctrl+space，如果不更改，开发者用户就无法在诸如Eclipse这样的IDE里使用这个快捷键激活智能代码提示的功能)，又例如：你可能对 Firefox 的默认字体并不满意，需要替换一下，这些详细的步骤都应该以注释的形式记录在这个脚本里，如果这些步骤实在太过繁琐，也可以在配置以后，找到对应的配置文件，直接保存在Dropbox里，方便今后直接从云端恢复这些配置到本机。例如，你自己定制化了Vim的行为并且加装了Vim插件，那你只需要将~/.vimrc ~/.vim备份在云端即可。</p>
 
 <p>所以一旦建立了这样一个脚本文件，即使需要重装系统或者面对一台全新的计算机，只需要执行这个脚本文件，查看脚本里的注释记录，就可以保证软件没有丢失，配置软件的步骤可以还原，重要的资料都被存储在云端：Dropbox（二进制文件），GitHub（文本文件，以后详述）。自然这个策略的前提是：你在使用系统的时候必须保持勤于更新脚本的习惯，用于日后的系统恢复。</p>
 
@@ -417,9 +417,9 @@
 
 <p>我们前面提到过独立/home分区的原因在于用户大多数重要的个性化配置和数据都保存在这个目录，以至于Ubuntu官方的云端备份软件Ubuntu One在默认情况下就是协助用户备份/home分区所在的数据到云端。因此如果可以在重装系统的时候沿用这个分区的数据，无疑可以为我们节省大量的数据恢复和配置恢复的时间，更何况某些数据如电影，照片可能占据几百个G的空间，没有独立/home分区，用户在重装系统，格式化分区的时候根本就没有可以容纳那么大数据的第二个媒介做临时的备份，除非你有第二块硬盘。另一方面在恢复系统的时候因为配置和数据仍旧在/home目录，你只需要执行前面提到的脚本重新安装软件即可，无需手工还原配置软件的步骤。</p>
 
-<p>为了使用这种恢复策略，在首次安装Ubuntu的时候可以参考<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案独立出/home分区，在使用系统的过程中时刻保证只在这个目录下存储自己重要的数据和配置，如果一定有一些特例状况也一定要在恢复脚本中加以记录，在云端有另外的备份措施。只要你的/home分区没有被损坏，再次恢复的代价就相当的小。重装系统的时候可以格式化 / 目录所挂载的分区，但是记得在以下Installation type界面上千万不要选择格式化 /home 所在的分区，否则就无法沿用这个分区的数据。</p>
+<p>为了使用这种恢复策略，在首次安装Ubuntu的时候可以参考<a href="http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案独立出/home分区，在使用系统的过程中时刻保证只在这个目录下存储自己重要的数据和配置，如果一定有一些特例状况也一定要在恢复脚本中加以记录，在云端有另外的备份措施。只要你的/home分区没有被损坏，再次恢复的代价就相当的小。重装系统的时候可以格式化 / 目录所挂载的分区，但是记得在以下Installation type界面上千万不要选择格式化 /home 所在的分区，否则就无法沿用这个分区的数据。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
 
 <p><strong>优点</strong></p>
 
@@ -495,7 +495,7 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install gparted</span></code></pre></td></tr></table></div></figure>
 
 
-<p>之后可以按照<a href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案进行分区，如果你对自己的分区已经满意，也可以略过分区的步骤，只需要格式化 / 所在分区即可，/home 所在分区因为用于存放备份压缩包，可以选择暂时不做格式化。</p>
+<p>之后可以按照<a href="http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install/">上一篇</a>博客的分区推荐方案进行分区，如果你对自己的分区已经满意，也可以略过分区的步骤，只需要格式化 / 所在分区即可，/home 所在分区因为用于存放备份压缩包，可以选择暂时不做格式化。</p>
 
 <ul>
 <li>解压备份压缩包</li>
@@ -610,7 +610,7 @@
 </ul>
 
 
-<p><a href="http://ghosertBlog.github.com/files/wubi-move.tar.gz">点击下载</a>Wubi移植脚本后解压运行</p>
+<p><a href="http://ghosert.loadtrend.com/files/wubi-move.tar.gz">点击下载</a>Wubi移植脚本后解压运行</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -649,9 +649,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ubuntu桌面生存指南 (3) --- 构建Ubuntu系统基础设施]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install/"/>
     <updated>2012-10-30T13:03:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/10/30/ubuntu-living-handbook-install</id>
+    <id>http://ghosert.loadtrend.com/blog/2012/10/30/ubuntu-living-handbook-install</id>
     <content type="html"><![CDATA[<h2>Ubuntu系统的基础设施</h2>
 
 <p>任何一个高可用的操作系统，必须解决以下几个重要的问题：</p>
@@ -672,7 +672,7 @@
 
 <h2>从U盘安装系统</h2>
 
-<p><a href="http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中我们提到过，虽然 Ubuntu 的发行安装方式众多，我们仍然推荐从硬盘开始安装。另一方面比起光盘，相信很多同学也了解U盘的优势：易于携带，保存，复制。这里不再敷陈，我们就从制作启动U盘说起。</p>
+<p><a href="http://ghosert.loadtrend.com/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中我们提到过，虽然 Ubuntu 的发行安装方式众多，我们仍然推荐从硬盘开始安装。另一方面比起光盘，相信很多同学也了解U盘的优势：易于携带，保存，复制。这里不再敷陈，我们就从制作启动U盘说起。</p>
 
 <p><strong>1. 下载 Ubuntu ISO 文件</strong></p>
 
@@ -682,19 +682,19 @@
 
 <p>在 Windows 下访问 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a> 的主页，这个Ubuntu官方推荐的绿色小工具就是帮助用户在手头没有 Ubuntu 的情况下，使用 Windows 来制作启动U盘。这个页面不仅包括了工具的下载链接，同时也包含了详细的操作步骤，同学们准备好1G容量以上的U盘和刚才下载到的ISO文件，按部就班操作即可。制作U盘的时候注意相应的选项，按我个人的经验它制作出的启动U盘质量相当高，甚至超越了Ubuntu下自带的工具。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/Universal-USB-Installer.png" alt="Universal-USB-Installer" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/Universal-USB-Installer.png" alt="Universal-USB-Installer" /></p>
 
 <p><strong>3. 从 Ubuntu 制作启动U盘</strong></p>
 
 <p>如果你手头有一台安装完毕的 Ubuntu 系统，你也可以通过启动 Startup Disk Creator 这个系统自带的工具制作启动U盘。注意如果你是跨版本的制作相应的启动盘可能会存在问题，笔者曾经在Ubuntu 10.04下使用这个工具制作基于12.04 ISO的启动盘，结果启动盘无法启动电脑，花了一个晚上才搞清楚原来是跨版本引发的问题，最后切换到 Windows 下的 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a> 才解决问题。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/startup-disk-creator.png" alt="startup-disk-creator" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/startup-disk-creator.png" alt="startup-disk-creator" /></p>
 
 <p><strong>4. Ubuntu 分区推荐方案</strong></p>
 
 <p>在安装之前，我们先分析一下 Ubuntu 桌面系统的分区方案。</p>
 
-<p>要了解分区方案，先从 Linux 系统的目录结构说起。使用 Windows 系统的用户都知道，Windows 系统先有分区的存在，然后在不同的分区下创建文件目录结构。于是我们看到诸如 C:\Windows D:\Downloads 之类目录，也就是说每一个目录首先是存在于某个分区的。Linux 系统则相反，它首先确定有目录的存在，例如：/， /usr， /media/usb，/media/cdrom， /disk 然后才确定这个目录上挂载的是哪个分区（甚至挂载的可能是CDROM， USB等外设以及ISO光盘镜像文件：类似 Windows 下虚拟光驱的作用）。访问某个目录，实质上就相当于访问挂载在这个目录上的分区，外设或者光盘镜像文件。我们在 <a href="http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中提到过一个系统存储重要数据的目录： <strong>/home</strong> 目录， 在通常的最佳实践中，可以把这个 home 目录作为一个单独的挂载点，挂载一个独立分区。这样做有几个好处：</p>
+<p>要了解分区方案，先从 Linux 系统的目录结构说起。使用 Windows 系统的用户都知道，Windows 系统先有分区的存在，然后在不同的分区下创建文件目录结构。于是我们看到诸如 C:\Windows D:\Downloads 之类目录，也就是说每一个目录首先是存在于某个分区的。Linux 系统则相反，它首先确定有目录的存在，例如：/， /usr， /media/usb，/media/cdrom， /disk 然后才确定这个目录上挂载的是哪个分区（甚至挂载的可能是CDROM， USB等外设以及ISO光盘镜像文件：类似 Windows 下虚拟光驱的作用）。访问某个目录，实质上就相当于访问挂载在这个目录上的分区，外设或者光盘镜像文件。我们在 <a href="http://ghosert.loadtrend.com/blog/2012/10/22/ubuntu-living-handbook-experience/">上一篇</a> 博客中提到过一个系统存储重要数据的目录： <strong>/home</strong> 目录， 在通常的最佳实践中，可以把这个 home 目录作为一个单独的挂载点，挂载一个独立分区。这样做有几个好处：</p>
 
 <ol>
 <li>系统分区如果损坏，幷不影响到 /home 分区所在的数据。这些数据通常非常重要，包括有你常用的软件，重要的文档以及各类软件的配置信息，反过来我们也鼓励把重要的数据存放在 /home 目录下，使得他们保存在系统分区以外的分区，避免因为系统的问题受损。</li>
@@ -723,7 +723,7 @@
 
 <p>大致的效果图如下（忽略分区尺寸一项，随意填的）</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/installation-type.png" alt="installation-type" /></p>
 
 <h2>高速下载软件&#8212;关于Ubuntu源</h2>
 
@@ -1005,14 +1005,14 @@ ubuntu_install_guide.sh</p>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu桌面生存指南 (2) --- Ubuntu桌面体验简介]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2012/10/22/ubuntu-living-handbook-experience/"/>
     <updated>2012-10-22T09:06:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/10/22/ubuntu-living-handbook-experience</id>
+    <id>http://ghosert.loadtrend.com/blog/2012/10/22/ubuntu-living-handbook-experience</id>
     <content type="html"><![CDATA[<h2>选择 Ubuntu</h2>
 
 <p>对于准备迁徙到 Linux 的用户来说，另一个头疼的问题就是选择发行版。所谓发行版是指在同一个 Linux Kernal 上由不同厂商，社区定制包装了不同桌面管理系统和附带了常用软件的 Linux 发行版本，通俗来说就是可以交付给用户安装的 Linux 系统。常见的发行版有 Ubuntu, Mint，RedHat， Fedora 等等，总数不下几百种。面对数量庞大的发行版，新人总是很难做出选择。好在每个发行版本都比较有针对性，有些是针对桌面应用，有些是针对服务器系统，还有一些比较适合初级用户，或者资深极客，大致了解各自的特性以及用户自己的需求也不难做出选择，另外实际上每种发行版之间的区别幷没有大到完全对立的地步，即便随便选择一种用起来上手，大多数的知识还是可以延续和继承在另一种发行版上的。只要不是三天两头换装各种发行版，也不算浪费时间和精力。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/desktop.png" alt="desktop" /></p>
 
 <!--more-->
 
@@ -1041,7 +1041,7 @@ ubuntu_install_guide.sh</p>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install firefox</span></code></pre></td></tr></table></div></figure>
 
 
-<p>就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：</p>
+<p>就下载了火狐浏览器，如果连接国外的网速比较慢，还可以通过选择国内的镜像网站加速下载。有人会说敲击命令下载软件有多麻烦？那么参见上一篇 <strong><a href="http://ghosert.loadtrend.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a></strong>。一般来说，官方源里的软件很少有兼容性问题，因为他们都是经过测试的。如果对某个软件不满意你只需要：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get purge firefox</span></code></pre></td></tr></table></div></figure>
@@ -1071,19 +1071,19 @@ ubuntu_install_guide.sh</p>
 
 <p>我们在前面说过 Linux 哲学中最重要的一条就是：<strong>命令优于导航</strong>，因此一个好用的终端系统尤为重要，终端系统是用户输入命令行，查看输出结果的媒介，一个合格的 Linux 使用者会花费至少 20% 的时间在终端中，如果你是一个开发者，这个比例会更高。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/gnome-terminal.png" alt="gnome-terminal" /></p>
 
 <p><strong>2. 火狐浏览器</strong></p>
 
 <p>浏览器的重要性在互联网时代不言而喻，由于 Google Chrome 的强力竞争，火狐浏览器市场占有率最近有所减缓，但是笔者依然是坚定的用户，火狐浏览器的插件生态链时至今日仍然是最强大的，我会在后面的博客系列中做单独介绍。很多用户幷不觉得插件有多重要，坚持 Chrome 的渲染速度秒杀一切，这个观念其实很有问题，硬件机能发展到现在，在同等条件下软件优化带来的效果提升非常有限，反而是人类操作手法的差别才是成为速度快慢的关键，一次缓慢的点击，或者在海量信息前的视觉迷失往往拖累了使用计算机的效率，成为瓶颈，改善操作手法，训练我们自己才是提高速度，提高效率的关键。好的插件就是为了这个目的而存在的。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/firefox.png" alt="firefox" /></p>
 
 <p><strong>3. LibreOffice</strong></p>
 
-<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
+<p>LibreOffice 源自于著名的 OpenOffice 办公软件，用以替代 Windows 下的 MS Office。我自己虽然并不常用（本人是坚定的文本拥护者，见 <a href="http://ghosert.loadtrend.com/blog/2012/04/20/geeks-blog/">极客的博客</a> 一文）但是针对 Office 用户仍然值得推荐。Libre Wirter， Libre Calc， Libre Impress 分别对应 MS Word， MS Excel，MS PowerPoint。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/impress.png" alt="impress" /></p>
 
 <p><strong>4. iBus 输入法架构</strong></p>
 
@@ -1093,19 +1093,19 @@ ubuntu_install_guide.sh</p>
 
 <p>作为音乐播放器没有皮肤，没有华丽丽的桌面歌词功能，提供本地音乐，网络电台，在线播客等功能，中规中矩，简单实用。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/rhythmbox.png" alt="rhythmbox" /></p>
 
 <p><strong>6. Totem Movie Player</strong></p>
 
 <p>系统自带的视频播放软件，由于许多视频解压缩算法首先是在 Linux 平台发明的，所以在视频格式的兼容性问题上，Linux 平台反而很少出现没有办法播放视频的状况，除非是微软的私有格式。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/totem_movie_player.png" alt="totem_movie_player" /></p>
 
 <p><strong>7. Ubuntu 软件中心</strong></p>
 
-<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
+<p>统一管理安装卸载，软件下载的软件中心，任何对软件的操作都可以在这里进行。笔者实际很少用到，大多数时候还是利用命令 <strong>apt-get</strong> 进行查询，安装，卸载工作。为什么使用命令，仍然参见<strong> <a href="http://ghosert.loadtrend.com/blog/2012/10/14/ubuntu-living-handbook/">选择Linux</a> </strong>一文</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/software_center.png" alt="software_center" /></p>
 
 <p>至此，系统默认自带的软件已经为我们提供了终端，浏览器，办公套件，输入法，音乐，视频播放和统一的软件中心，其它的必备软件不再一一列举，基本上用户总是可以找到和 Windows 相对应的软件。从普罗大众的角度来说，即使把这个状态的 Ubuntu 当作 Windows 来使用，一样可以胜任等价的工作，并且没有花费一分钱的专利费用。更由于对病毒木马的天然免疫，无需安装价格不菲的杀毒软件和声誉不佳的360系列软件。</p>
 
@@ -1121,7 +1121,7 @@ ubuntu_install_guide.sh</p>
 </span><span class='line'>sudo apt-get install virtualbox-guest-additions-iso</span></code></pre></td></tr></table></div></figure>
 
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/virtualbox.png" alt="virtualbox" /></p>
 
 <p>也有同学喜欢用 Wine 的方式来运行 Windows 下的软件，我的意见是：对于大多数软件运行在虚拟机里是最省力的做法，Wine 实在是考验人品的利器，除非万不得已，不要轻易使用，笔者只有一个 PDF 软件使用了 Wine 这种方式，以后再做具体介绍。其它譬如：迅雷，MSN，QQ，行业软件，部分游戏都可以在虚拟机里运行。关于网银，支付宝有直接支持火狐浏览器，大多数带有U盘做电子证书的网上银行譬如招行也都可以毫无压力的运行在虚拟机里。但是需要为了使 Virtualbox 辨认出物理 USB 外设做如下设置：</p>
 
@@ -1207,15 +1207,15 @@ ubuntu_install_guide.sh</p>
 
 <p>未完待续&#8230;</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/desktop_noicon.png" alt="desktop_noicon" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu桌面生存指南 (1) --- 选择 Linux]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2012/10/14/ubuntu-living-handbook/"/>
     <updated>2012-10-14T22:49:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/10/14/ubuntu-living-handbook</id>
+    <id>http://ghosert.loadtrend.com/blog/2012/10/14/ubuntu-living-handbook</id>
     <content type="html"><![CDATA[<h2>缘起</h2>
 
 <p>我大概是从2010年4月份开始把自己的桌面开发环境从 Windows XP 迁移到 Ubuntu 10.04 的，说起来也已经有两年半的 Ubuntu 使用经验。那次迁移的原因大致是因为某个阶段特别迷恋如何高效的操作电脑，当时把 Windows 整的很伏贴，但是说到高效的使用电脑，不可能对 Linux 系统视而不见。其次就是瞥到一个同事在捣鼓 Ubuntu， 加上毕竟 Windows 环境生存了十几年时间，再多的新鲜感也用尽了，当时很想试试在 Linux 下是不是可以完成在 Windows 下等价的工作。当然，两年半以后，很多结论都是不言自明的。所以《Ubuntu桌面生存指南》是我在两年半时间里，对 Ubuntu 这个发行版的使用心得，我会涉及必要的基础知识，帮助诸位理解，但是不会做到教科书式的面面俱到，或者涉猎太过艰深又不实用的技巧，行文的唯一目的正如题目所示，是尽可能帮助那些对 Ubuntu/Linux 感兴趣的人首先生存在这个平台，不至于因为这样那样的不方便错过或者误解一个优秀的发行版。</p>
@@ -1299,7 +1299,7 @@ ubuntu_install_guide.sh</p>
 
 <p>前面我们提到过，在一个有几十个图标的桌面上，要定位到某个想要启动的程序，或者在一个多级菜单里寻找某个软件功能是费力费眼的。如果你了解等价的命令，直接键入程序名然后启动应用程序会快上很多倍。也就是说如果你知道你想干什么，使用键盘键入命令或者执行搜索，效果会比肉眼巡视来得高效很多。搜索这个概念在开发者系统的很多地方都贯穿得相当彻底，find/which/whereis/grep/vim/vimperator 很多命令都是基于搜索优于导航这一理念的。时刻养成搜索的习惯能帮助我们更高效的使用开发者系统。</p>
 
-<p><img src="http://ghosertBlog.github.com/images/ubuntu_living_handbook/start_firefox.png" alt="Start Firefox" /></p>
+<p><img src="http://ghosert.loadtrend.com/images/ubuntu_living_handbook/start_firefox.png" alt="Start Firefox" /></p>
 
 <ul>
 <li><strong>命令操作更容易被开发，组合使用，以及更容易地进行参数调整，脚本化批量处理</strong></li>
@@ -1330,9 +1330,9 @@ ubuntu_install_guide.sh</p>
   
   <entry>
     <title type="html"><![CDATA[极客的博客]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2012/04/20/geeks-blog/"/>
     <updated>2012-04-20T00:30:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog</id>
+    <id>http://ghosert.loadtrend.com/blog/2012/04/20/geeks-blog</id>
     <content type="html"><![CDATA[<h2>缘起</h2>
 
 <p>几乎每一个使用 <strong><a href="http://octopress.org/">Octopress</a></strong> 写博客的极客，第一篇博客必然是讨论 Octopress 本身, 我也不应该例外。</p>

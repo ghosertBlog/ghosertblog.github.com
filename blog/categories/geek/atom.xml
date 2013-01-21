@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Geek | 张佳伟的博客]]></title>
-  <link href="http://ghosertBlog.github.com/blog/categories/geek/atom.xml" rel="self"/>
-  <link href="http://ghosertBlog.github.com/"/>
-  <updated>2012-12-11T16:14:06+08:00</updated>
-  <id>http://ghosertBlog.github.com/</id>
+  <link href="http://ghosert.loadtrend.com/blog/categories/geek/atom.xml" rel="self"/>
+  <link href="http://ghosert.loadtrend.com/"/>
+  <updated>2013-01-21T10:30:35+08:00</updated>
+  <id>http://ghosert.loadtrend.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[极客的博客]]></title>
-    <link href="http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog/"/>
+    <link href="http://ghosert.loadtrend.com/blog/2012/04/20/geeks-blog/"/>
     <updated>2012-04-20T00:30:00+08:00</updated>
-    <id>http://ghosertBlog.github.com/blog/2012/04/20/geeks-blog</id>
+    <id>http://ghosert.loadtrend.com/blog/2012/04/20/geeks-blog</id>
     <content type="html"><![CDATA[<h2>缘起</h2>
 
 <p>几乎每一个使用 <strong><a href="http://octopress.org/">Octopress</a></strong> 写博客的极客，第一篇博客必然是讨论 Octopress 本身, 我也不应该例外。</p>

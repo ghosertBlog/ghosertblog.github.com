@@ -15,6 +15,12 @@ single: true
     {% unless page.sharing == false %}
       {% include post/sharing.html %}
     {% endunless %}
+
+    <!--jiawzhang add below <p> for vertical space.-->
+    <p class="meta"></p>
+    <p class="meta"></p>
+    <p class="meta"></p>
+
     <p class="meta">
       {% if page.previous.url %}
         <a class="basic-alignment left" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>

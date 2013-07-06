@@ -14,10 +14,17 @@ pre .atv { color: #ffa0a0 } /* attribute value - pink */
 pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 
 /* Specify class=linenums on a pre to get line numbering */
-ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+/* jiawzhang: color: #666 to darken the line number */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #666 } /* IE indents via margin-left */
 
 /* jiawzhang: add this to leave more space to display line number, especially, when the line number is greater than 100. */
 ol.linenums { margin-left: 35px;}
+/* jiawzhang: polish the code snippet. */
+ol.linenums > li { padding-left: 15px;}
+pre.prettyprint {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 45px 0 0 rgba(0, 0, 0, 0.25) inset, 0 1px 0 #333;
+    padding: 9.5px;
+}
 
 /* jiawzhang: comment this line to make sure all the line number is shown, otherwise, there will be display issue when there is empty line in the code snippet. */
 /* li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none } */

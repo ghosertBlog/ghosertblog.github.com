@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Cmd - 中文在线 MarkDown 编辑器</title>
+    <title>Cmd - 在线 MarkDown 编辑阅读器</title>
 
         <!-- Bootstrap -->
 		<link href="static/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -31,45 +31,74 @@
           ga('send', 'pageview');
         </script>
 </head>
-    <body>
+    <body class="theme">
 
-		<div id="editor-title">Cmd - 中文在线 Markdown 编辑器
-			<a href="http://www.weibo.com/ghosert" target="_blank" style="margin-left: 50px;"><i class="icon-user"></i> @ghosert</a>
-			<a href="https://github.com/ghosert/VimProject/tree/master/mdeditor" target="_blank" style="margin-left: 50px;"><i class="icon-github"></i> @ghosert</a>
-		</div>
-
-        <div id="wmd-button-bar"></div>
-
-        <div id="left-column" class="pull-left">
-            <div class="wmd-panel">
-                <textarea class="wmd-input" id="wmd-input"></textarea>
-
-                <!-- md-section-helper is used to calculate the height of md sections. -->
-                <textarea id="md-section-helper"></textarea>
+        <div id="container">
+            <div id="editor-nav-bar">
+                <div id="wmd-button-bar" class="pull-left"></div>
+                <div id="preview-button-bar" class="pull-right">
+                    <ul id="preview-button-row" class="preview-button-row">
+                        <li class="preview-button" id="preview-new-button" title="新建文件 Ctrl+Alt+N">
+                            <span class="icon-file muted"></span>
+                        </li>
+                        <li class="preview-button" id="preview-theme-button" title="主题切换 Ctrl+Alt+J">
+                            <span class="icon-shield muted"></span>
+                        </li>
+                        <li class="preview-button" id="preview-reader-full-button" title="阅读模式 Ctrl+Alt+M">
+                            <span class="icon-desktop muted"></span>
+                        </li>
+                        <li class="preview-button" id="preview-reader-small-button" title="预览模式 Ctrl+Alt+M">
+                            <span class="icon-columns muted"></span>
+                        </li>
+                        <li class="preview-button" id="preview-fullscreen-button" title="全屏模式 F11">
+                            <span class="icon-fullscreen muted"></span>
+                        </li>
+                        <!-- There is at least one item of 'wmd-spacer' must be in the ul list, otherwise, the hover on the button leads to page issue. -->
+                        <li class="wmd-spacer"></li>
+                    </ul>
+                </div>
+                <div id="article-title-bar" class="pull-right">Cmd - 在线 Markdown 编辑阅读器
+                    <a href="http://www.weibo.com/ghosert" target="_blank"><i class="icon-weibo"></i> @ghosert</a>
+                </div>
+                <div class="clearfix"></div>
             </div>
-        </div>
-        <div id="right-column" class="pull-right">
-            <div class="wmd-panel">
-                <div id="wmd-preview" class="wmd-preview"></div>
+
+            <div id="left-column" class="pull-left">
+                <div id="wmd-panel-editor" class="wmd-panel-editor">
+                    <textarea class="wmd-input theme" id="wmd-input" spellcheck="false"></textarea>
+                </div>
             </div>
+            <div id="right-column" class="pull-right">
+                <div id="wmd-panel-preview" class="wmd-panel-preview preview-container">
+                    <div id="wmd-preview" class="wmd-preview"></div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
         </div>
 
-        <div class="clearfix"></div>
+
+        <!-- Hidden md-section-helper is used to calculate the height of md sections. -->
+        <textarea id="md-section-helper"></textarea>
 
         <!-- Hidden Popup Modal -->
-        <div id="editorDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="notification-title" aria-hidden="true">
-            <div class="modal-header">
+        <div id="editorDialog" class="modal hide fade theme" tabindex="-1" role="dialog" aria-labelledby="notification-title" aria-hidden="true">
+            <div class="modal-header theme">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="editorDialog-title"></h3>
             </div>
-            <div class="modal-body">
+            <div class="modal-body theme">
                 <p></p>
                 <i class="icon-2x"></i> <input class="span5" type="text" placeholder=''>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer theme">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
                 <button id="editorDialog-confirm" class="btn btn-primary">确认</button>
             </div>
+        </div>
+
+        <!-- full editor reader, hidden when loading. -->
+        <div id="editor-reader-full" class="editor-reader-full-hidden">
         </div>
 
         <!-- jquery & Bootstrap -->
@@ -95,6 +124,7 @@
         <!--mathjax source code is here: https://github.com/mathjax/MathJax, you could host it on your own server one day.-->
         <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="static/editor/jquery.waitforimages.js"></script>
+        <script src="static/editor/jquery.autosize-min.js"></script>
         <script src="static/editor/editor.js"></script>
     </body>
 </html>

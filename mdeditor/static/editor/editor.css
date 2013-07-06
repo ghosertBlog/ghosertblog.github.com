@@ -1,8 +1,24 @@
 body 
 { 
-	background-color: #F9F9F5;
     font-family: sans-serif;
-    padding-top: 0px;
+}
+
+.theme-black {
+	background-color: #444444;
+    color: #D6DBDF;
+}
+
+.theme-white {
+	background-color: #F9F9F5;
+    color: #2C3E50;
+}
+
+.table-striped-black tbody > tr:nth-child(2n+1) > td, .table-striped-black tbody > tr:nth-child(2n+1) > th {
+    background-color: #333333;
+}
+
+.table-striped-white tbody > tr:nth-child(2n+1) > td, .table-striped-white tbody > tr:nth-child(2n+1) > th {
+    background-color: #F9F9F9;
 }
 
 body, button, input, select, textarea {
@@ -35,12 +51,6 @@ dd {
     margin-left: 40px;
 }
 
-/* restore default style in bootstrap, otherwise, it will apply the prettify.css */
-pre.prettyprint {
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 9.5px;
-}
-
 h1 {
   margin: 30px 0;
   font-size: 30px;
@@ -58,31 +68,45 @@ code, pre {
   font-size: 14px;
 }
 
-#editor-title {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 20px;
-    color: #FFF;
-    font-weight: bold;
-    text-align: center; /* make it horizontal center */
-    border-bottom: 1px solid #EEEEEE;
-    line-height: 30px;
+.element-center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#editor-nav-bar {
     background-color: #444;
 }
 
-#editor-title a {
-    color: #AAAAAA;
-}
-
-#editor-title a:hover {
-    color: #FFFFFF;
-}
-
 #wmd-button-bar {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 48%;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#preview-button-bar {
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#article-title-bar {
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #BBB;
+    font-size: 18px;
+}
+
+#article-title-bar a {
+    font-size: 16px;
+    color: #BBB;
+    margin-left: 25px;
+}
+
+#article-title-bar a:hover {
+    color: #F5F5F9;
 }
 
 #left-column, #right-column
@@ -90,24 +114,22 @@ code, pre {
 	width: 50%;
 }
 
-.wmd-panel {
+.wmd-panel-editor, .wmd-panel-preview {
     padding-left: 20px;
     padding-right: 20px;
-    border-right: 1px solid #F7F7F7;
 }
 
 /* font-size, font-family and line-height of .wmd-input and #md-section-helper should be totally same, otherwise, there will be mismatch. */
 .wmd-input, .wmd-input:focus, #md-section-helper
 { 
 	width: 100%;
-	background-color: #F9F9F5;
 	border: 0px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-    color: #2C3E50;
     font-size: 16px;
     line-height: 27px;
     resize: none;
+    overflow-x: hidden;
 }
 
 #md-section-helper {
@@ -120,52 +142,91 @@ code, pre {
     z-index: -1;
 }
 
+/* wmd full editor, hidden when loading. */
+.editor-reader-full-hidden {
+    position:absolute;
+    top: -1000px;
+    z-index: -1;
+}
+
+.editor-reader-full-shown {
+    position:fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.wmd-button-bar-full-shown {
+    margin: 0 auto;
+    border-bottom: 1px solid #dddddd;
+    width: 50%;
+}
+
+.wmd-panel-editor-full-shown {
+    text-align: center;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.preview-container {
+    overflow: auto;
+}
+
 .wmd-preview { 
 	width: 100%;
-	background-color: #F9F9F5;
-    color: #2C3E50;
     font-size: 16px;
     line-height: 27px;
     overflow: auto;
-    border: 2px dashed #EEEEEE;
 }
 
-.wmd-button-row 
+.wmd-button-row, .preview-button-row
 {
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	margin-top: 10px;
 	padding: 0px;  
-	height: 20px;
+	height: auto;
+}
+
+/*
+.wmd-button-row {
     min-width: 800px;
 }
+*/
 
 .wmd-spacer
 {
 	width: 0px; 
 	height: 20px; 
 	margin-left: 30px;
-	
+
 	background-color: Silver;
 	display: inline-block; 
 	list-style: none;
 }
 
-.wmd-button {
+.wmd-button, .preview-button {
     width: 20px;
     height: 20px;
     display: inline-block;
     list-style: none;
     cursor: pointer;
     font-size: 17px;
+}
+
+.wmd-button {
     margin-left: 10px;
 }
 
-.wmd-button:hover {
+.preview-button {
+    margin-right: 10px;
 }
 
-.wmd-button > span {
+.wmd-button > span, .preview-button > span {
     width: 20px;
     height: 20px;
     display: inline-block;

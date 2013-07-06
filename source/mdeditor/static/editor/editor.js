@@ -105,7 +105,7 @@ new function($) {
 
 (function () {
 
-    var cmdMarkdownUrl = '/mdeditor';
+    var cmdMarkdownUrl = '/mdeditor/';
 
     // handle Tab keystroke
     $('#wmd-input').tabHandler();

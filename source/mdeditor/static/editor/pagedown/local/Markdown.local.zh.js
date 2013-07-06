@@ -38,6 +38,6 @@
         redo: "重复 - Ctrl+Y",
         redomac: "重复 - Ctrl+Shift+Z",
 
-        help: "Markdown 语法帮助"
+        help: "Markdown 语法帮助 Ctrl+Alt+H"
     };
 })();

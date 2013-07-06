@@ -28,16 +28,16 @@ function getScrollLink() {
         mdSectionList = [];
         // This textarea is used to measure sections height
         var textareaElt = $("#md-section-helper");
-        // It has to be the same width than wmd-input
+        // It has to be the same width as wmd-input
         textareaElt.width(editorElt.width());
-        // Consider wmd-input top padding
+        // Consider wmd-input top padding (will be used for 1st and last section) 
         var padding = pxToFloat(editorElt.css('padding-top'));
         var offset = 0, mdSectionOffset = 0;
         function addMdSection(sectionText) {
             var sectionHeight = padding;
             if(sectionText !== undefined) {
                 textareaElt.val(sectionText);
-                // jiawzhang TODO: for IE: +6 everytime here, since IE count pixels between space.
+                // jiawzhang: for IE: +6 everytime here, since IE count pixels between space.
                 if (msie) {
                     sectionHeight += textareaElt.prop('scrollHeight') + 6;
                 } else {
@@ -48,7 +48,9 @@ function getScrollLink() {
             mdSectionList.push({
                 startOffset: mdSectionOffset,
                 endOffset: newSectionOffset,
-                height: sectionHeight
+                height: sectionHeight,
+                // jiawzhang: add for move cursor when pressing pagedown/pageup in full editor mode.
+                length: sectionText == undefined ? 0 : sectionText.length + 1
             });
             mdSectionOffset = newSectionOffset;
             padding = 0;
@@ -74,13 +76,13 @@ function getScrollLink() {
         addMdSection(text.substring(offset, text.length - 2));
 
         // Try to find corresponding sections in the preview
-        var previewElt = $(".wmd-preview");
+        var previewElt = $(".preview-container");
         htmlSectionList = [];
         var htmlSectionOffset = 0;
         var previewScrollTop = previewElt.scrollTop();
         // Each title element is a section separator
         // jiawzhang: add this for my own case
-        var wmdPreviewTop = $('#wmd-preview').position().top;
+        var wmdPreviewTop = $(".preview-container").position().top;
         $("#wmd-preview").children("h1,h2,h3,h4,h5,h6").each(function() {
             // Consider div scroll position and header element top margin
             var newSectionOffset = $(this).position().top - wmdPreviewTop + previewScrollTop + pxToFloat($(this).css('margin-top'));
@@ -116,9 +118,9 @@ function getScrollLink() {
         }
         var editorElt = $("#wmd-input");
         var editorScrollTop = editorElt.scrollTop();
-        var previewElt = $(".wmd-preview");
+        var previewElt = $(".preview-container");
         var previewScrollTop = previewElt.scrollTop();
-        function animate(srcScrollTop, srcSectionList, destElt, destSectionList, lastDestScrollTop, callback) {
+        function animate(srcScrollTop, srcSectionList, destElt, destSectionList, currentDestScrollTop, callback) {
             // Find the section corresponding to the offset
             var sectionIndex = undefined;
             var srcSection = _.find(srcSectionList, function(section, index) {
@@ -127,7 +129,7 @@ function getScrollLink() {
             });
             if(srcSection === undefined) {
                 // Something wrong in the algorithm...
-                return -10;
+                return;
             }
             var posInSection = (srcScrollTop - srcSection.startOffset) / srcSection.height;
             var destSection = destSectionList[sectionIndex];
@@ -136,8 +138,9 @@ function getScrollLink() {
                 destScrollTop,
                 destElt.prop('scrollHeight') - destElt.outerHeight()
             ]);
-            if(Math.abs(destScrollTop - lastDestScrollTop) < 9) {
+            if(Math.abs(destScrollTop - currentDestScrollTop) <= 9) {
                 // Skip the animation in case it's not necessary
+                callback(currentDestScrollTop);
                 return;
             }
             destElt.animate({
@@ -150,14 +153,14 @@ function getScrollLink() {
         if(isScrollPreview === false && Math.abs(editorScrollTop - lastEditorScrollTop) > 9) {
             // Animate the preview
             lastEditorScrollTop = editorScrollTop;
-            animate(editorScrollTop, mdSectionList, previewElt, htmlSectionList, lastPreviewScrollTop, function(destScrollTop) {
+            animate(editorScrollTop, mdSectionList, previewElt, htmlSectionList, previewScrollTop, function(destScrollTop) {
                 lastPreviewScrollTop = destScrollTop;
             });
         }
         else if(Math.abs(previewScrollTop - lastPreviewScrollTop) > 9) {
             // Animate the editor
             lastPreviewScrollTop = previewScrollTop;
-            animate(previewScrollTop, htmlSectionList, editorElt, mdSectionList, lastEditorScrollTop, function(destScrollTop) {
+            animate(previewScrollTop, htmlSectionList, editorElt, mdSectionList, editorScrollTop, function(destScrollTop) {
                 lastEditorScrollTop = destScrollTop;
             });
         }
@@ -168,7 +171,7 @@ function getScrollLink() {
     };
 
     scrollLink.onLayoutCreated = function() {
-        $(".wmd-preview").scroll(function() {
+        $(".preview-container").scroll(function() {
             isScrollPreview = true;
             runScrollLink();
         });
@@ -179,19 +182,38 @@ function getScrollLink() {
     };
 
     scrollLink.onEditorConfigure = function(editor) {
-        lastPreviewScrollTop = 0;
         editor.getConverter().hooks.chain("postConversion", function(text) {
-            // To avoid losing scrolling position before elements are fully loaded
-            $("#wmd-preview").height($("#wmd-preview").height());
+            // To avoid losing scrolling position before elements are fully
+            // loaded
+            var previewElt = $("#wmd-preview");
+            previewElt.height(previewElt.height());
             return text;
         });
     };
 
     scrollLink.onPreviewFinished = function() {
-        // Modify scroll position of the preview not the editor
-        lastEditorScrollTop = -10;
+        // Now set the correct height
+        $("#wmd-preview").height("auto");
         buildSections();
     };
+
+    // jiawzhang added
+    scrollLink.getCursorPositionForPageDownUpInFullEditorMode = function(scrollTop) {
+        var sectionIndex = undefined;
+        var srcSection = _.find(mdSectionList, function(section, index) {
+            sectionIndex = index;
+            return scrollTop < section.endOffset;
+        });
+        if(srcSection === undefined) {
+            // Something wrong in the algorithm...
+            return -1;
+        }
+        var caretPosition = 0;
+        for (var index = 0; index <= sectionIndex; index++) {
+            caretPosition = caretPosition + mdSectionList[index].length;
+        }
+        return caretPosition;
+    }
 
     return scrollLink;
 }

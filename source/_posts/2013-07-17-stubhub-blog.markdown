@@ -109,7 +109,7 @@ Just 14 lines, the codes walk through the given path and check out files from Pe
 
 ### Story 2: Testing on 3rd party API
 
-In 2012, I joined a project named Gift Card, there was a 3rd party technical partner named Black Hawk who provides the redeem/reversal money Web Service APIs. At the very beginning of this project, they wanted to make sure the API calls from StubHub testing server was accessible to Black Hawk server. Since it's just a verification, it's not that serious to write down the formal, exception-well-handled Java codes, deploy the codes to somewhere we have the JRE installed and HttpClient libs there as the prerequisites and then begin to test APIs (By the way, Python is pre-installed for almost all the Linux distributions as the fundamental). When I think it's not formal codes in the future it could be reused or maintained by others, Here is what Python could do for the same thing:
+In 2012, I joined a project named Gift Card, there is a 3rd party technical partner named Black Hawk who provides the redeem/reversal money Web Service APIs. At the very beginning of this project, they wanted to make sure the API calls from StubHub testing server was accessible to Black Hawk server. Since it's just a verification, it's not that serious to write down the formal, exception-well-handled Java codes, deploy the codes to somewhere we have the JRE installed and HttpClient libs there as the prerequisites and then begin to test APIs (By the way, Python is pre-installed for almost all the Linux distributions as the fundamental). When I think it's not formal codes in the future it could be reused or maintained by others, Here is what Python could do for the same thing:
 
 ```python
 from httplib2 import Http

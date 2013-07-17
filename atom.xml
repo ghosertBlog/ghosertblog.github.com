@@ -4,7 +4,7 @@
   <title><![CDATA[张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-07-17T20:34:30+08:00</updated>
+  <updated>2013-07-17T22:21:25+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -28,7 +28,7 @@
 <strong>Disqus</strong> - online discussion and commenting service<br/>
 <strong>OpenStack</strong> - an all-open-source, all-Python infrastructure for building public and private clouds</p>
 
-<p>While the startup companies get more and more benefits from this elegant and neat language as the infrastructure to support their fast growing business, I&#8217;m thinking how we, StuhbHub - a Java ecosystem based company could benefit from it either to save our working hours and enhance the productivity significantly, I will explain what and why is Python and show you the Python solutions in our daily work.</p>
+<p>While the startup companies get more and more benefits from this elegant and neat language as the infrastructure to support their fast growing business, I&#8217;m thinking how we, StuhbHub - a Java ecosystem based company could benefit from it either, to save working hours and enhance the productivity significantly, I will explain what and why is Python and show you the Python solutions in our daily work.</p>
 
 <!--more-->
 
@@ -41,7 +41,7 @@
 
 <p>As we know, every language has its own advantage or disadvantage, like People will write C++ codes for games on Windows operation system, but no one will build a website by writing C++. The good news is that you could leverage Python for almost any task such as: web application, GUI desktop application, linux script or any other handy tools, and on the top of that, as &#8220;glue language&#8221; you could even invoke the other language like Java/C++ in your python code, that means your existing code base could be reused.</p>
 
-<h3>2. Python is more productivity</h3>
+<h3>2. Python is more productive</h3>
 
 <p>General speaking, the distinct difference when we talking about Python and Java is that as the dynamic language, there is no compilation step necessary. Under this hood, that means &#8220;productivity&#8221;.</p>
 

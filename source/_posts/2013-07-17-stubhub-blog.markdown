@@ -23,17 +23,17 @@ While the startup companies get more and more benefits from this elegant and nea
 
 ## What and Why is Python ?
 
-Python is an interpreted, object-oriented dynamic language, and of cause like Java, it's cross-platform language as well. Compared with the traditional mainstream language like Java/C++, programmers adore it because of the reasons below:
+Python is an interpreted, object-oriented dynamic language, and of cause like Java, it's a cross-platform language as well. Compared with the traditional mainstream language like Java/C++, programmers adore it because of the reasons below:
 
-### 1. Python is versatile language
+### 1. Python is a versatile language
 
 As we know, every language has its own advantage or disadvantage, like People will write C++ codes for games on Windows operation system, but no one will build a website by writing C++. The good news is that you could leverage Python for almost any task such as: web application, GUI desktop application, linux script or any other handy tools, and on the top of that, as "glue language" you could even invoke the other language like Java/C++ in your python code, that means your existing code base could be reused.
 
 ### 2. Python is more productive
 
-General speaking, the distinct difference when we talking about Python and Java is that as the dynamic language, there is no compilation step necessary. Under this hood, that means "productivity".
+General speaking, the distinct difference when we talking about Python and Java is that as a dynamic language, there is no compilation step necessary. Under this hood, that means "productivity".
 
-Remember how we verify a modification in Java code ? Especially in StubHub, we own a extremely large code base. 
+Remember how we verify a modification in Java code ? Especially in StubHub, we own an extremely large code base. 
 
 1. Modify your Java code. (1 min)
 2. ant/maven to compile your Java code to byte code. (5 mins)

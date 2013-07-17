@@ -27,7 +27,7 @@ Python is an interpreted, object-oriented dynamic language, and of cause like Ja
 
 ### 1. Python is a versatile language
 
-As we know, every language has its own advantage or disadvantage, like People will write C++ codes for games on Windows operation system, but no one will build a website by writing C++. The good news is that you could leverage Python for almost any task such as: web application, GUI desktop application, linux script or any other handy tools, and on the top of that, as "glue language" you could even invoke the other language like Java/C++ in your python code, that means your existing code base could be reused.
+As we know, every language has its own advantage or disadvantage, like People will write C++ codes for games on Windows operation system, but no one will build a website by writing C++. The good news is that you could leverage Python for almost any task such as: web application, GUI desktop application, Linux script or any other handy tools, and on the top of that, as "glue language" you could even invoke the other language like Java/C++ in your python code, that means your existing code base could be reused.
 
 ### 2. Python is more productive
 
@@ -53,7 +53,7 @@ Consider how many times in each day, each developer will have the code change an
 
 ### 3. Python is elegant, neat and compact
 
-And there is another major advantage. The syntax of Python is pretty cool, I had a chance to implement the same function with both Python and Java twice, it takes me only 50% code line to do the same thing by Python compared with Java. Base on this, that's why people like to write pseudo code to verify ideas or implement a rapid prototype by writing Python code. It's quicker to let you know whether your ideas or prototypes are doable or viable, and after that, you could then rewrite your codes in Java for production. That is better than, from the very beginning, you start codes with Java but find out your prototype is not viable.
+And there is another major advantage. The syntax of Python is pretty cool, I had a chance to implement the same function with both Python and Java twice, it took me only 50% code line to do the same thing by Python compared with Java. Base on this, that's why people like to write pseudo code to verify ideas or implement a rapid prototype by writing Python code. It's quicker to let you know whether your ideas or prototypes are doable or viable, and after that, you could then rewrite your codes in Java for production. That is better than, from the very beginning, you start codes with Java but find out your prototype is not viable.
 
 ## Python Stories In StubHub
 
@@ -109,7 +109,7 @@ Just 14 lines, the codes walk through the given path and check out files from Pe
 
 ### Story 2: Testing on 3rd party API
 
-In 2012, I joined a project named Gift Card, there is a 3rd party technical partner named Black Hawk who provides the redeem/reversal money Web Service APIs. At the very beginning of this project, they want to make sure the API calls from StubHub testing server is accessible to Black Hawk server. Since it's just a verification, it's not that serious to write down the formal, exception-well-handled Java codes, deploy the codes to somewhere we have the JRE installed and HttpClient libs there as the prerequisites and then begin to test APIs (By the way, Python is pre-installed for almost all the linux distributions as the fundamental). When I think it's not formal codes in the future it could be reused or maintained by others, Here is what Python could do for the same thing:
+In 2012, I joined a project named Gift Card, there was a 3rd party technical partner named Black Hawk who provides the redeem/reversal money Web Service APIs. At the very beginning of this project, they wanted to make sure the API calls from StubHub testing server was accessible to Black Hawk server. Since it's just a verification, it's not that serious to write down the formal, exception-well-handled Java codes, deploy the codes to somewhere we have the JRE installed and HttpClient libs there as the prerequisites and then begin to test APIs (By the way, Python is pre-installed for almost all the Linux distributions as the fundamental). When I think it's not formal codes in the future it could be reused or maintained by others, Here is what Python could do for the same thing:
 
 ```python
 from httplib2 import Http
@@ -135,15 +135,15 @@ def call_bh(url):
     else:
         print 'success to call black hawk.'
 ```
-Calling the service via Python is joyful. Although at first, it failed, But since the code is pretty short and readable, I just copied the Python snippet to the email and asked the 3rd party guys: "Is there anything wrong"? They replied me with some correction in the http request body, then I edit the codes on our testing server, tried again, it worked. There is no JRE/IDE/compilation/build/deployment here, just ssh to your linux server, edit your codes with vi/emacs editor and **Run !**.
+Calling the service via Python is joyful. Although at first, it failed, But since the code is pretty short and readable, I just copied the Python snippet to the email and asked the 3rd party guys: "Is there anything wrong"? They replied me with some correction in the http request body, then I edited the codes on our testing server, tried again, it worked. There is no JRE/IDE/compilation/build/deployment here, just ssh to your Linux server, edit your codes with vi/emacs editor and **Run !**.
 
 ### Story 3: Resend Rewards Emails to customers
 
 In 2012, there was another project named Rewards which would give our users some discounts if they engaged this campaign. And when they engaged it, they would be supposed to receive a mail about the details of this campaign. Unfortunately, because of the environment issue, there were 1285 users fail to receive this mail so that they may not know how to get discounts, although they had already joined Rewards campaign. Thus, I was required to resend the mails to make up for this issue.
 
-The task is emergent and valuable for the user if we could resend the mails as soon as possible. But if we go with the traditional Java codes, we need to have the SQLs to pick up the missing users from database first, invoke this SQL by JDBC or Hibernate, write down codes for resending email and figure out somewhere to build/deploy codes in production, and then roll back the deployment, since it's supposed to be used once. That is ugly and I could imagine, it at least takes us 2 days for development and deployment.
+The task was emergent and valuable for the user if we could resend the mails as soon as possible. But if we go with the traditional Java codes, we need to have the SQLs to pick up the missing users from database first, invoke this SQL by JDBC or Hibernate, write down codes for resending email and figure out somewhere to build/deploy codes in production, and then roll back the deployment, since it's supposed to be used once. That is ugly and I could imagine, it at least takes us 2 days for development and deployment.
 
-While choosing Python, the thing is easier. It's still some kind of script running on linux server. To avoid reading database, I could pick up the user id from database first and write them into the script as the list like this.
+While choosing Python, the thing is easier. It's still some kind of script running on Linux server. To avoid reading database, I could pick up the user id from database first and write them into the script as the list like this.
 
 ```python
 users = [556483, 556480, 556477, 556379, 556378, 556471, 556374, 469686, 556369, 556466, 556365, 556364, 556462, 556460, 556362, 556360, 556456, ...]

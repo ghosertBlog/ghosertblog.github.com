@@ -4,7 +4,7 @@
   <title><![CDATA[张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-07-17T22:30:19+08:00</updated>
+  <updated>2013-07-17T23:27:30+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -35,17 +35,17 @@
 
 <h2>What and Why is Python ?</h2>
 
-<p>Python is an interpreted, object-oriented dynamic language, and of cause like Java, it&#8217;s cross-platform language as well. Compared with the traditional mainstream language like Java/C++, programmers adore it because of the reasons below:</p>
+<p>Python is an interpreted, object-oriented dynamic language, and of cause like Java, it&#8217;s a cross-platform language as well. Compared with the traditional mainstream language like Java/C++, programmers adore it because of the reasons below:</p>
 
-<h3>1. Python is versatile language</h3>
+<h3>1. Python is a versatile language</h3>
 
 <p>As we know, every language has its own advantage or disadvantage, like People will write C++ codes for games on Windows operation system, but no one will build a website by writing C++. The good news is that you could leverage Python for almost any task such as: web application, GUI desktop application, linux script or any other handy tools, and on the top of that, as &#8220;glue language&#8221; you could even invoke the other language like Java/C++ in your python code, that means your existing code base could be reused.</p>
 
 <h3>2. Python is more productive</h3>
 
-<p>General speaking, the distinct difference when we talking about Python and Java is that as the dynamic language, there is no compilation step necessary. Under this hood, that means &#8220;productivity&#8221;.</p>
+<p>General speaking, the distinct difference when we talking about Python and Java is that as a dynamic language, there is no compilation step necessary. Under this hood, that means &#8220;productivity&#8221;.</p>
 
-<p>Remember how we verify a modification in Java code ? Especially in StubHub, we own a extremely large code base.</p>
+<p>Remember how we verify a modification in Java code ? Especially in StubHub, we own an extremely large code base.</p>
 
 <ol>
 <li>Modify your Java code. (1 min)</li>

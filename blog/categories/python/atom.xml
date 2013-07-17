@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | 张佳伟的博客]]></title>
   <link href="http://ghosertBlog.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ghosertBlog.github.com/"/>
-  <updated>2013-07-18T00:03:22+08:00</updated>
+  <updated>2013-07-18T00:07:27+08:00</updated>
   <id>http://ghosertBlog.github.com/</id>
   <author>
     <name><![CDATA[张佳伟]]></name>
@@ -130,7 +130,7 @@ Just 14 lines, the codes walk through the given path and check out files from Pe
 
 <h3>Story 2: Testing on 3rd party API</h3>
 
-<p>In 2012, I joined a project named Gift Card, there was a 3rd party technical partner named Black Hawk who provides the redeem/reversal money Web Service APIs. At the very beginning of this project, they wanted to make sure the API calls from StubHub testing server was accessible to Black Hawk server. Since it's just a verification, it's not that serious to write down the formal, exception-well-handled Java codes, deploy the codes to somewhere we have the JRE installed and HttpClient libs there as the prerequisites and then begin to test APIs (By the way, Python is pre-installed for almost all the Linux distributions as the fundamental). When I think it's not formal codes in the future it could be reused or maintained by others, Here is what Python could do for the same thing:</p>
+<p>In 2012, I joined a project named Gift Card, there is a 3rd party technical partner named Black Hawk who provides the redeem/reversal money Web Service APIs. At the very beginning of this project, they wanted to make sure the API calls from StubHub testing server was accessible to Black Hawk server. Since it's just a verification, it's not that serious to write down the formal, exception-well-handled Java codes, deploy the codes to somewhere we have the JRE installed and HttpClient libs there as the prerequisites and then begin to test APIs (By the way, Python is pre-installed for almost all the Linux distributions as the fundamental). When I think it's not formal codes in the future it could be reused or maintained by others, Here is what Python could do for the same thing:</p>
 
 <p>```python
 from httplib2 import Http

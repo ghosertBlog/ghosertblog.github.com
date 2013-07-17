@@ -17,7 +17,7 @@ Since 2006, Python is pretty popular from then on. You could see more and more s
 **Disqus** - online discussion and commenting service  
 **OpenStack** - an all-open-source, all-Python infrastructure for building public and private clouds
 
-While the startup companies get more and more benefits from this elegant and neat language as the infrastructure to support their fast growing business, I'm thinking how we, StuhbHub - a Java ecosystem based company could benefit from it either to save our working hours and enhance the productivity significantly, I will explain what and why is Python and show you the Python solutions in our daily work.
+While the startup companies get more and more benefits from this elegant and neat language as the infrastructure to support their fast growing business, I'm thinking how we, StuhbHub - a Java ecosystem based company could benefit from it either, to save working hours and enhance the productivity significantly, I will explain what and why is Python and show you the Python solutions in our daily work.
 
 <!--more-->
 
@@ -29,7 +29,7 @@ Python is an interpreted, object-oriented dynamic language, and of cause like Ja
 
 As we know, every language has its own advantage or disadvantage, like People will write C++ codes for games on Windows operation system, but no one will build a website by writing C++. The good news is that you could leverage Python for almost any task such as: web application, GUI desktop application, linux script or any other handy tools, and on the top of that, as "glue language" you could even invoke the other language like Java/C++ in your python code, that means your existing code base could be reused.
 
-### 2. Python is more productivity
+### 2. Python is more productive
 
 General speaking, the distinct difference when we talking about Python and Java is that as the dynamic language, there is no compilation step necessary. Under this hood, that means "productivity".
 

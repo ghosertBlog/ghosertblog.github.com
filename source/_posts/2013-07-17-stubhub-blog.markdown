@@ -9,13 +9,13 @@ categories: [Python, Work, English, StubHub]
 
 ## How does Python benefit the Java based StubHub ?
 
-Since 2006, Python is pretty popular from then on. You could see more and more startup companies choose Python as the primary language when they start their business, for example:
+Since 2006, Python has been pretty popular, you could see more and more startup companies choose Python as the primary language when they start their business, for example:
 
-**Netflix** - TV Show & Movies online company  
-**Dropbox** - The most popular file synchronization and sharing tools  
+**Netflix** - TV Shows & Movies online company  
+**Dropbox** - The most popular file synchronization and sharing tool
 **YouTube** - Sharing videos online  
-**Disqus** - online discussion and commenting service  
-**OpenStack** - an all-open-source, all-Python infrastructure for building public and private clouds
+**Disqus** - Online discussion and commenting service  
+**OpenStack** - An all-open-source, all-Python infrastructure for building public and private clouds
 
 While the startup companies get more and more benefits from this elegant and neat language as the infrastructure to support their fast growing business, I'm thinking how we, StuhbHub - a Java ecosystem based company could benefit from it either, to save working hours and enhance the productivity significantly, I will explain what and why is Python and show you the Python solutions in our daily work.
 

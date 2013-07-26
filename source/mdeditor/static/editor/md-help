@@ -87,6 +87,8 @@ $$\sum_{i=1}^n a_i=0$$
 
 $$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$
 
+$$\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k}$$
+
 ### 2. 加强的代码块，支持四十一种编程语言的语法高亮的显示，行号显示
 
 非代码示例：
@@ -100,7 +102,7 @@ Python 示例：
 ```python
 @requires_authorization
 def somefunc(param1='', param2=0):
-    r'''A docstring'''
+    '''A docstring'''
     if param1 > param2: # interesting
         print 'Greater'
     return (param2 - param1 + 1) or None

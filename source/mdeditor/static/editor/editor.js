@@ -115,6 +115,10 @@ new function($) {
     // tell the converter to use Markdown Extra for tables, fenced_code_gfm, def_list
     Markdown.Extra.init(converter1, {extensions: ["tables", "fenced_code_gfm", "def_list"], highlighter: "prettify"});
 
+    // To handle LaTeX expressions, to avoid the expression fail to work because of markdown syntax. inspired by stackeditor
+    // This will handle $$LaTeX expression$$ only, so that $LaTeX expression$ could fail to handle either.
+    bindMathJaxHooks(converter1);
+
     var markdownHelp = function () {
         var w = window.open(cmdMarkdownUrl);
         w.isEditablePage = false;
@@ -128,6 +132,8 @@ new function($) {
 
     var scrollLink = getScrollLink(); 
     scrollLink.onLayoutCreated();
+
+
     editor1.hooks.chain("onPreviewRefresh", function () {
 
         $('.prettyprint').each(function(){

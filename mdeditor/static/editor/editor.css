@@ -180,6 +180,9 @@ code, pre {
     font-size: 16px;
     line-height: 27px;
     overflow: auto;
+    border: 2px dashed #BBBBBB;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .wmd-button-row, .preview-button-row
